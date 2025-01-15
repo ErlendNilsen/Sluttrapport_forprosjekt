@@ -1,0 +1,76 @@
+---
+title: "Eksperimentell høsting av lirype og skogsfugl i et klimaendringsperspektiv:" 
+subtitle: "Oppsummering av forprosjekt"
+first_author:
+  - name: Erlend B. Nilsen
+    address: NINA Trondheim
+    email: erlend.nilsen@nina.no
+second_authors:
+  - name: Lasse F. Eriksen
+    address: NINA Trondheim
+    email: lasse.eriksen@nina.no
+  - name: Christoffer Høyvik Hilde
+    address: NINA Trondheim
+    email: christoffer.hilde@nina.no
+last_author:    
+  - name: Matthew Grainger
+    address: NINA Trondheim
+    email: matthew.grainger@nina.no
+reportnr: 1234
+location: Trondheim
+ISBN_end: 1234-5
+self-ref: Brum, O., Robin, K. 2016. En veldig bra titel. 
+english-self-ref: the Poo, W., Robin, C. 2016. A very good title.
+handle-endpoint: [fås av bibliotek]
+access: Åpen
+secure_pdf:
+cover_picture: coverPicture.png
+cover_picture_text: Forsidebildetekst
+cover_picture_photographer: Fotografnavn
+line_numbering:
+qualitycontrol: [xx]
+boss_sign: Forskningssjef [fylles ut av forskningssjefen] (sign.)
+customer: [xx]
+customer_ref: [xx]
+customer_contact: [xx]
+bibliography: mybibfile.bib
+csl: nina.csl
+output: 
+  NinaR::ninaHtmlRapport:
+    highlight: tango
+    fig_caption: yes
+    latex_engine: xelatex
+crossref:
+  fig-title: Figur     # (default is "Figure")
+  tbl-title: Tabell     # (default is "Table") 
+  fig-prefix: Figur   # (default is "Figure")
+  tbl-prefix: Tabell    # (default is "Table")   
+  sec-prefix: Kapittel
+foreword: 
+    text: [Forord inn her]
+    location: [Sted, forord]
+    name: [Prosjektleder]
+sammendrag: |
+  Tekst inn her, et kort resymé av innholdet. \textbf{Maksimalt 4000 tegn inkl. ordmellomrom. Dette er maxgrense i sammendragsfeltet i CRIStin, og dersom sammendraget er lengre kommer det ikke med her.} Teksten i sammendraget er søkbar i databaser og på nett, og er viktig for at rapporten skal fanges opp ved søk.\
+  \
+  Seksjoner og tomme rader mellom dem er litt tricky å få til i YAML-avsnittet, men det kan gjøres slik. Tomme rader i forordet kan også lages på samme måte.
+  
+abstract: Tekst inn her, et kort resymé av innholdet. \textbf{Maksimalt 4000 tegn inkl. ordmellomrom. Dette er maxgrense i sammendragsfeltet i CRIStin, og dersom sammendraget er lengre kommer det ikke med her.} Teksten i sammendraget er søkbar i databaser og på nett, og er viktig for at rapporten skal fanges opp ved søk.
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
+
+require(NinaR)
+require(xtable)
+require(knitr)
+require(tidyverse)
+
+```
+
+# Innledning {#inl}
+
+# Referanser  {#refs}
