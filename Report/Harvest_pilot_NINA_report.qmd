@@ -19,8 +19,8 @@ last_author:
 reportnr: 1234
 location: Trondheim
 ISBN_end: 1234-5
-self-ref: Brum, O., Robin, K. 2016. En veldig bra titel. 
-english-self-ref: the Poo, W., Robin, C. 2016. A very good title.
+self-ref: Nilsen, E.B., Eriksen, L.F., Høyvik Hilde, C., Grainger, M.J. 2025. Experimental harvest of ptarmigan, black grouse and capercaillie: Summary of planning stage
+english-self-ref: Nilsen, E.B., Eriksen, L.F., Høyvik Hilde, C., Grainger, M.J. 2025. Experimental harvest of ptarmigan, black grouse and capercaillie: Summary of planning stage
 handle-endpoint: [fås av bibliotek]
 access: Åpen
 secure_pdf:
@@ -328,6 +328,19 @@ Outcome variable: EBV name \[not exhaustive; \* indicate name that is not includ
 -   Sex- and age structure\* 
 
 ## Results from the literature review
+
+Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above (Sandercock et al. 2011; Pedersen et al. 2004; Sedinger & Rotella 2005). Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the Abstract and Title stage. 
+
+Of these 850 articles 200 were included (166 "include" and 34 "maybe") with 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the Fulltext stage and assessed for eligibility. 
+
+Exclusion decisions (650 articles) were due to the research not focusing on the effects of legal or managed hunting (365), not being focused on Galliformes (276), not quantitative (23), abstract not found online (16) and abstract not in English, Norwegian, Swedish or Danish (3).  
+
+
+
+
+
+
+
 
 Insert text and figures here...
 
