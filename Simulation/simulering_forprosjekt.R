@@ -10,14 +10,19 @@ harvest_rate_areas <- matrix(sample(harvest_rate, 3), nrow = n_areas, ncol = len
 
 ## Generate areas with different area and densities of ptarmigan
 
-hunting_areas <- tibble(area = runif(n_areas, 50, 150), density_ad = runif(n_areas, 5, 15), density_juv = runif(n_areas, 0, 20), K_density = (density_ad + density_juv) * runif(1, 0.5, 2))
+hunting_areas <- tibble(area = runif(n_areas, 50, 150), 
+                        density_ad = runif(n_areas, 5, 15), 
+                        density_juv = runif(n_areas, 0, 20), 
+                        K_density = (density_ad + density_juv) * runif(1, 0.5, 2),
+                        latitude = runif(n_areas, 40, 70))
 hunting_areas
 
 ### Funksjon for simulering ----
 rype_simulering <- function(harvest_rates,
                             n_areas,
                             n_generations,
-                            n_sim) {
+                            n_sim,
+                            beta_latitude = -0.003) {
   extinction_time <- c() # vector for saving extinction time
   sim_dat <- tibble(
     N_ad = numeric(),
@@ -28,7 +33,7 @@ rype_simulering <- function(harvest_rates,
     extinction_generation = numeric(),
     population = numeric(),
     area = numeric(),
-    #K_density = numeric(),
+    latitude = numeric(),
     harvest_rate = numeric()
   ) # dataframe for saving data
 
@@ -63,6 +68,10 @@ rype_simulering <- function(harvest_rates,
         m_juv <- m_ad ## Assume 1yr reproductive rate is equal to adults
         p_juv <- rbeta(1, 2.85, 6.65) ## Survival from fledgling to next census. Survival = 0.3, sigma^2 = 0.02
         p_ad <- rbeta(1, 6.1668, 5.2532) ## adult survival from non-harvested ptarmigan (Sandercock et al. 2011): 0.54. Using variance = 0.02
+        
+        p_juv <-p_juv + beta_latitude * sub_dat$latitude ## add effect of latitude on survival
+        p_ad <- p_ad + beta_latitude * sub_dat$latitude
+        
         f_juv <- m_juv * p_juv ## fertility juv
         f_ad <- m_ad * p_ad ## fertility adult
 
@@ -106,7 +115,8 @@ rype_simulering <- function(harvest_rates,
           extinction_generation,
           population = k,
           harvest_rate = harvest_rates_sub,
-          area = sub_dat$area
+          area = sub_dat$area,
+          latitude = sub_dat$latitude
         )
     }
   }
