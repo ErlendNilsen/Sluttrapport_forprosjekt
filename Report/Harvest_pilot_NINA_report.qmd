@@ -476,26 +476,6 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: Harvest mortality
-
-included_full_details |> 
-  group_by(is_there_an_assessment_of_additivity_of_harvest_mortality) |>
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(reorder(is_there_an_assessment_of_additivity_of_harvest_mortality, n), n))+
-  geom_histogram(stat="identity")+
-  labs(
-    x = "Is there an assessment of additivity",
-    y = "Number of Responses"
-  ) +
-  theme_minimal()
-```
-
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
 #| label: Harvest additivity
 
 included_full_details |> 
