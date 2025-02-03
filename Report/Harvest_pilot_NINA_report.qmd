@@ -526,6 +526,10 @@ included_full_details |>
 included_full_details |> 
     separate_rows(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, sep = ", ")  |> 
   group_by(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework) |>
+  mutate(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework = case_when(
+    outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework %in% c("Behaviour", "Display behaviour/ Gobbling", "Foraging behaviour", "Gobbling activity") ~ "Behaviour",
+    TRUE ~ outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework
+  )) |> 
   tally() |> 
   drop_na() |> 
   ggplot(aes(reorder(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, n), n))+
