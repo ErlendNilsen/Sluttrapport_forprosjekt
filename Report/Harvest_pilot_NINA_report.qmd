@@ -68,7 +68,6 @@ require(NinaR)
 require(xtable)
 require(knitr)
 require(tidyverse)
-
 ```
 
 # Introduction {#inl}
@@ -337,11 +336,10 @@ Outcome variable: EBV name \[not exhaustive; \* indicate name that is not includ
 # Read data
 # data <- read_sheet("https://docs.google.com/spreadsheets/d/1Shdb7vfLn-bnZd0-FT2Ngqovxi1iEn-MYLnTtBPpBQ4/edit?resourcekey=&gid=968606953#gid=968606953")
 #
-data<-readRDS("data/GS_data_Raw.RDS")
-excluded<-data |> 
-    filter(!rowSums(across(4:8, ~ . == "Yes")) ==5)
+data <- readRDS("data/GS_data_Raw.RDS")
+excluded <- data |>
+  filter(!rowSums(across(4:8, ~ . == "Yes")) == 5)
 included <- anti_join(data, excluded)
-
 ```
 
 
@@ -360,12 +358,11 @@ At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no ava
 #| message: false
 
 library(synthesisr)
-all_RIS<-read_refs("data/articles.ris")
+all_RIS <- read_refs("data/articles.ris")
 
-included_full_details<-left_join(included,all_RIS, by=c("Study ID"="accession_zr"))
+included_full_details <- left_join(included, all_RIS, by = c("Study ID" = "accession_zr"))
 
-included_full_details<- included_full_details |> janitor::clean_names()
-
+included_full_details <- included_full_details |> janitor::clean_names()
 ```
 
 
@@ -375,20 +372,19 @@ included_full_details<- included_full_details |> janitor::clean_names()
 #| message: false
 #| label: Publication year
 
-included_full_details |> 
+included_full_details |>
   group_by(year) |>
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(year, n))+
-  geom_histogram(stat="identity")+
+  tally() |>
+  drop_na() |>
+  ggplot(aes(year, n)) +
+  geom_histogram(stat = "identity") +
   labs(
     x = "Year",
     y = "Number of studies",
-    #fill = "Response"
-    ) +
+    # fill = "Response"
+  ) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-  
 ```
 
 ```{r}
@@ -397,12 +393,12 @@ included_full_details |>
 #| message: false
 #| label: Study area extent
 
-included_full_details |> 
+included_full_details |>
   group_by(study_extent_size_of_the_study_area) |>
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(reorder(study_extent_size_of_the_study_area, n), n))+
-  geom_histogram(stat="identity")+
+  tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(study_extent_size_of_the_study_area, n), n)) +
+  geom_histogram(stat = "identity") +
   labs(
     x = "Study area extent",
     y = "Number of Responses"
@@ -417,13 +413,13 @@ included_full_details |>
 #| message: false
 #| label: Research type
 
-included_full_details |> 
-  separate_rows(research_type, sep = ", ")  |> # Split at comma and create new rows
+included_full_details |>
+  separate_rows(research_type, sep = ", ") |> # Split at comma and create new rows
   group_by(research_type) |>
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(reorder(research_type, n), n))+
-  geom_histogram(stat="identity")+
+  tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(research_type, n), n)) +
+  geom_histogram(stat = "identity") +
   labs(
     x = "Research type",
     y = "Number of Responses"
@@ -438,12 +434,12 @@ included_full_details |>
 #| message: false
 #| label: Study design
 
-included_full_details |> 
+included_full_details |>
   group_by(study_design_observational_studies_skip_if_simulation_study_selected_above) |>
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(reorder(study_design_observational_studies_skip_if_simulation_study_selected_above, n), n))+
-  geom_histogram(stat="identity")+
+  tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(study_design_observational_studies_skip_if_simulation_study_selected_above, n), n)) +
+  geom_histogram(stat = "identity") +
   labs(
     x = "Study design – observational studies",
     y = "Number of Responses"
@@ -458,12 +454,12 @@ included_full_details |>
 #| message: false
 #| label: Harvest mortality
 
-included_full_details |> 
+included_full_details |>
   group_by(is_harvest_rate_or_harvest_mortality_estimated_and_reported) |>
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(reorder(is_harvest_rate_or_harvest_mortality_estimated_and_reported, n), n))+
-  geom_histogram(stat="identity")+
+  tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(is_harvest_rate_or_harvest_mortality_estimated_and_reported, n), n)) +
+  geom_histogram(stat = "identity") +
   labs(
     x = "Is harvest rate estimated?",
     y = "Number of Responses"
@@ -478,18 +474,17 @@ included_full_details |>
 #| message: false
 #| label: Harvest additivity
 
-included_full_details |> 
+included_full_details |>
   group_by(is_there_an_assessment_of_additivity_of_harvest_mortality) |>
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(reorder(is_there_an_assessment_of_additivity_of_harvest_mortality, n), n))+
-  geom_histogram(stat="identity")+
+  tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(is_there_an_assessment_of_additivity_of_harvest_mortality, n), n)) +
+  geom_histogram(stat = "identity") +
   labs(
     x = "Is there an assessment of additivity",
     y = "Number of Responses"
   ) +
   theme_minimal()
-
 ```
 
 
@@ -501,20 +496,19 @@ included_full_details |>
 #| message: false
 #| label: Outcome EBV class
 
-included_full_details |> 
-    separate_rows(outcome_variables_ebv_class, sep = ", ")  |> # Split at comma and create new rows
+included_full_details |>
+  separate_rows(outcome_variables_ebv_class, sep = ", ") |> # Split at comma and create new rows
   group_by(outcome_variables_ebv_class) |>
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(reorder(outcome_variables_ebv_class, n), n))+
-  geom_histogram(stat="identity")+
+  tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(outcome_variables_ebv_class, n), n)) +
+  geom_histogram(stat = "identity") +
   labs(
     x = "EBV Class",
     y = "Number of Responses"
   ) +
-  theme_minimal()+
+  theme_minimal() +
   coord_flip()
-
 ```
 
 ```{r}
@@ -523,22 +517,22 @@ included_full_details |>
 #| message: false
 #| label: Outcome EBV name
 
-included_full_details |> 
-    separate_rows(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, sep = ", ")  |> 
+included_full_details |>
+  separate_rows(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, sep = ", ") |>
   group_by(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework) |>
   mutate(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework = case_when(
     outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework %in% c("Behaviour", "Display behaviour/ Gobbling", "Foraging behaviour", "Gobbling activity") ~ "Behaviour",
     TRUE ~ outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework
-  )) |> 
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(reorder(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, n), n))+
-  geom_histogram(stat="identity")+
+  )) |>
+  tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, n), n)) +
+  geom_histogram(stat = "identity") +
   labs(
     x = "EBV name",
     y = "Number of Responses"
   ) +
-  theme_minimal()+
+  theme_minimal() +
   coord_flip()
 ```
 
@@ -549,18 +543,18 @@ included_full_details |>
 #| message: false
 #| label: simulations
 
-included_full_details |> 
-    separate_rows(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations, sep = ", ")  |> # Split at comma and create new rows
+included_full_details |>
+  separate_rows(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations, sep = ", ") |> # Split at comma and create new rows
   group_by(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations) |>
-  tally() |> 
-  drop_na() |> 
-  ggplot(aes(reorder(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations, n), n))+
-  geom_histogram(stat="identity")+
+  tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations, n), n)) +
+  geom_histogram(stat = "identity") +
   labs(
     x = "What is the purpose of simulations",
     y = "Number of Responses"
   ) +
-  theme_minimal()+
+  theme_minimal() +
   coord_flip()
 ```
 
@@ -577,35 +571,68 @@ library(ggplot2)
 library(rgbif)
 library(purrr)
 
-included_full_details |> 
-  separate_rows(species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta, sep = ", ") |>  
+included_full_details |>
+  separate_rows(species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta, sep = ", ") |>
   mutate(
     species_corrected = map_chr(
       species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta,
       ~ {
         res <- tryCatch(name_backbone(name = .x), error = function(e) NULL)
         if (!is.null(res) && "species" %in% names(res) && !is.na(res$species)) {
-          res$species  # Return corrected name
+          res$species # Return corrected name
         } else {
-          .x  # Return original if not found
+          .x # Return original if not found
         }
       }
     )
-  ) |> 
+  ) |>
   group_by(species_corrected) |>
-  tally() |> 
-  drop_na() |> 
+  tally() |>
+  drop_na() |>
   ggplot(aes(reorder(species_corrected, n), n)) +
-  geom_col() +  # Changed from geom_histogram(stat="identity") to geom_col()
+  geom_col() + # Changed from geom_histogram(stat="identity") to geom_col()
   labs(
     x = "Species",
     y = "Number of Responses"
   ) +
   theme_minimal() +
   coord_flip()
-
 ```
 
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: location
+
+included_full_details |>
+  separate_rows(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, sep = ", ") |> # Split at comma and create new rows
+  group_by(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma) |>
+  mutate(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma = case_when(
+    study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma %in% c(
+      "Alaska", "California", "Colorado", "Florida", "Georgia","Georiga", "Georgia (USA)", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Maine", "Michigan", "Mississippi", "Missouri", "Montana", "Nevada", "New York", "North Carolina", "Ohio",
+      "Oklahoma", "Oregon", "Pennsylvania", "Poland", "Rhode Island", "Rhode island", "South Caolina", "South Caraolina", "South Carolina", "South Dakota", "Tennessee", "Texas", "Texas,Texas", "US", "Utah",
+      "Virgina", "Virginia", "West Virginia", "Wisconsin", "Wisonsin"
+    ) ~ "USA",
+    TRUE ~ study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma
+  )) |> 
+  mutate(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma= case_when(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma %in% c("United Kingdom", "UK", "Scotland", "England")~"UK",
+            TRUE~study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma)) |> 
+tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, n), n)) +
+  geom_histogram(stat = "identity") +
+  labs(
+    x = "Study area location",
+    y = "Number of Responses"
+  ) +
+  theme_minimal() +
+  coord_flip()
+```
 
 
 
