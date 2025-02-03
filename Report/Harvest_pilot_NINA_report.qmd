@@ -19,8 +19,8 @@ last_author:
 reportnr: 1234
 location: Trondheim
 ISBN_end: 1234-5
-self-ref: Nilsen, E.B., Eriksen, L.F., Høyvik Hilde, C., Grainger, M.J. 2025. Experimental harvest of ptarmigan, black grouse and capercaillie: Summary of planning stage
-english-self-ref: Nilsen, E.B., Eriksen, L.F., Høyvik Hilde, C., Grainger, M.J. 2025. Experimental harvest of ptarmigan, black grouse and capercaillie: Summary of planning stage
+self-ref: "Nilsen, E.B., Eriksen, L.F., Høyvik Hilde, C., Grainger, M.J. 2025. Experimental harvest of ptarmigan, black grouse and capercaillie: Summary of planning stage"
+english-self-ref: "Nilsen, E.B., Eriksen, L.F., Høyvik Hilde, C., Grainger, M.J. 2025. Experimental harvest of ptarmigan, black grouse and capercaillie: Summary of planning stage"
 handle-endpoint: [fås av bibliotek]
 access: Åpen
 secure_pdf:
@@ -103,7 +103,7 @@ We used a PIO (Population, Intervention, Outcome) question structure to help dev
 
 We searched for academic literature (publications) in two search platforms; Web of Science and lens.org. Specifically, we will search the Web of Science Core Collection (WOS.SCI: 1987 to 2025, WOS.AHCI: 1987 to 2025, WOS.ESCI: 2020 to 2025 and WOS.SSCI: 1987 to 2025) using the NINA library subscription using the following search string: 
 
-((TS=(galliform\* OR grouse OR ptarmigan OR Phasianidae OR pheasant OR "lagopus lagopus" OR "lagopus mura" OR "wild turkey" OR "bobwhite" OR partridge)) 
+((TS=(galliform\* OR grouse OR ptarmigan OR Phasianidae OR pheasant OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR partridge)) 
 
 AND (TS=("hunt" OR "harvest"))) 
 
@@ -111,7 +111,7 @@ AND SU=("Ecology" OR "Wildlife" OR "Environment") 
 
 For lens.org we will use the following search string: 
 
-(abstract:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus mura" OR "wild turkey" OR "bobwhite" OR "partridge") OR title:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus mura" OR "wild turkey" OR "bobwhite" OR "partridge")) AND abstract:("hunt" OR "harvest") OR title:("hunt" OR "harvest") AND field_of_study:("Ecology" OR "Wildlife" OR "Environment") 
+(abstract:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus mura" OR "wild turkey" OR "bobwhite" OR "partridge") OR title:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR "partridge")) AND abstract:("hunt" OR "harvest") OR title:("hunt" OR "harvest") AND field_of_study:("Ecology" OR "Wildlife" OR "Environment") 
 
 In addition, a backward and forward citation chasing (using CitationChaser) was performed based on the three first benchmark papers listed below (Sandercock et al. 2011; Pedersen et al. 2004; Sedinger & Rotella 2005).  
 
@@ -329,20 +329,302 @@ Outcome variable: EBV name \[not exhaustive; \* indicate name that is not includ
 
 ## Results from the literature review
 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| include: false
+# Read data
+# data <- read_sheet("https://docs.google.com/spreadsheets/d/1Shdb7vfLn-bnZd0-FT2Ngqovxi1iEn-MYLnTtBPpBQ4/edit?resourcekey=&gid=968606953#gid=968606953")
+#
+data<-readRDS("data/GS_data_Raw.RDS")
+excluded<-data |> 
+    filter(!rowSums(across(4:8, ~ . == "Yes")) ==5)
+included <- anti_join(data, excluded)
+
+```
+
+
 Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above (Sandercock et al. 2011; Pedersen et al. 2004; Sedinger & Rotella 2005). Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the Abstract and Title stage. 
 
-Of these 850 articles 200 were included (166 "include" and 34 "maybe") with 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the Fulltext stage and assessed for eligibility. 
+Of these 850 articles 200 were included (166 "include" and 34 "maybe") with 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the fulltext stage and assessed for eligibility. 
 
-Exclusion decisions (650 articles) were due to the research not focusing on the effects of legal or managed hunting (365), not being focused on Galliformes (276), not quantitative (23), abstract not found online (16) and abstract not in English, Norwegian, Swedish or Danish (3).  
+Exclusion decisions (650 articles) were due to the research not focusing on the effects of legal or managed hunting (365), not being focused on Galliformes (276), not quantitative (23), abstract not found online (16) and abstract not in English, Norwegian, Swedish or Danish (3). 
 
-
-
-
+At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` which went forward to the data extraction stage. 
 
 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(synthesisr)
+all_RIS<-read_refs("data/articles.ris")
+
+included_full_details<-left_join(included,all_RIS, by=c("Study ID"="accession_zr"))
+
+included_full_details<- included_full_details |> janitor::clean_names()
+
+```
 
 
-Insert text and figures here...
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Publication year
+
+included_full_details |> 
+  group_by(year) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(year, n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "Year",
+    y = "Number of studies",
+    #fill = "Response"
+    ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Study area extent
+
+included_full_details |> 
+  group_by(study_extent_size_of_the_study_area) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(study_extent_size_of_the_study_area, n), n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "Study area extent",
+    y = "Number of Responses"
+  ) +
+  theme_minimal() +
+  coord_flip()
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Research type
+
+included_full_details |> 
+  separate_rows(research_type, sep = ", ")  |> # Split at comma and create new rows
+  group_by(research_type) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(research_type, n), n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "Research type",
+    y = "Number of Responses"
+  ) +
+  theme_minimal() +
+  coord_flip()
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Study design
+
+included_full_details |> 
+  group_by(study_design_observational_studies_skip_if_simulation_study_selected_above) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(study_design_observational_studies_skip_if_simulation_study_selected_above, n), n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "Study design – observational studies",
+    y = "Number of Responses"
+  ) +
+  theme_minimal() +
+  coord_flip()
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Harvest mortality
+
+included_full_details |> 
+  group_by(is_harvest_rate_or_harvest_mortality_estimated_and_reported) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(is_harvest_rate_or_harvest_mortality_estimated_and_reported, n), n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "Is harvest rate estimated?",
+    y = "Number of Responses"
+  ) +
+  theme_minimal()
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Harvest mortality
+
+included_full_details |> 
+  group_by(is_there_an_assessment_of_additivity_of_harvest_mortality) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(is_there_an_assessment_of_additivity_of_harvest_mortality, n), n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "Is there an assessment of additivity",
+    y = "Number of Responses"
+  ) +
+  theme_minimal()
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Harvest additivity
+
+included_full_details |> 
+  group_by(is_there_an_assessment_of_additivity_of_harvest_mortality) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(is_there_an_assessment_of_additivity_of_harvest_mortality, n), n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "Is there an assessment of additivity",
+    y = "Number of Responses"
+  ) +
+  theme_minimal()
+
+```
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Outcome EBV class
+
+included_full_details |> 
+    separate_rows(outcome_variables_ebv_class, sep = ", ")  |> # Split at comma and create new rows
+  group_by(outcome_variables_ebv_class) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(outcome_variables_ebv_class, n), n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "EBV Class",
+    y = "Number of Responses"
+  ) +
+  theme_minimal()+
+  coord_flip()
+
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Outcome EBV name
+
+included_full_details |> 
+    separate_rows(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, sep = ", ")  |> 
+  group_by(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, n), n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "EBV name",
+    y = "Number of Responses"
+  ) +
+  theme_minimal()+
+  coord_flip()
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: simulations
+
+included_full_details |> 
+    separate_rows(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations, sep = ", ")  |> # Split at comma and create new rows
+  group_by(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations, n), n))+
+  geom_histogram(stat="identity")+
+  labs(
+    x = "What is the purpose of simulations",
+    y = "Number of Responses"
+  ) +
+  theme_minimal()+
+  coord_flip()
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: species
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(rgbif)
+library(purrr)
+
+included_full_details |> 
+  separate_rows(species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta, sep = ", ") |>  
+  mutate(
+    species_corrected = map_chr(
+      species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta,
+      ~ {
+        res <- tryCatch(name_backbone(name = .x), error = function(e) NULL)
+        if (!is.null(res) && "species" %in% names(res) && !is.na(res$species)) {
+          res$species  # Return corrected name
+        } else {
+          .x  # Return original if not found
+        }
+      }
+    )
+  ) |> 
+  group_by(species_corrected) |>
+  tally() |> 
+  drop_na() |> 
+  ggplot(aes(reorder(species_corrected, n), n)) +
+  geom_col() +  # Changed from geom_histogram(stat="identity") to geom_col()
+  labs(
+    x = "Species",
+    y = "Number of Responses"
+  ) +
+  theme_minimal() +
+  coord_flip()
+
+```
+
+
+
+
 
 # Experimental design
 
