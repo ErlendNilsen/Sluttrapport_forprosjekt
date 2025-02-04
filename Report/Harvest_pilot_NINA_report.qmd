@@ -144,7 +144,7 @@ The following benchmark papers was used to assess the effectiveness of the searc
 
 We used pre-determined inclusion/exclusion criteria when screening eligible studies. Excluded papers will be shown in a flowchart using the ROSES flow chart (Haddaway et al. 2020). Included studies was de-duplicated based on DOI and title matches using the deduplication tool in Rayyan.  
 
-After de-duplication, title and abstract screening was done using the eligibility criteria. If uncertainty remained, the full text version was visited to confirm/reject. The screening was done using Rayyan. A set of XX papers was reviewed by three members of the review team to ensure consistency.  
+After de-duplication, title and abstract screening was done using the eligibility criteria. If uncertainty remained, the full text version was visited to confirm/reject. The screening was done using Rayyan. A set of 54 papers was reviewed by three members of the review team to ensure consistency.  
 
 ### Eligibility criteria 
 
@@ -345,6 +345,12 @@ library(googlesheets4)
 
 #saveRDS(data,"data/GS_data_Raw.RDS")
 data <- readRDS("data/GS_data_Raw.RDS")
+
+
+
+data<-data |> 
+  distinct(`Study ID`, .keep_all = TRUE)
+
 excluded <- data |>
   filter(!rowSums(across(4:8, ~ . == "Yes")) == 5)
 included <- anti_join(data, excluded)
@@ -358,6 +364,7 @@ Of these 850 articles 200 were included (166 "include" and 34 "maybe") with 9 co
 Exclusion decisions (650 articles) were due to the research not focusing on the effects of legal or managed hunting (365), not being focused on Galliformes (276), not quantitative (23), abstract not found online (16) and abstract not in English, Norwegian, Swedish or Danish (3). 
 
 At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` which went forward to the data extraction stage. 
+
 
 
 ```{r}
@@ -678,7 +685,8 @@ country_sp_data<-country_data |>
 
 # Aggregate data to get counts
 heatmap_data <- country_sp_data %>%
-  count(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, species_corrected)
+  count(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, species_corrected)|> 
+  drop_na()
 
 # Rename columns for easier use in ggplot
 colnames(heatmap_data) <- c("Country", "Species", "Count")
@@ -726,8 +734,9 @@ sp_EBV<-sp_data |>
     TRUE ~ outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework
   )) 
 # Aggregate data to get counts
-heatmap_data <- sp_EBV %>%
-  count(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, species_corrected)
+heatmap_data <- sp_EBV |> 
+  count(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, species_corrected) |> 
+  drop_na()
 
 # Rename columns for easier use in ggplot
 colnames(heatmap_data) <- c("EBVname", "Species", "Count")
