@@ -472,7 +472,8 @@ tally() |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: Study area extent
+#| label: fig-Study_area
+#| fig-cap: "The study area extent"
 
 included_full_details |>
   group_by(study_extent_size_of_the_study_area) |>
@@ -492,7 +493,8 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: Research type
+#| label: fig-Research_type
+#| fig-cap: "Type of research carried out"
 
 included_full_details |>
   separate_rows(research_type, sep = ", ") |> # Split at comma and create new rows
@@ -513,7 +515,8 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: Study design
+#| label: fig-Study_design
+#| fig-cap: "Study design of observational studies"
 
 included_full_details |>
   group_by(study_design_observational_studies_skip_if_simulation_study_selected_above) |>
@@ -533,7 +536,8 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: Harvest mortality
+#| label: fig-Harvest_mortality
+#| fig-cap: "The reporting of harvest mortality"
 
 included_full_details |>
   group_by(is_harvest_rate_or_harvest_mortality_estimated_and_reported) |>
@@ -553,7 +557,8 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: Harvest additivity
+#| label: fig-Harvest_additivity
+#| fig-cap: "Reporting of harvest additivity"
 
 included_full_details |>
   group_by(is_there_an_assessment_of_additivity_of_harvest_mortality) |>
@@ -575,7 +580,8 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: Outcome EBV class
+#| label: fig-EBV_class
+#| fig-cap: "The number of studies in each reported EBV class"
 
 included_full_details |>
   separate_rows(outcome_variables_ebv_class, sep = ", ") |> # Split at comma and create new rows
@@ -596,7 +602,8 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: Outcome EBV name
+#| label: fig-EBV_name
+#| fig-cap: "The number of studies for each EBV"
 
 included_full_details |>
   separate_rows(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, sep = ", ") |>
@@ -622,7 +629,8 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: simulations
+#| label: fig-simulations
+#| fig-cap: "The purpose of simulation studies"
 
 included_full_details |>
   separate_rows(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations, sep = ", ") |> # Split at comma and create new rows
@@ -645,6 +653,7 @@ included_full_details |>
 #| warning: false
 #| message: false
 #| label: species
+#| fig-cap: "The number of studies for each species"
 
 library(dplyr)
 library(tidyr)
@@ -690,7 +699,9 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: location species heat
+#| label: fig-location_species
+#| fig-cap: "The distribution of countries by species"
+#|  
 country_data<-included_full_details |>
   separate_rows(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, sep = ", ") |> # Split at comma and create new rows
   group_by(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma) |>
@@ -743,7 +754,8 @@ ggplot(heatmap_data, aes(x = Country, y = Species, fill = Species)) +
 #| echo: false
 #| warning: false
 #| message: false
-#| label: species by ebv
+#| label: fig-species_ebv
+#| fig-cap: "The distribution of EBV classes by species"
 #| 
 sp_data<-included_full_details |>
   separate_rows(species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta, sep = ", ") |>
@@ -786,6 +798,55 @@ ggplot(heatmap_data, aes(x = EBVname, y = Species, fill = Species)) +
        y = "Species",
        fill="")
 
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-species_design
+#| fig-cap: "The design of observational studies by species"
+sp_data<-included_full_details |>
+  separate_rows(species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta, sep = ", ") |>
+  mutate(
+    species_corrected = map_chr(
+      species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta,
+      ~ {
+        res <- tryCatch(name_backbone(name = .x), error = function(e) NULL)
+        if (!is.null(res) && "species" %in% names(res) && !is.na(res$species)) {
+          res$species # Return corrected name
+        } else {
+          .x # Return original if not found
+        }
+      }
+    )
+  ) 
+
+
+sp_design<-sp_data |> 
+  separate_rows(study_design_observational_studies_skip_if_simulation_study_selected_above, sep = ", ") |>
+  group_by(study_design_observational_studies_skip_if_simulation_study_selected_above) #|>
+  #mutate(study_design_observational_studies_skip_if_simulation_study_selected_above = case_when(
+   # outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework %in% c("Behaviour", "Display behaviour/ Gobbling", "Foraging behaviour", "Gobbling activity") ~ "Behaviour",
+    #TRUE ~ outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework
+  #)) 
+# Aggregate data to get counts
+heatmap_data <- sp_design |> 
+  count(study_design_observational_studies_skip_if_simulation_study_selected_above, species_corrected) |> 
+  drop_na()
+
+# Rename columns for easier use in ggplot
+colnames(heatmap_data) <- c("Design", "Species", "Count")
+ggplot(heatmap_data, aes(x = Design, y = Species, fill = Species)) +
+  geom_tile(aes(alpha=Count) )+
+  scale_fill_manual(values = species_colours) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
+  labs(title = "Species by study design",
+       x = "Study design",
+       y = "Species",
+       fill="")
 ```
 
 
