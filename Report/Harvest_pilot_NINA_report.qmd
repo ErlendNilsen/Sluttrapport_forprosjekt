@@ -40,12 +40,12 @@ output:
     highlight: tango
     fig_caption: yes
     latex_engine: xelatex
-crossref:
-  fig-title: Figur     # (default is "Figure")
-  tbl-title: Tabell     # (default is "Table") 
-  fig-prefix: Figur   # (default is "Figure")
-  tbl-prefix: Tabell    # (default is "Table")   
-  sec-prefix: Kapittel
+    crossref: true
+  # fig-title: Figur     # (default is "Figure")
+  # tbl-title: Tabell     # (default is "Table") 
+  # fig-prefix: Figur   # (default is "Figure")
+  # tbl-prefix: Tabell    # (default is "Table")   
+  # sec-prefix: Kapittel
 foreword: 
     text: [Forord inn her]
     location: [Sted, forord]
@@ -394,7 +394,7 @@ species_colours <- c(
   "Tetrao urogallus" = "#2B2B2B",           # Capercaillie (dark grey/black)
   "Tetrastes bonasia" = "#8C7051",          # Hazel Grouse (brownish-grey)
   "Perdix perdix" = "#A67B5B",              # Grey Partridge (grey-brown)
-  "Lagopus muta" = "#FFFFFF",               # Rock Ptarmigan (white in winter)
+  "Lagopus muta" = "#FAF9F6",               # Rock Ptarmigan (white in winter)
   "Alectoris graeca" = "#B0A48B",           # Rock Partridge (grey-brown)
   "Alectoris rufa" = "#A5694F",             # Red-legged Partridge (red-brown)
   "Alectoris chukar" = "#B48B7D",           # Chukar Partridge (beige-brown)
@@ -407,13 +407,15 @@ species_colours <- c(
 ```
 
 
+Legal hunting of Galliformes has been the subject of extensive study. We identified studies published as far back as 1963. The number of studies per year peaked in 2020 (8 studies per year) and the long-term average was 2.93 studies per year (@fig-Publication_year). 
 
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-#| label: Publication year
+#| label: fig-Publication_year
+#| fig-cap: "The number of studies per year"
 
 included_full_details |>
   group_by(year) |>
@@ -429,6 +431,42 @@ included_full_details |>
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
+The most common geographic location for studies was in the USA (99 studies), followed by Norway (16) and the UK (9) (@fig-location). In the USA studies were carried out in 33 States (Alaska, California, Colorado, Florida, Georgia, Idaho, Illinois, Indiana, Kansas, Kentucky, Louisiana, Maine, Michigan, Mississippi, Missouri, Montana, Nevada, New York, North Carolina, Ohio, Oklahoma, Oregon, Pennsylvania, Poland, Rhode Island, South Carolina, South Dakota, Tennessee, Texas,Utah,Virginia, West Virginia, Wisconsin)
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-location
+#| fig-cap: "Geographic location of included studies"
+
+included_full_details |>
+  separate_rows(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, sep = ", ") |> # Split at comma and create new rows
+  group_by(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma) |>
+  mutate(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma = case_when(
+    study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma %in% c(
+      "Alaska", "California", "Colorado", "Florida", "Georgia","Georiga", "Georgia (USA)", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Maine", "Michigan", "Mississippi", "Missouri", "Montana", "Nevada", "New York", "North Carolina", "Ohio",
+      "Oklahoma", "Oregon", "Pennsylvania", "Poland", "Rhode Island", "Rhode island", "South Caolina", "South Caraolina", "South Carolina", "South Dakota", "Tennessee", "Texas", "Texas,Texas", "US", "Utah",
+      "Virgina", "Virginia", "West Virginia", "Wisconsin", "Wisonsin"
+    ) ~ "USA",
+    TRUE ~ study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma
+  )) |> 
+  mutate(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma= case_when(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma %in% c("United Kingdom", "UK", "Scotland", "England")~"UK",
+            TRUE~study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma)) |> 
+tally() |>
+  drop_na() |>
+  ggplot(aes(reorder(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, n), n)) +
+  geom_histogram(stat = "identity", fill=sample(species_colours,12)) +
+  labs(
+    x = "Study area location",
+    y = "Number of Responses"
+  ) +
+  #ggthemes::theme_base() +
+  theme_minimal()+
+  coord_flip()
+```
+
 
 ```{r}
 #| echo: false
@@ -644,39 +682,6 @@ included_full_details |>
 
 
 
-
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: location
-
-included_full_details |>
-  separate_rows(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, sep = ", ") |> # Split at comma and create new rows
-  group_by(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma) |>
-  mutate(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma = case_when(
-    study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma %in% c(
-      "Alaska", "California", "Colorado", "Florida", "Georgia","Georiga", "Georgia (USA)", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Maine", "Michigan", "Mississippi", "Missouri", "Montana", "Nevada", "New York", "North Carolina", "Ohio",
-      "Oklahoma", "Oregon", "Pennsylvania", "Poland", "Rhode Island", "Rhode island", "South Caolina", "South Caraolina", "South Carolina", "South Dakota", "Tennessee", "Texas", "Texas,Texas", "US", "Utah",
-      "Virgina", "Virginia", "West Virginia", "Wisconsin", "Wisonsin"
-    ) ~ "USA",
-    TRUE ~ study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma
-  )) |> 
-  mutate(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma= case_when(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma %in% c("United Kingdom", "UK", "Scotland", "England")~"UK",
-            TRUE~study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma)) |> 
-tally() |>
-  drop_na() |>
-  ggplot(aes(reorder(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, n), n)) +
-  geom_histogram(stat = "identity", fill=sample(species_colours,12)) +
-  labs(
-    x = "Study area location",
-    y = "Number of Responses"
-  ) +
-  #ggthemes::theme_base() +
-  theme_minimal()+
-  coord_flip()
-```
 
 
 
