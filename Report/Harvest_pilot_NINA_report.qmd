@@ -385,6 +385,34 @@ included_full_details <- included_full_details |> janitor::clean_names()
 #| echo: false
 #| warning: false
 #| message: false
+#| label: colour palette 
+species_colours <- c(
+  "Centrocercus urophasianus" = "#736F4C",  # Sage-grouse (greyish-brown)
+  "Dendragapus obscurus" = "#5A4A42",       # Dusky Grouse (brown-grey)
+  "Lagopus lagopus" = "#85361C",            # Willow Ptarmigan (reddish-brown)
+  "Lyrurus tetrix" = "#1C1C1C",             # Black Grouse (black)
+  "Tetrao urogallus" = "#2B2B2B",           # Capercaillie (dark grey/black)
+  "Tetrastes bonasia" = "#8C7051",          # Hazel Grouse (brownish-grey)
+  "Perdix perdix" = "#A67B5B",              # Grey Partridge (grey-brown)
+  "Lagopus muta" = "#FFFFFF",               # Rock Ptarmigan (white in winter)
+  "Alectoris graeca" = "#B0A48B",           # Rock Partridge (grey-brown)
+  "Alectoris rufa" = "#A5694F",             # Red-legged Partridge (red-brown)
+  "Alectoris chukar" = "#B48B7D",           # Chukar Partridge (beige-brown)
+  "Bonasa umbellus" = "#7A5F47",            # Ruffed Grouse (brown-grey)
+  "Colinus virginianus" = "#9E8358",        # Northern Bobwhite (tan-brown)
+  "Meleagris gallopavo" = "#4A2D1D",        # Wild Turkey (dark brown/bronze)
+  "Phasianus colchicus" = "#B22222"         # Common Pheasant (red and green)
+)
+
+```
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
 #| label: Publication year
 
 included_full_details |>
@@ -392,7 +420,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(year, n)) +
-  geom_histogram(stat = "identity", fill="#85361C") +# colour of a Willow Ptarmigan
+  geom_histogram(stat = "identity", fill=species_colours[3]) + # colour of a Willow Ptarmigan
   labs(
     x = "Year",
     y = "Number of studies",
@@ -413,7 +441,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(reorder(study_extent_size_of_the_study_area, n), n)) +
-  geom_histogram(stat = "identity", fill="#85361C") +
+  geom_histogram(stat = "identity", fill=species_colours[1]) +
   labs(
     x = "Study area extent",
     y = "Number of Responses"
@@ -434,7 +462,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(reorder(research_type, n), n)) +
-  geom_histogram(stat = "identity", fill="#85361C") +
+  geom_histogram(stat = "identity", fill=species_colours[2]) +
   labs(
     x = "Research type",
     y = "Number of Responses"
@@ -454,7 +482,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(reorder(study_design_observational_studies_skip_if_simulation_study_selected_above, n), n)) +
-  geom_histogram(stat = "identity", fill="#85361C") +
+  geom_histogram(stat = "identity", fill=species_colours[4]) +
   labs(
     x = "Study design – observational studies",
     y = "Number of Responses"
@@ -474,7 +502,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(reorder(is_harvest_rate_or_harvest_mortality_estimated_and_reported, n), n)) +
-  geom_histogram(stat = "identity", fill="#85361C") +
+  geom_histogram(stat = "identity", fill=species_colours[5]) +
   labs(
     x = "Is harvest rate estimated?",
     y = "Number of Responses"
@@ -494,7 +522,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(reorder(is_there_an_assessment_of_additivity_of_harvest_mortality, n), n)) +
-  geom_histogram(stat = "identity", fill="#85361C") +
+  geom_histogram(stat = "identity", fill=species_colours[6]) +
   labs(
     x = "Is there an assessment of additivity",
     y = "Number of Responses"
@@ -517,7 +545,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(reorder(outcome_variables_ebv_class, n), n)) +
-  geom_histogram(stat = "identity", fill="#85361C") +
+  geom_histogram(stat = "identity", fill=species_colours[7]) +
   labs(
     x = "EBV Class",
     y = "Number of Responses"
@@ -542,7 +570,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(reorder(outcome_variable_ebv_name_not_exhaustive_indicate_name_that_is_not_included_in_original_framework, n), n)) +
-  geom_histogram(stat = "identity") +
+  geom_histogram(stat = "identity", fill=species_colours[9]) +
   labs(
     x = "EBV name",
     y = "Number of Responses"
@@ -564,7 +592,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(reorder(for_simulation_based_scenario_studies_what_is_the_purpose_of_the_simulations, n), n)) +
-  geom_histogram(stat = "identity", fill="#85361C") +
+  geom_histogram(stat = "identity", fill=species_colours[10]) +
   labs(
     x = "What is the purpose of simulations",
     y = "Number of Responses"
@@ -605,7 +633,7 @@ included_full_details |>
   tally() |>
   drop_na() |>
   ggplot(aes(reorder(species_corrected, n), n)) +
-  geom_col(fill="#85361C") + # Changed from geom_histogram(stat="identity") to geom_col()
+  geom_col(fill=species_colours[11]) + # Changed from geom_histogram(stat="identity") to geom_col()
   labs(
     x = "Species",
     y = "Number of Responses"
@@ -640,38 +668,14 @@ included_full_details |>
 tally() |>
   drop_na() |>
   ggplot(aes(reorder(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, n), n)) +
-  geom_histogram(stat = "identity", fill="#85361C") +
+  geom_histogram(stat = "identity", fill=sample(species_colours,12)) +
   labs(
     x = "Study area location",
     y = "Number of Responses"
   ) +
-  theme_minimal() +
+  #ggthemes::theme_base() +
+  theme_minimal()+
   coord_flip()
-```
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: colour palette 
-species_colours <- c(
-  "Centrocercus urophasianus" = "#736F4C",  # Sage-grouse (greyish-brown)
-  "Dendragapus obscurus" = "#5A4A42",       # Dusky Grouse (brown-grey)
-  "Lagopus lagopus" = "#85361C",            # Willow Ptarmigan (reddish-brown)
-  "Lyrurus tetrix" = "#1C1C1C",             # Black Grouse (black)
-  "Tetrao urogallus" = "#2B2B2B",           # Capercaillie (dark grey/black)
-  "Tetrastes bonasia" = "#8C7051",          # Hazel Grouse (brownish-grey)
-  "Perdix perdix" = "#A67B5B",              # Grey Partridge (grey-brown)
-  "Lagopus muta" = "#FFFFFF",               # Rock Ptarmigan (white in winter)
-  "Alectoris graeca" = "#B0A48B",           # Rock Partridge (grey-brown)
-  "Alectoris rufa" = "#A5694F",             # Red-legged Partridge (red-brown)
-  "Alectoris chukar" = "#B48B7D",           # Chukar Partridge (beige-brown)
-  "Bonasa umbellus" = "#7A5F47",            # Ruffed Grouse (brown-grey)
-  "Colinus virginianus" = "#9E8358",        # Northern Bobwhite (tan-brown)
-  "Meleagris gallopavo" = "#4A2D1D",        # Wild Turkey (dark brown/bronze)
-  "Phasianus colchicus" = "#B22222"         # Common Pheasant (red and green)
-)
-
 ```
 
 
