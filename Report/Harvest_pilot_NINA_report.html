@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="Harvest_pilot_NINA_report_files/libs/clipboard/clipboard.min.js"></script>
@@ -318,6 +338,7 @@ Figure&nbsp;2: Geographic location of included studies
 </div>
 </div>
 </div>
+<p>The extent of the study areas were predominately regional or local, with very few studies at the site level (<a href="#fig-Study_area" class="quarto-xref">Figure&nbsp;3</a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-Study_area" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -332,6 +353,7 @@ Figure&nbsp;3: The study area extent
 </div>
 </div>
 </div>
+<p>Studies are typically observational (106 studies; <a href="#fig-Research_type" class="quarto-xref">Figure&nbsp;4</a>) and with simple (and less robust) study designs (<strong>?@fig-Study-design</strong>). There were only 6 papers using a Randomised Controlled Trial (RCT), the study design that leads to the highest level of evidence for causal understanding (<span class="citation" data-cites="christie2019simple">Christie et al. (<a href="#ref-christie2019simple" role="doc-biblioref">2019</a>)</span>) and these were limited to Norway (5) and the USA (1). The Norwegian articles are all from the same study. <!--# Is this correct? --></p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-Research_type" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -362,13 +384,27 @@ Figure&nbsp;5: Study design of observational studies
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div id="fig-Study_design_by_country" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Study_design_by_country-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Harvest_pilot_NINA_report_files/figure-html/fig-Study_design_by_country-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Study_design_by_country-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Study design by country
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
 <div id="fig-Harvest_mortality" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Harvest_mortality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Harvest_pilot_NINA_report_files/figure-html/fig-Harvest_mortality-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Harvest_mortality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: The reporting of harvest mortality
+Figure&nbsp;7: The reporting of harvest mortality
 </figcaption>
 </figure>
 </div>
@@ -382,7 +418,7 @@ Figure&nbsp;6: The reporting of harvest mortality
 <img src="Harvest_pilot_NINA_report_files/figure-html/fig-Harvest_additivity-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Harvest_additivity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7: Reporting of harvest additivity
+Figure&nbsp;8: Reporting of harvest additivity
 </figcaption>
 </figure>
 </div>
@@ -396,7 +432,7 @@ Figure&nbsp;7: Reporting of harvest additivity
 <img src="Harvest_pilot_NINA_report_files/figure-html/fig-EBV_class-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-EBV_class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: The number of studies in each reported EBV class
+Figure&nbsp;9: The number of studies in each reported EBV class
 </figcaption>
 </figure>
 </div>
@@ -410,7 +446,7 @@ Figure&nbsp;8: The number of studies in each reported EBV class
 <img src="Harvest_pilot_NINA_report_files/figure-html/fig-EBV_name-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-EBV_name-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: The number of studies for each EBV
+Figure&nbsp;10: The number of studies for each EBV
 </figcaption>
 </figure>
 </div>
@@ -424,7 +460,7 @@ Figure&nbsp;9: The number of studies for each EBV
 <img src="Harvest_pilot_NINA_report_files/figure-html/fig-simulations-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simulations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10: The purpose of simulation studies
+Figure&nbsp;11: The purpose of simulation studies
 </figcaption>
 </figure>
 </div>
@@ -448,7 +484,7 @@ Figure&nbsp;10: The purpose of simulation studies
 <img src="Harvest_pilot_NINA_report_files/figure-html/fig-location_species-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-location_species-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11: The distribution of countries by species
+Figure&nbsp;12: The distribution of countries by species
 </figcaption>
 </figure>
 </div>
@@ -462,7 +498,7 @@ Figure&nbsp;11: The distribution of countries by species
 <img src="Harvest_pilot_NINA_report_files/figure-html/fig-species_ebv-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-species_ebv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12: The distribution of EBV classes by species
+Figure&nbsp;13: The distribution of EBV classes by species
 </figcaption>
 </figure>
 </div>
@@ -476,7 +512,7 @@ Figure&nbsp;12: The distribution of EBV classes by species
 <img src="Harvest_pilot_NINA_report_files/figure-html/fig-species_design-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-species_design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13: The design of observational studies by species
+Figure&nbsp;14: The design of observational studies by species
 </figcaption>
 </figure>
 </div>
@@ -507,11 +543,16 @@ Figure&nbsp;13: The design of observational studies by species
 <h4 class="anchored" data-anchor-id="assignment-of-treatment-level-to-each-study-unit">Assignment of treatment level to each study unit &nbsp;</h4>
 <p>In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by <u><em>random assignment</em></u> or non-random (<u><em>quasi random</em></u>) assignment. Under <u><em>random assignment</em></u> of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In <u><em>blocked designs</em></u>, treatment levels are randomly assigned within blocks. In a <u><em>crossover study</em></u> or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a <u><em>balanced study design</em></u>, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogenous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control. &nbsp;&nbsp;</p>
 <p>&nbsp;</p>
+
 </section>
 </section>
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-christie2019simple" class="csl-entry" role="listitem">
+Christie, A.P., Amano, T., Martin, P.A., Shackelford, G.E., Simmons, B.I., and Sutherland, W.J. 2019. Simple study designs in ecology produce inaccurate estimates of biodiversity responses. Journal of Applied Ecology <strong>56</strong>(12): 2742–2754. Wiley Online Library.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

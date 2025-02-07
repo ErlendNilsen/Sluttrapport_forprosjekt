@@ -356,16 +356,13 @@ excluded <- data |>
 included <- anti_join(data, excluded)
 ```
 
+Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above (Sandercock et al. 2011; Pedersen et al. 2004; Sedinger & Rotella 2005). Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the Abstract and Title stage.
 
-Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above (Sandercock et al. 2011; Pedersen et al. 2004; Sedinger & Rotella 2005). Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the Abstract and Title stage. 
+Of these 850 articles 200 were included (166 "include" and 34 "maybe") with 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the fulltext stage and assessed for eligibility.
 
-Of these 850 articles 200 were included (166 "include" and 34 "maybe") with 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the fulltext stage and assessed for eligibility. 
+Exclusion decisions (650 articles) were due to the research not focusing on the effects of legal or managed hunting (365), not being focused on Galliformes (276), not quantitative (23), abstract not found online (16) and abstract not in English, Norwegian, Swedish or Danish (3).
 
-Exclusion decisions (650 articles) were due to the research not focusing on the effects of legal or managed hunting (365), not being focused on Galliformes (276), not quantitative (23), abstract not found online (16) and abstract not in English, Norwegian, Swedish or Danish (3). 
-
-At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` which went forward to the data extraction stage. 
-
-
+At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` which went forward to the data extraction stage.
 
 ```{r}
 #| echo: false
@@ -379,7 +376,6 @@ included_full_details <- left_join(included, all_RIS, by = c("Study ID" = "acces
 
 included_full_details <- included_full_details |> janitor::clean_names()
 ```
-
 
 ```{r}
 #| echo: false
@@ -406,9 +402,7 @@ species_colours <- c(
 
 ```
 
-
-Legal hunting of Galliformes has been the subject of extensive study. We identified studies published as far back as 1963. The number of studies per year peaked in 2020 (8 studies per year) and the long-term average was 2.93 studies per year (@fig-Publication_year). 
-
+Legal hunting of Galliformes has been the subject of extensive study. We identified studies published as far back as 1963. The number of studies per year peaked in 2020 (8 studies per year) and the long-term average was 2.93 studies per year (@fig-Publication_year).
 
 ```{r}
 #| echo: false
@@ -467,6 +461,7 @@ tally() |>
   coord_flip()
 ```
 
+The extent of the study areas were predominately regional or local, with very few studies at the site level (@fig-Study_area).
 
 ```{r}
 #| echo: false
@@ -488,6 +483,8 @@ included_full_details |>
   theme_minimal() +
   coord_flip()
 ```
+
+Studies are typically observational (106 studies; @fig-Research_type) and with simple (and less robust) study designs (@fig-Study-design). There were only 6 papers using a Randomised Controlled Trial (RCT), the study design that leads to the highest level of evidence for causal understanding (@christie2019simple) and these were limited to Norway (5) and the USA (1). The Norwegian articles are all from the same study. <!--# Is this correct? -->
 
 ```{r}
 #| echo: false
@@ -536,6 +533,42 @@ included_full_details |>
 #| echo: false
 #| warning: false
 #| message: false
+#| label: fig-Study_design_by_country
+#| fig-cap: "Study design by country"
+
+country_data<-included_full_details |>
+  separate_rows(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, sep = ", ") |> # Split at comma and create new rows
+  group_by(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma) |>
+  mutate(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma = case_when(
+    study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma %in% c(
+      "Alaska", "California", "Colorado", "Florida", "Georgia","Georiga", "Georgia (USA)", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Maine", "Michigan", "Mississippi", "Missouri", "Montana", "Nevada", "New York", "North Carolina", "Ohio",
+      "Oklahoma", "Oregon", "Pennsylvania", "Poland", "Rhode Island", "Rhode island", "South Caolina", "South Caraolina", "South Carolina", "South Dakota", "Tennessee", "Texas", "Texas,Texas", "US", "Utah",
+      "Virgina", "Virginia", "West Virginia", "Wisconsin", "Wisonsin"
+    ) ~ "USA",
+    TRUE ~ study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma
+  ))
+
+# Aggregate data to get counts
+heatmap_data <- country_data %>%
+  count(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, study_design_observational_studies_skip_if_simulation_study_selected_above)|> 
+  drop_na()
+
+# Rename columns for easier use in ggplot
+colnames(heatmap_data) <- c("Country", "Study_design", "Count")
+ggplot(heatmap_data, aes(x = Country, y = Study_design, fill = Study_design)) +
+  geom_tile(aes(alpha=Count)) +
+ #scale_fill_manual(values = species_colours) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
+  labs(x = "Country",
+       y = "Study design",
+       fill = "")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
 #| label: fig-Harvest_mortality
 #| fig-cap: "The reporting of harvest mortality"
 
@@ -551,7 +584,6 @@ included_full_details |>
   ) +
   theme_minimal()
 ```
-
 
 ```{r}
 #| echo: false
@@ -572,9 +604,6 @@ included_full_details |>
   ) +
   theme_minimal()
 ```
-
-
-
 
 ```{r}
 #| echo: false
@@ -624,7 +653,6 @@ included_full_details |>
   coord_flip()
 ```
 
-
 ```{r}
 #| echo: false
 #| warning: false
@@ -646,7 +674,6 @@ included_full_details |>
   theme_minimal() +
   coord_flip()
 ```
-
 
 ```{r}
 #| echo: false
@@ -688,12 +715,6 @@ included_full_details |>
   theme_minimal() +
   coord_flip()
 ```
-
-
-
-
-
-
 
 ```{r}
 #| echo: false
@@ -749,7 +770,6 @@ ggplot(heatmap_data, aes(x = Country, y = Species, fill = Species)) +
 
 ```
 
-
 ```{r}
 #| echo: false
 #| warning: false
@@ -800,7 +820,6 @@ ggplot(heatmap_data, aes(x = EBVname, y = Species, fill = Species)) +
 
 ```
 
-
 ```{r}
 #| echo: false
 #| warning: false
@@ -848,8 +867,6 @@ ggplot(heatmap_data, aes(x = Design, y = Species, fill = Species)) +
        y = "Species",
        fill="")
 ```
-
-
 
 # Experimental design
 
