@@ -484,7 +484,7 @@ included_full_details |>
   coord_flip()
 ```
 
-Studies are typically observational (106 studies; @fig-Research_type) and with simple (and less robust) study designs (@fig-Study-design). There were only 6 papers using a Randomised Controlled Trial (RCT), the study design that leads to the highest level of evidence for causal understanding (@christie2019simple) and these were limited to Norway (5) and the USA (1). The Norwegian articles are all from the same study. <!--# Is this correct? -->
+Studies are typically observational (106 studies; @fig-Research_type) and with simple (and less robust) study designs (@fig-Study_design). There were only 6 papers using a Randomised Controlled Trial (RCT), the study design that leads to the highest level of evidence for causal understanding (@christie2019simple) and these were limited to Norway (5) and the USA (1). The Norwegian articles are all from the same study. <!--# Is this correct? -->
 
 ```{r}
 #| echo: false
