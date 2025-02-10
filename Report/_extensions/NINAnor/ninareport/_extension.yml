@@ -1,0 +1,22 @@
+title: NINA-report format
+author: Jens Åström
+version: 0.0.1
+quarto-required: ">=1.2.198"
+contributes:
+  formats:
+    common:
+      date-format: full
+    pdf:
+      documentclass: article
+      template: pdf_template/template.tex
+      number-sections: true
+    html:
+      theme: html_template/ninareport.scss
+      template-partials:
+        - html_template/title-block.html
+      include-in-header: 
+        - html_template/back-to-top.html
+        - html_template/progressbar.html
+    docx:
+      reference_doc: docx_template/nina_report_quarto.docx
+      
