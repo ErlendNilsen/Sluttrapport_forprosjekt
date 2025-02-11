@@ -11,9 +11,10 @@ harvest_rate_areas <- matrix(sample(harvest_rate, 3), nrow = n_areas, ncol = len
 ## Generate areas with different area and densities of ptarmigan
 
 hunting_areas <- tibble(area = runif(n_areas, 50, 150), 
-                        density_ad = runif(n_areas, 5, 20), 
-                        density_juv = runif(n_areas, 0, 10), 
-                        K_density = (density_ad + density_juv) * runif(1, 0.5, 4),
+                        density = runif(n_areas, 5, 25),
+                        N_ad = (area*density)*0.25,
+                        N_juv = (area*density)*0.75,
+                        K_density = density * runif(1, 0.8, 4),
                         latitude = runif(n_areas, 40, 70))
 hunting_areas
 
@@ -41,10 +42,11 @@ rype_simulering <- function(harvest_rates,
     N_juv = numeric(),
     p_ad = numeric(),
     p_juv = numeric(),
+    m_ad = numeric(),
     density = numeric(),
     time = numeric(),
     n_sim = numeric(),
-    harvest = numeric(),
+    #harvest = numeric(),
     extinction_generation = numeric(),
     population = numeric(),
     area = numeric(),
@@ -61,8 +63,8 @@ rype_simulering <- function(harvest_rates,
     for (i in 1:n_sim) {
       extinct <- FALSE
       harvest <- 0
-      density <- sub_dat$density_ad + sub_dat$density_juv # starting density year 1
-      p_ad <- p_juv <- NA
+      density <- sub_dat$density # starting density year 1
+      p_ad <- p_juv <- m_ad <-  NA
 
 
       # Population specific simulation parameters
@@ -74,50 +76,41 @@ rype_simulering <- function(harvest_rates,
       extinction_threshold <- 0.1 * sub_dat$area # Population size below which extinction is assumed, equals density of 0.1/m^2
 
       # Initial population vector using mean density from estimates as starting point
-      N[[1]] <- c(round(sub_dat$area * sub_dat$density_juv), round(sub_dat$area * sub_dat$density_ad))
+      N[[1]] <- matrix(c(sub_dat$N_juv, sub_dat$N_ad),
+                       ncol = 1)
       N_ad <- N[[1]][2]
       N_juv <- N[[1]][1]
 
-      for (t in 2:(n_generations+1)) {
+      for (t in 1:(n_generations)) {
         # Vital rates for post-breeding
 
-        m_ad <- rpois(1, lambda = 2.5) / 2 ## Mean & SD from Indre Salten, number of chicks per pair / 2
-        m_juv <- m_ad ## Assume 1yr reproductive rate is equal to adults
+        m_ad[t] <- rpois(1, lambda = 4) / 2 ## Mean & SD from Indre Salten, number of chicks per pair / 2
+        m_juv <- m_ad[t] ## Assume 1yr reproductive rate is equal to adults
         p_juv[t] <- rbeta(1, 6, 14) ## Survival from fledgling to next census. Mean = 0.3, sigma^2 = 0.01
         p_ad[t] <- rbeta(1, 26.2872, 22.3928) ## adult survival from non-harvested ptarmigan (Sandercock et al. 2011): Mean = 0.54. Using variance = 0.005
         
-        p_juv[t] <-p_juv[t] + beta_latitude * (mean(hunting_areas$latitude) - sub_dat$latitude) ## add effect of latitude on survival, latitude mean-centered
-        p_ad[t] <- p_ad[t] + beta_latitude * (mean(hunting_areas$latitude) - sub_dat$latitude)
+        p_juv[t] <- (p_juv[t] * (1-harvest_rates_sub[t])) + (beta_latitude * (mean(hunting_areas$latitude) - sub_dat$latitude)) ## add effect of latitude on survival, latitude mean-centered
+        p_ad[t] <- (p_ad[t] * (1-harvest_rates_sub[t])) + (beta_latitude * (mean(hunting_areas$latitude) - sub_dat$latitude))
         
         f_juv <- m_juv * p_juv[t] ## fertility juv
-        f_ad <- m_ad * p_ad[t] ## fertility adult
+        f_ad <- m_ad[t] * p_ad[t] ## fertility adult
 
 
         # Projection matrix
-        A <- matrix(c(f_juv, f_ad, p_juv[t], p_ad[t]), nrow = 2, byrow = T)
+        A <- matrix(c(f_juv, f_ad, p_juv[t], p_ad[t]), 
+                    nrow = 2, byrow = T)
         #D <- (K - sum(N[[t - 1]])) / K
-        I <- diag(2)
+        #I <- diag(2)
         #N[[t]] <- N[[t - 1]] + D * ((A - I) %*% N[[t - 1]]) ## Adding density dependence
         # N[[t]] <- N[[t-1]] +   ((A-I) %*% N[[t-1]])
-        N[[t]] <- A %*%N[[t-1]]
-        N_ad[t] <- ifelse(N[[t]][2] < 0, 0, N[[t]][2]) ## If negative replace with 0
-        N_juv[t] <- ifelse(N[[t]][1] < 0, 0, N[[t]][1])
-        density[t] <- (N_ad[t] + N_juv[t])/sub_dat$area
+        N[[t+1]] <- A %*% N[[t]]
+        N_ad[t+1] <- ifelse(N[[t+1]][2] < 0, 0, N[[t+1]][2]) ## If negative replace with 0
+        N_juv[t+1] <- ifelse(N[[t+1]][1] < 0, 0, N[[t+1]][1])
+        density[t+1] <- (N_ad[t+1] + N_juv[t+1])/sub_dat$area
 
-        # Apply harvest and update population - assume equal harvest probability for adults and juveniles
-        
-        harvest[t] <- (N_ad[t] + N_juv[t]) * harvest_rates_sub[t]
-        
-       #age_ratio <- N_ad[t] / (N_juv[t] + N_ad[t])
-        #N[[t]][2] <- N_ad[t] - (harvest[t] * age_ratio)
-        #N[[t]][1] <- N_juv[t] - (harvest[t] * (1 - age_ratio))
-        
-        N[[t]][2] <- N_ad[t] * (1 - harvest_rates_sub[t])
-        N[[t]][1] <- N_juv[t] * (1 - harvest_rates_sub[t])
-        
           
         # Check for extinction
-        if (sum(N[[t]]) < extinction_threshold) {
+        if (sum(N[[t+1]]) < extinction_threshold) {
           extinct <- TRUE
           extinction_generation <- t
           break
@@ -127,14 +120,14 @@ rype_simulering <- function(harvest_rates,
       }
       # Add data to dataframe
       sim_dat <- sim_dat %>%
-        add_row(N_ad,
+        add_row(N_ad = N[[t]][2],
           N_juv,
           density,
           p_ad,
           p_juv,
+          m_ad,
           time = seq(1, t),
           n_sim = i,
-          harvest,
           extinction_generation,
           population = k,
           harvest_rate = harvest_rates_sub,
@@ -151,17 +144,19 @@ rype_simulering <- function(harvest_rates,
 
 
 test_sim <- rype_simulering(harvest_rates = harvest_rate_areas,
-                n_generations = 4,
-                n_areas = 30,
-                n_sim = 5,
-                beta_latitude = 0.005) %>% 
+                n_generations = 2,
+                n_areas = 1,
+                n_sim = 1,
+                beta_latitude = 0.000) %>% 
   mutate(harvest_rate = as.factor(harvest_rate),
          population = as.factor(population))
 
+library(glmmTMB)
 
-summary(lm(lead(density) ~ (harvest_rate)  + latitude , data = filter(test_sim, n_sim == 1)))
-summary(glm(lead(p_ad) ~ (harvest_rate)  + latitude , data = test_sim, family = binomial(link = "logit")))
-
+summary(glmmTMB((density) ~ (harvest_rate)  + latitude + m_ad + (1|population) , data = filter(test_sim, n_sim == 1)))
+mod <- (glm((p_ad) ~ (harvest_rate)  + latitude , data = filter(test_sim, n_sim == 1), family = quasibinomial(link = "logit")))
+summary(mod)
+ggpredict(mod)
 
 ## Functions for computing effect and CI
 
@@ -170,7 +165,7 @@ summary(glm(lead(p_ad) ~ (harvest_rate)  + latitude , data = test_sim, family = 
 compute_slope_ci <- function(data) {
   data <- data %>% mutate(lead_density = lead(density))  
   
-  model <- lm(lead_density ~ harvest_rate + latitude, data = data)
+  model_density <- lm(lead_density ~ harvest_rate + m_ad + latitude, data = data)
   
   # Extract coefficients, confidence intervals, and p-values 
   results <- broom::tidy(model, conf.int = TRUE)
@@ -200,20 +195,19 @@ results %>%
 
 
 #### Simulating with number of areas from 10 - 30
-n_areas <- c(seq(10,30, 1))
+n_areas <- seq(20,25,1)
 results_list <- list()
 for (i in 1:length(n_areas)){
 results_list[[i]] <- rype_simulering(harvest_rates = harvest_rate_areas,
                 n_generations = 4,
                 n_areas = n_areas[i],
-                n_sim = 200,
+                n_sim = 100,
                 beta_latitude = 0.005) %>% 
   mutate(harvest_rate = as.factor(harvest_rate),
          population = as.factor(population),
          n_areas = n_areas[i])}
 
-
-results <- bind_rows(results) %>%
+results <- bind_rows(results_list) %>%
   group_by(n_sim, n_areas) %>%
   summarise(compute_slope_ci(cur_data()), .groups = "drop")
 
@@ -225,8 +219,8 @@ results <- results %>%
   group_by(term, n_areas) %>% 
   summarize(mean_p = mean(p.value),
             prop_p = sum(p.value < 0.05)/length(p.value))
-
-#saveRDS(results, file = "Simulation/Results/lirype.RDS")
+results
+saveRDS(results, file = "Simulation/Results/lirype.RDS")
 results <- readRDS("Simulation/Results/lirype.RDS")
 ## Plotting proportion of simulations with p-values above 0.95
 

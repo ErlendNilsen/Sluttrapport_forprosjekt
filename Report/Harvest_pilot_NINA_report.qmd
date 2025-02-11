@@ -370,6 +370,9 @@ where $N_{juv}$ and $N_{ad]$ is the number of juveniles and adults at time *t* a
 To evaluate and analyse the effects of harvest, we assigned the simulated hunting areas with a harvest treatment, i.e., a harvest rate of either 0, 15 % or 30 % each year over the study period of three years. Because we aim to test the effects of all treatments in all areas, the treatments were randomly given each hunting area without replacement to ensure that each area cannot have the same treatment twice. In addition to harvest treatment, we simulated the effect of a climate covariate directly on survival. The “climatic variable” chosen was latitude and it was simulated with a slope of 0.003. This does not mean that we expect to see any direct effect of latitude in the real experiment, but rather it was included as a proof-of-concept to test the effects of a climatic covariate. To investigate how many areas are needed in the harvest experiment to be able to estimate the effects of both harvest treatments and climate we simulated ptarmigan populations over a range of hunting areas, from 15 to 35. For each number of hunting areas, we did 500 simulations over three years.
 
 ### Results
+#### Survival
+
+The effects of harvest treatment and the climatic variable on survival was modelled using a generalized linear model with a quasibinomial error function. In the simulated harvest experiment, both harvest treatment had a clear effect on survival which was evident for all sample sizes (number of areas) for the 30 % harvest, while the effect of 15 % harvest was found in > 95 % of the simulations from 17 areas and upwards. The effect of the climatic variable was found in > 84 % of the simulations from 20 areas and upwards.
 
 ```{r echo=FALSE, survivalplot}
 
@@ -397,6 +400,10 @@ lirype_s <- results_s %>%
 lirype_s
 
 ```
+
+#### Population growth rate 
+
+he effects of harvest treatment and the climatic variable on the population growth rate was modelled using a linear regression. The 30 % harvest treatment had an effect on the population growth rate in > 95 % of the simulations where the number of areas was above 21. The effect of 15 % harvest was harder to detect and it had an effect in about 50 % of the simulations with the number of areas above 28. The effect of the climatic variable on the population growth rate was found in > 80 % of the simulations from 27 areas and upwards.
 
 ```{r echo=FALSE, rplot}
 
