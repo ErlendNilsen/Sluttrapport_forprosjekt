@@ -337,7 +337,66 @@ Insert text and figures here...
 
 # Experimental design
 
-The setup of the experiment must be carefully designed such that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough sample, i.e., number of areas, to statistically estimate the effects of the treatments (harvest rate) and covariates (climatic variables) on survival and population density. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed in order to get the statistical power to test the effects of experimental treatments and climate.
+The setup of the experiment must be carefully designed such that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough samples, i.e., number of areas, to statistically estimate the effects of the treatments (harvest rate) and covariates (climatic variables) on survival and population growth rate. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed to get the statistical power to test the effects of experimental treatments and climate.
+
+## Simulation
+### Population parameters
+
+The willow ptarmigan populations that will be used in the harvest experiment are all surveyed approximately one month after breeding when the chicks are large enough to take flight. To simulate the effects of harvest and climate on willow ptarmigan survival and population growth rate, we used a post breeding projection matrix ($A_t$) with two age classes: juveniles (0-1 year) and adults (1+ years): 
+
+$$
+A_t =
+\begin{bmatrix}
+f_{juv,t} & f_{ad,t} \\
+s_{juv,t} & s_{ad,t}\\
+\end{bmatrix}
+$$
+where, $s_{juv,t}$ and $s_{ad,t}$ are age-specific survival rates and $f_{juv,t}$ og $f_{ad,t}$ are recruitment (number of juveniles produced per female) multiplied with age-specific survival. A projection matrix contains both survival and reproduction for a population and can be used to calculate the population size for the next time-step, *t + 1*, directly from the age-specific population size at the last time step, *t*:
+
+$$
+N_{t+1} = A_tN_t
+$$
+
+where *A* is the projection matrix and $N_t$ is a vector containing age-specific populations sizes at time *t*. In these simulations we assumed equal recruitment for the two age classes. Survival estimates were collected from Sandercock et al., (2011) while  recruitment was modeled as a normally distributed variable with an average of two juveniles per female and SD = 0.3. The yearly population growth rate, $r_t$, was calculated as: 
+
+$$
+r_t = log(N_{juv, t+1} + N_{ad, t+1}) - log(N_{juv, t} + N_{ad, t})
+$$
+
+where $N_{juv}$ and $N_{ad]$ is the number of juveniles and adults at time *t* and *t+1*. Both survival rates and population sizes were simulated with environmental stochasticity, i.e., year-to-year variation, and observation error to better reflect the «real» parameters that will be collected during the harvest experiment. 
+
+### Harvest treatment and covariate
+
+To evaluate and analyse the effects of harvest, we assigned the simulated hunting areas with a harvest treatment, i.e., a harvest rate of either 0, 15 % or 30 % each year over the study period of three years. Because we aim to test the effects of all treatments in all areas, the treatments were randomly given each hunting area without replacement to ensure that each area cannot have the same treatment twice. In addition to harvest treatment, we simulated the effect of a climate covariate directly on survival. The “climatic variable” chosen was latitude and it was simulated with a slope of 0.003. This does not mean that we expect to see any direct effect of latitude in the real experiment, but rather it was included as a proof-of-concept to test the effects of a climatic covariate. To investigate how many areas are needed in the harvest experiment to be able to estimate the effects of both harvest treatments and climate we simulated ptarmigan populations over a range of hunting areas, from 15 to 35. For each number of hunting areas, we did 500 simulations over three years.
+
+### Results
+
+```{r, survivalplot}
+
+results_s <- readRDS("data/lirype_survival.RDS")
+  
+## Plotting proportion of simulations with p-values above 0.95
+
+## Changing names for facet_wrap
+facet_labels <- c(
+  "harvest_rate0.15" = "Høstingsrate = 15 %",
+  "harvest_rate0.3" = "Høstingsrate = 30 %",
+  "latitude" = "Kovariat (f.eks klimaeffekt)"
+)
+
+lirype_plot <- results %>% 
+  filter(term != "(Intercept)") %>% 
+  ggplot(aes(x = n_areas, y = prop_p)) + 
+  geom_line()+
+  geom_hline(yintercept = 0.95, color = "red")+
+  facet_wrap(~term, labeller = as_labeller(facet_labels))+
+  theme_minimal(base_size = 20)+
+  labs(y = "Andel simuleringer med p < 0.05",
+       x = "Antall områder i simuleringen",
+       title = "Effekt av høsting og kovariat på tetthet - Lirype")
+lirype_plot
+
+```
 
 
 ### Glossary of terms

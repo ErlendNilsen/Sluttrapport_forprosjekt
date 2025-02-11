@@ -1,0 +1,480 @@
+---
+title: "Experimental harvest of ptarmigan, black grouse and capercaillie:" 
+subtitle: "Summary of planning stage"
+first_author:
+  - name: Erlend B. Nilsen
+    address: NINA Trondheim
+    email: erlend.nilsen@nina.no
+second_authors:
+  - name: Lasse F. Eriksen
+    address: NINA Trondheim
+    email: lasse.eriksen@nina.no
+  - name: Christoffer Høyvik Hilde
+    address: NINA Trondheim
+    email: christoffer.hilde@nina.no
+last_author:    
+  - name: Matthew Grainger
+    address: NINA Trondheim
+    email: matthew.grainger@nina.no
+reportnr: 1234
+location: Trondheim
+ISBN_end: 1234-5
+self-ref: Brum, O., Robin, K. 2016. En veldig bra titel. 
+english-self-ref: the Poo, W., Robin, C. 2016. A very good title.
+handle-endpoint: [fås av bibliotek]
+access: Åpen
+secure_pdf:
+cover_picture: coverPicture.png
+cover_picture_text: Forsidebildetekst
+cover_picture_photographer: Fotografnavn
+line_numbering:
+qualitycontrol: [xx]
+boss_sign: Forskningssjef [fylles ut av forskningssjefen] (sign.)
+customer: [xx]
+customer_ref: [xx]
+customer_contact: [xx]
+bibliography: mybibfile.bib
+csl: nina.csl
+output: 
+  NinaR::ninaHtmlRapport:
+    highlight: tango
+    fig_caption: yes
+    latex_engine: xelatex
+crossref:
+  fig-title: Figur     # (default is "Figure")
+  tbl-title: Tabell     # (default is "Table") 
+  fig-prefix: Figur   # (default is "Figure")
+  tbl-prefix: Tabell    # (default is "Table")   
+  sec-prefix: Kapittel
+foreword: 
+    text: [Forord inn her]
+    location: [Sted, forord]
+    name: [Prosjektleder]
+sammendrag: |
+  Tekst inn her, et kort resymé av innholdet. \textbf{Maksimalt 4000 tegn inkl. ordmellomrom. Dette er maxgrense i sammendragsfeltet i CRIStin, og dersom sammendraget er lengre kommer det ikke med her.} Teksten i sammendraget er søkbar i databaser og på nett, og er viktig for at rapporten skal fanges opp ved søk.\
+  \
+  Seksjoner og tomme rader mellom dem er litt tricky å få til i YAML-avsnittet, men det kan gjøres slik. Tomme rader i forordet kan også lages på samme måte.
+  
+abstract: Tekst inn her, et kort resymé av innholdet. \textbf{Maksimalt 4000 tegn inkl. ordmellomrom. Dette er maxgrense i sammendragsfeltet i CRIStin, og dersom sammendraget er lengre kommer det ikke med her.} Teksten i sammendraget er søkbar i databaser og på nett, og er viktig for at rapporten skal fanges opp ved søk.
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
+
+require(NinaR)
+require(xtable)
+require(knitr)
+require(tidyverse)
+
+```
+
+
+
+# Introduction {#inl}
+
+Evidence based management of wildlife resources is an overarching goal in wildlife management (refs)....
+
+In Norway, three major research projects related to willow ptarmigan hunting have been carried out in the last 30 years (respectively the "Grouse hunting project" in 1995-1999, the "Grouse management project" in 2006-2011, and "Sustainable small game management" in 2014-2017). These have produced considerable knowledge that contributes to a more sustainable management of our most important small game resource. In addition, international research in the field, with a significant element of research carried out in Norway, has moved the research front forward. Nevertheless, there are still significant uncertainties related to how to ensure a sustainable management system in a future scenario where human activity and ongoing climate change affect mountain ecosystems to a significant extent.  
+
+Today's grouse research rests on solid experimental studies of the importance of hunting, but it is not a given that the levels for sustainable harvesting that were documented in the earlier studies will also apply to future grouse populations, as these will be influenced by a different climate and changed trophic interactions. As part of an adaptive management, it will be of great importance to carry out a conceptual replication of the classic hunting experiments that were carried out in Norway under the auspices of the "Grouse hunting project" in the late 1990s. However, before such a larger empirical study is carried out, it will be a prerequisite that an up-to-date knowledge overview of the research-based literature on the sustainable management of grouse from a climate perspective is prepared, as well as that a thorough evaluation of how best to design such an experimental study is carried out. 
+
+In this report, we will present the results from the planning stage of the project. It includes two main sections: i) a systematic mapping of the literature related to effects of harvest on galliformes, and ii) a thorough evaluation of the experimental design including both the sampling of study subjects and assignment of treatment levels.
+
+# Systematic mapping of the literature
+
+This systematic map is produced as part of the preparation of a large-scale harvest experiment in Norway outlined above. The protocol was prepared prior to conducting the search. Here, we include the relevant information and report any deviation from the protocol.
+
+## Objective of the review  
+
+The main objective of this review is to map the available literature on effects of managed harvest/hunting on galliform species.  
+
+### Research question  
+
+What is the effect of managed harvest/hunting on Galliformes? 
+
+## Methods 
+
+### Search for articles 
+
+We used a PIO (Population, Intervention, Outcome) question structure to help develop the search strategy.  
+
+-   Population (P): Bird species within the order Galliformes 
+
+-   Intervention (I): Legal (managed) hunting or harvest 
+
+-   Outcome (O): The  ecological impacts, population dynamics, or behaviours related to hunting/harvesting. 
+
+We searched for academic literature (publications) in two search platforms; Web of Science and lens.org. Specifically, we will search the Web of Science Core Collection (WOS.SCI: 1987 to 2025, WOS.AHCI: 1987 to 2025, WOS.ESCI: 2020 to 2025 and WOS.SSCI: 1987 to 2025) using the NINA library subscription using the following search string: 
+
+((TS=(galliform\* OR grouse OR ptarmigan OR Phasianidae OR pheasant OR "lagopus lagopus" OR "lagopus mura" OR "wild turkey" OR "bobwhite" OR partridge)) 
+
+AND (TS=("hunt" OR "harvest"))) 
+
+AND SU=("Ecology" OR "Wildlife" OR "Environment") 
+
+For lens.org we will use the following search string: 
+
+(abstract:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus mura" OR "wild turkey" OR "bobwhite" OR "partridge") OR title:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus mura" OR "wild turkey" OR "bobwhite" OR "partridge")) AND abstract:("hunt" OR "harvest") OR title:("hunt" OR "harvest") AND field_of_study:("Ecology" OR "Wildlife" OR "Environment") 
+
+In addition, a backward and forward citation chasing (using CitationChaser) was performed based on the three first benchmark papers listed below (Sandercock et al. 2011; Pedersen et al. 2004; Sedinger & Rotella 2005).  
+
+### Benchmark papers 
+
+The following benchmark papers was used to assess the effectiveness of the search string. We expected to find all these papers in a review of this question. We recorded if each benchmark paper is found in the searches (WoS and lens.org).  
+
+-   Sandercock, B. K., E. B. Nilsen, H. Brøseth, and H. C. Pedersen. 2011. Is hunting mortality additive or compensatory to natural mortality? Effects of experimental harvest on the survival and cause-specific mortality of willow ptarmigan. Journal of Animal Ecology 80:244-258. 
+
+-   Pedersen, H. C., H. Steen, L. Kastdalen, H. Brøseth, R. A. Ims, W. Svendsen, and N. G. Yoccoz. 2004. Weak compensation of harvest despite strong density-dependent growth in willow ptarmigan. Proceedings of the Royal Society of London Series B-Biological Sciences 271:381-385. 
+
+-   Sedinger, J.S. & Rotella, J.J. 2005. Effect of harvest on sage-grouse Centrocercus urophasianus populations: what can we learn from the current data? Wildlife Biology, 11, 371–375. 
+
+-   Pedersen, Å. Ø., E. M. Soininen, S. Unander, M. H. Willebrand, and E. Fuglei. 2014. Experimental harvest reveals the importance of territoriality in limiting the breeding population of Svalbard rock ptarmigan. European Journal of Wildlife Research 60:201-212. 
+
+-   Brøseth, H., J. Tufto, H. C. Pedersen, H. Steen, and L. Kastdalen. 2005. Dispersal patterns in a harvested willow ptarmigan population. Journal of Applied Ecology 42:453-459. 
+
+-   Brøseth, H., E. B. Nilsen, and H. C. Pedersen. 2012. Temporal quota corrections based on timing of harvest in a small game species. European Journal of Wildlife Research 58:797-802. 
+
+-   Brøseth, H., and H. C. Pedersen. 2000. Hunting effort and game vulnerability studies on a small scale: a new technique combining radio-telemetry, GPS and GIS. Journal of Applied Ecology 37:182-190. 
+
+-   Henden, J.-A., R. A. Ims, N. G. Yoccoz, E. J. Asbjørnsen, A. Stien, J. P. Mellard, T. Tveraa, F. Marolla, and J. U. Jepsen. 2020. End-user involvement to improve predictions and management of populations with complex dynamics and multiple drivers. Ecological Applications n/a:e02120. 
+
+-   Small, R.J., Holzwart, J.C. & Rusch, D.H. 1991. Predation and hunting mortality of ruffed grouse in central Wisconsin. Journal of Wildlife Management, 55, 512–520. 
+
+## Article screening  
+
+We used pre-determined inclusion/exclusion criteria when screening eligible studies. Excluded papers will be shown in a flowchart using the ROSES flow chart (Haddaway et al. 2020). Included studies was de-duplicated based on DOI and title matches using the deduplication tool in Rayyan.  
+
+After de-duplication, title and abstract screening was done using the eligibility criteria. If uncertainty remained, the full text version was visited to confirm/reject. The screening was done using Rayyan. A set of XX papers was reviewed by three members of the review team to ensure consistency.  
+
+### Eligibility criteria 
+
+We reviewed scientific articles from all parts of the world. We included papers covering all galliform species. Studies of both native and introduced populations were eligible. Studies of all spatial scales and across all relevant ecosystems were considered eligible. Only studies documenting the effects of legal and/or managed harvest on galliform populations were eligible. Studies of poaching were not eligible. The effects must be assessed quantitatively for the study to be eligible. Eligible outcomes included effects of harvest on population abundance, density, sex- and age structure, recruitment, survival, behaviour, genetic, physiology and distribution. Studies focusing on lead (or heavy metal) poisoning or content in wild birds from shooting were not eligible. Both observational and experimental study designs are eligible. Mathematical simulation studies are eligible.    
+
+### Title and abstract screening stage 
+
+We used the following decision tree to make decisions about inclusion and exclusion at the Title and Abstract stage. 
+
+1.  Is there an abstract for the article? 
+
+<!-- -->
+
+1.  Yes - Go to 3. 
+
+<!-- -->
+
+2.  No - Go to 2 
+
+<!-- -->
+
+2.  Can you find the abstract online? (Use google.com or Google Scholar to search for the title of the article) 
+
+<!-- -->
+
+1.  Yes - Enter the url for the website where you found the abstract in the ‘Add note’ box  and Go to 3 
+
+<!-- -->
+
+2.  No – Add/select ‘Abstract not found online’  in the ‘Exclude with Reason’ box. 
+
+<!-- -->
+
+3.  Is the abstract in English/Norwegian/Danish/Swedish? 
+
+<!-- -->
+
+1.  Yes - Go to 4. 
+
+<!-- -->
+
+2.  No – Add/select ‘Abstract not in English/Norwegian/Danish/Swedish’  in the ‘Exclude with Reason’ box. 
+
+<!-- -->
+
+4.  Does the abstract represent a research study focused on Galliformes? 
+
+<!-- -->
+
+1.  Yes - Go to 5 
+
+<!-- -->
+
+2.  No – Add/select ‘Not Galliformes’  in the ‘Exclude with Reason’ box. 
+
+<!-- -->
+
+5.  Does the study document the effects of legal and/or managed harvest on Galliformes populations? 
+
+<!-- -->
+
+1.  Yes -  Go  to 6 
+
+<!-- -->
+
+2.  No – Add/select ‘Not Hunting’  in the ‘Exclude with Reason’ box. 
+
+<!-- -->
+
+6.  Are effects assessed quantitatively? 
+
+<!-- -->
+
+1.  Yes – Press the include button 
+
+<!-- -->
+
+2.  No - Add/select ‘Not quantitative’  in the ‘Exclude with Reason’ box.   
+
+Conflicts between reviewers will be resolved in a group discussion with the final decision being made by EBN.   
+
+### Full text eligibility 
+
+Papers included at the Title and Abstract stage was taken forward to the full text screening stage. A RIS file of included articles was downloaded from Rayyan and added to a Zotero database. PDF versions of each paper was searched using Zotero’s “Find Available PDF” tool, ResearchGate, Google Scholar and Google. If a PDF was not available online (or was not open to us), the paper was excluded at this stage of the review. Full text papers was excluded if they are/did not: 
+
+-   Written in English, Norwegian, Swedish or Danish  
+
+<!-- -->
+
+-   Focus on Galliformes 
+
+<!-- -->
+
+-   Document the effect of legal hunting on Galliformes 
+
+<!-- -->
+
+-   Assess the effect of hunting quantitatively 
+
+### Data coding  
+
+From all papers that met the eligibility criteria, we extracted key variables (aka “data coding”). In addition to metadata about the publication (publication year, journal name etc) we extracted the following information from the abstract or the full-text:   
+
+Species 
+
+Study area location 
+
+Country/countries 
+
+County/counties 
+
+Municipality/municipalities 
+
+Study extent / size of study area 
+
+-   Multinational 
+
+-   National 
+
+-   Regional (e.g. a county, a larger mountain area etc) 
+
+-   Local (e.g. a municipality or part of municipality) 
+
+-   Site level (\< 1km2) 
+
+Research type 
+
+Observational  / analyses of empirical data 
+
+Simulation based / scenario 
+
+Study design – observational studies 
+
+-   Randomized Controlled Trials (RCTs) 
+
+-   Before-After-Control-Impact (BACI) 
+
+-   Control-Impact (CA) 
+
+-   Before-After (BA) 
+
+-   After (A) 
+
+Harvest level 
+
+-   Reported harvest mortality 
+
+Assessment of additivity of harvest mortality 
+
+-   Boolean (Yes / No) 
+
+Outcome variables: EBV class 
+
+-   Genetic composition 
+
+-   Species population 
+
+-   Species trait 
+
+Outcome variable: EBV name \[not exhaustive; \* indicate name that is not included in original framework\] 
+
+-   Inbreeding 
+
+-   Effective population size 
+
+-   Species distribution 
+
+-   Species abundance 
+
+-   Population density \* 
+
+-   Morphology 
+
+-   Physiology 
+
+-   Movement rates\* 
+
+-   Habitat use / selection\* 
+
+-   Reproduction  
+
+-   Survival\* 
+
+-   Sex- and age structure\* 
+
+## Results from the literature review
+
+Insert text and figures here...
+
+# Experimental design
+
+The setup of the experiment must be carefully designed such that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough samples, i.e., number of areas, to statistically estimate the effects of the treatments (harvest rate) and covariates (climatic variables) on survival and population growth rate. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed to get the statistical power to test the effects of experimental treatments and climate.
+
+## Simulation
+### Population parameters
+
+The willow ptarmigan populations that will be used in the harvest experiment are all surveyed approximately one month after breeding when the chicks are large enough to take flight. To simulate the effects of harvest and climate on willow ptarmigan survival and population growth rate, we used a post breeding projection matrix ($A_t$) with two age classes: juveniles (0-1 year) and adults (1+ years): 
+
+$$
+A_t =
+\begin{bmatrix}
+f_{juv,t} & f_{ad,t} \\
+s_{juv,t} & s_{ad,t}\\
+\end{bmatrix}
+$$
+where, $s_{juv,t}$ and $s_{ad,t}$ are age-specific survival rates and $f_{juv,t}$ og $f_{ad,t}$ are recruitment (number of juveniles produced per female) multiplied with age-specific survival. A projection matrix contains both survival and reproduction for a population and can be used to calculate the population size for the next time-step, *t + 1*, directly from the age-specific population size at the last time step, *t*:
+
+$$
+N_{t+1} = A_tN_t
+$$
+
+where *A* is the projection matrix and $N_t$ is a vector containing age-specific populations sizes at time *t*. In these simulations we assumed equal recruitment for the two age classes. Survival estimates were collected from Sandercock et al., (2011) while  recruitment was modeled as a normally distributed variable with an average of two juveniles per female and SD = 0.3. The yearly population growth rate, $r_t$, was calculated as: 
+
+$$
+r_t = log(N_{juv, t+1} + N_{ad, t+1}) - log(N_{juv, t} + N_{ad, t})
+$$
+
+where $N_{juv}$ and $N_{ad]$ is the number of juveniles and adults at time *t* and *t+1*. Both survival rates and population sizes were simulated with environmental stochasticity, i.e., year-to-year variation, and observation error to better reflect the «real» parameters that will be collected during the harvest experiment. 
+
+### Harvest treatment and covariate
+
+To evaluate and analyse the effects of harvest, we assigned the simulated hunting areas with a harvest treatment, i.e., a harvest rate of either 0, 15 % or 30 % each year over the study period of three years. Because we aim to test the effects of all treatments in all areas, the treatments were randomly given each hunting area without replacement to ensure that each area cannot have the same treatment twice. In addition to harvest treatment, we simulated the effect of a climate covariate directly on survival. The “climatic variable” chosen was latitude and it was simulated with a slope of 0.003. This does not mean that we expect to see any direct effect of latitude in the real experiment, but rather it was included as a proof-of-concept to test the effects of a climatic covariate. To investigate how many areas are needed in the harvest experiment to be able to estimate the effects of both harvest treatments and climate we simulated ptarmigan populations over a range of hunting areas, from 15 to 35. For each number of hunting areas, we did 500 simulations over three years.
+
+### Results
+
+
+
+```{r, survivalplot}
+results_list <- readRDS("data/lirype.RDS")
+
+# Function to compute slope, p-value, and confidence interval - growth rate
+compute_slope_ci_r <- function(data) {
+  #data <- data %>% mutate(lead_density = lead(density))  
+  
+  model <- lm((robs) ~ harvest_rate + latitude, data = data)
+  
+  # Extract coefficients, confidence intervals, and p-values 
+  results <- broom.mixed::tidy(model, conf.int = TRUE)
+  
+  # Select only the rows for harvest_rate and latitude
+  results <- results %>%
+    filter(term %in% c("harvest_rate0.15", "harvest_rate0.3", "latitude")) %>%
+    select(term, estimate, conf.low, conf.high, p.value)
+  
+  return(results)
+}
+
+# Function to compute slope, p-value, and confidence interval - survival
+compute_slope_ci_s <- function(data) {
+  #data <- data %>% mutate(lead_density = lead(density))  
+  
+  model <- glm((sa_obs) ~ harvest_rate + latitude, data = data, family = quasibinomial)
+  
+  # Extract coefficients, confidence intervals, and p-values 
+  results <- broom::tidy(model, conf.int = TRUE)
+  
+  # Select only the rows for harvest_rate and latitude
+  results <- results %>%
+    filter(term %in% c("harvest_rate0.15", "harvest_rate0.3", "latitude")) %>%
+    select(term, estimate, conf.low, conf.high, p.value)
+  
+  return(results)
+}
+
+
+results_s <- bind_rows(results_list) %>%
+  filter(time != 4) %>% 
+  group_by(n_sim, n_areas) %>%
+  reframe(compute_slope_ci_s(cur_data()), .groups = "drop") %>% 
+  ungroup() %>% 
+  group_by(term, n_areas) %>% 
+  summarize(mean_p = mean(p.value),
+            prop_p = sum(p.value < 0.05)/length(p.value))
+  
+## Plotting proportion of simulations with p-values above 0.95
+
+## Changing names for facet_wrap
+facet_labels <- c(
+  "harvest_rate0.15" = "Høstingsrate = 15 %",
+  "harvest_rate0.3" = "Høstingsrate = 30 %",
+  "latitude" = "Kovariat (f.eks klimaeffekt)"
+)
+
+lirype_plot <- results %>% 
+  filter(term != "(Intercept)") %>% 
+  ggplot(aes(x = n_areas, y = prop_p)) + 
+  geom_line()+
+  geom_hline(yintercept = 0.95, color = "red")+
+  facet_wrap(~term, labeller = as_labeller(facet_labels))+
+  theme_minimal(base_size = 20)+
+  labs(y = "Andel simuleringer med p < 0.05",
+       x = "Antall områder i simuleringen",
+       title = "Effekt av høsting og kovariat på tetthet - Lirype")
+lirype_plot
+
+```
+
+
+
+
+### Glossary of terms
+
+#### ***General terms***
+
+**Outcome variable:** This is the variable of interest, the one to draw inference about. Defining the outcome is part of the planning of an experiment. In our harvest experiment, the outcome variables of interest include the effects of experimental harvest on i) survival and ii) population growth.   
+
+**Study population**: The population we will draw inference about. In strict terms, this is the willow ptarmigan population within the geographical boundaries of our study. Assuming that the willow ptarmigan population in our study area respond in a similar way to harvest mortality as other populations, we can make predictions about how the response will be in other areas. By including *covariates* that affect the outcome (response to harvest) these predictions could be made more accurate and less biased.
+
+**Statistical population**: A statistical population is the set of subjects that we sample from and make inference from. In our case, the statistical population is the harvest areas that are included within the study area. One subject in the statistical population from which we draw some measurement is typically named a statistical unit or a sampling unit.
+
+**Sampling frame:** The sampling frame is the “collection” of all study subjects that are available for inclusion / sampling. A structured way of thinking about this is to think of a regular grid covering the whole study area. However, in our case the grid is not regular but consists of harvest areas of different sizes. In addition, we will have to make other adjustments to the sampling frame: i) only areas with “sufficient” line transect survey data are available for inclusion, and ii) only areas larger than a cut-off size. These adjustments and their consequences should be considered before we make the final decision, as they can induce bias (see below).   
+
+**Blocked study design**: In blocked designs, the study units are grouped (blocked) by some characteristics. In a [*randomized block design*]{.underline}, the treatment level is randomly assigned within the blocks. A block design typically means that the sample size must be larger in order to obtain the same statistical power as in non-blocked designs.    
+
+**Internal and external validity**: The term [*internal validity*]{.underline} refers to which extent the inference drawn from the sample, e.g. in terms of cause-effect relationships are true for the sample itself. The term external validity relates to which extent one can generalize from the current sample to the larger population that we usually want to make statements about. While the former in large-part is determined by the robustness of the methods and how treatment levels are assigned etc, the latter is in large-part determined by the sampling design and to which extent the included units are representative for the population.  
+
+#### Recruitment/inclusion of study subjects
+
+The rules or algorithms chosen when recruiting / including study subjects. Since we cannot usually measure all subjects in the population, this usually involves some form of probabilistic or non-probabilistic sampling. Should be constructed to minimize the potential for *biased* estimates of inference. For instance, if all included subjects share a common characteristic that is not shared with other members of the statistical population, then the results might be biased. This is termed selection bias. Selection bias occurs whenever the subjects that are included in the study systematically deviate from the study population. Note that selection bias might also apply when assigning treatment level to a study unit in an experiment (covered below).  
+
+**Probabilistic sampling to recruit study subjects:** This involves using recruiting units into the study by some sort of random (probabilistic) sampling. In the basic form (i.e. [*random sampling*]{.underline}), all units have the same probability of being recruited. In [*stratified random sampling*]{.underline}, the units are sorted along one or more covariates to ensure all values along the covariate are represented with a certain proportion in the sample. Under proportional stratification, all “strata” are represented with a proportion that is similar to their proportion in the statistical population. Under balanced stratification, the number of recruited units are balanced (e.g. similar) across strata. Under [*restricted random sampling*]{.underline}, the initial sampling might be random but it is combined with rules that make the next decisions non-probabilistic. Examples include “do not include units that are located next to each other” etc. Another sampling strategy that combines probabilistic and non-probabilistic sampling is [*systematic sampling*]{.underline} when the selection of the first unit is decided by a random draw.
+
+**Non-probabilistic selection to recruit study subjects:** These approaches include methods that use non-probabilistic criteria to select study subjects. Such criteria could include geography, certain characteristics (i.e - placement along a covariate axis but with no random selection – as opposed to stratified random sampling) and expert knowledge. A very specific type of non-probabilistic selection is [*convenience sampling*]{.underline} where the units that for some reason are “easiest” to include are selected. One method that further resembles “stratified random sampling” is what is often termed [*proportional quota sampling*]{.underline} in the medical literature. Here, the number of units that are included are proportional to the size of the strata, but the selection of units to include are not done at random. In cases when the total size of the population from which to draw sampling units from is unknown, this method will be known as [*non-proportional quota sampling*]{.underline}. Finally, *purposive sampling* is a rather broad class of approaches where each study unit is recruited into the study based on one or more specific characteristics. In strict terms, a non-probabilistic selection of study subjects does not rely on a sampling frame.   
+
+#### Assignment of treatment level to each study unit  
+
+In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by [*random assignment*]{.underline} or non-random ([*quasi random*]{.underline}) assignment. Under [*random assignment*]{.underline} of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In [*blocked designs*]{.underline}, treatment levels are randomly assigned within blocks. In a [*crossover study*]{.underline} or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a [*balanced study design*]{.underline}, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogenous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control.   
+
+ 
+

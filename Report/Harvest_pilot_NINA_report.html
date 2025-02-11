@@ -34,6 +34,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="Harvest_pilot_NINA_report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="Harvest_pilot_NINA_report_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -289,7 +318,34 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="experimental-design" class="level1">
 <h1>Experimental design</h1>
-<p>The setup of the experiment must be carefully designed such that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough sample, i.e., number of areas, to statistically estimate the effects of the treatments (harvest rate) and covariates (climatic variables) on survival and population density. ### Glossary of terms</p>
+<p>The setup of the experiment must be carefully designed such that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough samples, i.e., number of areas, to statistically estimate the effects of the treatments (harvest rate) and covariates (climatic variables) on survival and population growth rate. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed to get the statistical power to test the effects of experimental treatments and climate.</p>
+<section id="simulation" class="level2">
+<h2 class="anchored" data-anchor-id="simulation">Simulation</h2>
+<section id="population-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="population-parameters">Population parameters</h3>
+<p>The willow ptarmigan populations that will be used in the harvest experiment are all surveyed approximately one month after breeding when the chicks are large enough to take flight. To simulate the effects of harvest and climate on willow ptarmigan survival and population growth rate, we used a post breeding projection matrix (<span class="math inline">\(A_t\)</span>) with two age classes: juveniles (0-1 year) and adults (1+ years):</p>
+<p><span class="math display">\[
+A_t =
+\begin{bmatrix}
+f_{juv,t} &amp; f_{ad,t} \\
+s_{juv,t} &amp; s_{ad,t}\\
+\end{bmatrix}
+\]</span> where, <span class="math inline">\(s_{juv,t}\)</span> and <span class="math inline">\(s_{ad,t}\)</span> are age-specific survival rates and <span class="math inline">\(f_{juv,t}\)</span> og <span class="math inline">\(f_{ad,t}\)</span> are recruitment (number of juveniles produced per female) multiplied with age-specific survival. A projection matrix contains both survival and reproduction for a population and can be used to calculate the population size for the next time-step, <em>t + 1</em>, directly from the age-specific population size at the last time step, <em>t</em>:</p>
+<p><span class="math display">\[
+N_{t+1} = A_tN_t
+\]</span></p>
+<p>where <em>A</em> is the projection matrix and <span class="math inline">\(N_t\)</span> is a vector containing age-specific populations sizes at time <em>t</em>. In these simulations we assumed equal recruitment for the two age classes. Survival estimates were collected from Sandercock et al., (2011) while recruitment was modeled as a normally distributed variable with an average of two juveniles per female and SD = 0.3. The yearly population growth rate, <span class="math inline">\(r_t\)</span>, was calculated as:</p>
+<p><span class="math display">\[
+r_t = log(N_{juv, t+1} + N_{ad, t+1}) - log(N_{juv, t} + N_{ad, t})
+\]</span></p>
+<p>where <span class="math inline">\(N_{juv}\)</span> and <span class="math inline">\(N_{ad]\)</span> is the number of juveniles and adults at time <em>t</em> and <em>t+1</em>. Both survival rates and population sizes were simulated with environmental stochasticity, i.e., year-to-year variation, and observation error to better reflect the «real» parameters that will be collected during the harvest experiment.</p>
+</section>
+<section id="harvest-treatment-and-covariate" class="level3">
+<h3 class="anchored" data-anchor-id="harvest-treatment-and-covariate">Harvest treatment and covariate</h3>
+<p>To evaluate and analyse the effects of harvest, we assigned the simulated hunting areas with a harvest treatment, i.e., a harvest rate of either 0, 15 % or 30 % each year over the study period of three years. Because we aim to test the effects of all treatments in all areas, the treatments were randomly given each hunting area without replacement to ensure that each area cannot have the same treatment twice. In addition to harvest treatment, we simulated the effect of a climate covariate directly on survival. The “climatic variable” chosen was latitude and it was simulated with a slope of 0.003. This does not mean that we expect to see any direct effect of latitude in the real experiment, but rather it was included as a proof-of-concept to test the effects of a climatic covariate. To investigate how many areas are needed in the harvest experiment to be able to estimate the effects of both harvest treatments and climate we simulated ptarmigan populations over a range of hunting areas, from 15 to 35. For each number of hunting areas, we did 500 simulations over three years.</p>
+</section>
+<section id="glossary-of-terms" class="level3">
+<h3 class="anchored" data-anchor-id="glossary-of-terms">Glossary of terms</h3>
 <section id="general-terms" class="level4">
 <h4 class="anchored" data-anchor-id="general-terms"><strong><em>General terms</em></strong></h4>
 <p><strong>Outcome variable:</strong> This is the variable of interest, the one to draw inference about. Defining the outcome is part of the planning of an experiment. In our harvest experiment, the outcome variables of interest include the effects of experimental harvest on i) survival and ii) population growth. &nbsp;&nbsp;</p>
@@ -309,6 +365,8 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="assignment-of-treatment-level-to-each-study-unit">Assignment of treatment level to each study unit &nbsp;</h4>
 <p>In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by <u><em>random assignment</em></u> or non-random (<u><em>quasi random</em></u>) assignment. Under <u><em>random assignment</em></u> of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In <u><em>blocked designs</em></u>, treatment levels are randomly assigned within blocks. In a <u><em>crossover study</em></u> or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a <u><em>balanced study design</em></u>, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogenous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control. &nbsp;&nbsp;</p>
 <p>&nbsp;</p>
+</section>
+</section>
 </section>
 </section>
 
