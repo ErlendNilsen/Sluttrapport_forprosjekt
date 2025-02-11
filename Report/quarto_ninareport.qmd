@@ -88,6 +88,10 @@ require(xtable)
 require(knitr)
 require(tidyverse)
 require(ggpubr)
+library(rgbif)
+library(purrr)
+
+
 ```
 
 # Introduction {#inl}
@@ -219,11 +223,11 @@ excluded <- data |>
 included <- anti_join(data, excluded)
 ```
 
-Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above [@Sandercock2011; @Pedersen2004; @Sedinger2005]. Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the Abstract and Title stage. Of the 850 included articles, a total of 200 were moved further to full-text screening, of which 166 papers that had a "include" decision and 34 a "maybe" decision. There were 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the fulltext stage and assessed for eligibility. Exclusion decisions (650 articles) were due to the research not focusing on the effects of legal or managed hunting (365), not being focused on Galliformes (276), not quantitative (23), abstract not found online (16), or abstract not available in English, Norwegian, Swedish or Danish (3).
+Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above [@Sandercock2011; @Pedersen2004; @Sedinger2005]. Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the Abstract and Title stage. Of the 850 included articles, a total of 200 were moved further to full-text screening, of which 166 papers that had a "include" decision and 34 a "maybe" decision. There were 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the fulltext stage and assessed for eligibility. Exclusion decisions (650 records) were due to the research not focusing on the effects of legal or managed hunting (365 records), not being focused on Galliformes (276 records), not quantitative (23 records), abstract not found online (16 records), or abstract not available in English, Norwegian, Swedish or Danish (3 records).
 
 At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` papers that went forward to the data extraction stage.
 
-![](images/roses (3)-01.png)
+![PRISMA Flowchart](images/roses%20(3)-01.png){#fig-prisma}
 
 ```{r}
 #| echo: false
@@ -564,51 +568,10 @@ The number of studies were very unequal among species (@fig-species): The most f
 #| warning: false
 #| message: false
 #| label: fig-species
-#| fig-cap: "The number of studies for each species"
+#| fig-width: 15
+#| fig-cap: "The number of studies for each species and country"
 
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-library(rgbif)
-library(purrr)
 
-included_full_details |>
-  separate_rows(species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta, sep = ", ") |>
-  mutate(
-    species_corrected = map_chr(
-      species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta,
-      ~ {
-        res <- tryCatch(name_backbone(name = .x), error = function(e) NULL)
-        if (!is.null(res) && "species" %in% names(res) && !is.na(res$species)) {
-          res$species # Return corrected name
-        } else {
-          .x # Return original if not found
-        }
-      }
-    )
-  ) |>
-  group_by(species_corrected) |>
-  tally() |>
-  drop_na() |>
-  ggplot(aes(reorder(species_corrected, n), n)) +
-  geom_col(fill=species_colours[3]) + # Changed from geom_histogram(stat="identity") to geom_col()
-  labs(
-    x = "Species",
-    y = "Number of Responses"
-  ) +
-  theme_minimal() +
-  coord_flip() + 
-  theme(text = element_text(size = 15))
-```
-
-```{r}
-#| echo: false
-#| eval: true
-#| warning: false
-#| message: false
-#| label: fig-location_species
-#| fig-cap: "The distribution of countries by species"
-#|  
 country_data<-included_full_details |>
   separate_rows(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, sep = ", ") |> # Split at comma and create new rows
   group_by(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma) |>
@@ -637,24 +600,46 @@ country_sp_data<-country_data |>
     )
   ) 
 
-# Aggregate data to get counts
+# Aggregate data to get counts pr species
+species_data <- country_sp_data |> group_by(species_corrected) |>
+  tally() |>
+  drop_na() |>
+  rename(Species = species_corrected)
+
+# Aggregate data to get counts pr species pr country
 heatmap_data <- country_sp_data %>%
   count(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma, species_corrected)|> 
   drop_na()
 
-colnames(heatmap_data) <- c("Country", "Species", "Count")
+colnames(heatmap_data) <- c("Country", "Species", "Count") 
+heatmap_data <- heatmap_data %>% left_join(., species_data)
+
+p7 <- ggplot(species_data, aes(reorder(Species, n), n)) +
+  geom_col(fill=species_colours[3]) + # Changed from geom_histogram(stat="identity") to geom_col()
+  labs(
+    x = "Species",
+    y = "Total number of records"
+  ) +
+  theme_minimal() +
+  coord_flip() + 
+  theme(text = element_text(size = 20))
 
 
-ggplot(heatmap_data, aes(x = Country, y = Species, size = Count)) +
+p8 <- ggplot(heatmap_data, aes(x = Country, y = reorder(Species, n), size = Count)) +
   geom_point(colour = species_colours[3], alpha = 0.8)+
   scale_fill_manual(values = species_colours) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
   labs(x = "Country",
-       y = "Species",
+       y = "",
        fill = "") +
   theme(legend.position = "none", legend.title = element_blank()) +
-  theme(text = element_text(size = 15))
+  theme(axis.text.y=element_blank()) +
+  theme(text = element_text(size = 20))
+
+
+ggarrange(p7, p8, ncol=2, align = "h")
+
 
 ```
 
@@ -771,6 +756,10 @@ ggplot(heatmap_data, aes(x = Design, y = Species, size = Count)) +
   theme(text = element_text(size = 15))
 ```
 
+### Summary of the literature mapping
+
+Overall, there has been a substantial amount of research on the effects of harvest on galliform speceis. However, our mapping of the literature also revealed that the literature is dominated by non-experimental research and often conducted at a local or regional scale. We identified only two research projects that were based on a RCT approach, of which one of the projects (represented with five papers) were the former Norwegian project on willow ptarmigan carried out in the late 1990-ties. Moreover, while the willow ptarmigan (or willow grouse) is well represented in the literature, there was little research on capercaillie (x records) and black grouse (x records), and no experimental assessment of the effects of harvest were identified.
+
 # Experimental design
 
 ***BOX: Glossary of terms***
@@ -800,17 +789,3 @@ The rules or algorithms chosen when recruiting / including study subjects. Since
 **Assignment of treatment level to each study unit**  
 
 In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by [*random assignment*]{.underline} or non-random ([*quasi random*]{.underline}) assignment. Under [*random assignment*]{.underline} of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In [*blocked designs*]{.underline}, treatment levels are randomly assigned within blocks. In a [*crossover study*]{.underline} or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a [*balanced study design*]{.underline}, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogenous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control.   
-
-## Supplementary Information
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-included_full_details |> 
-  select(author,title,year,source,doi) |> 
-  kableExtra::kable() |> 
-  kableExtra::kable_styling()
-
-```
