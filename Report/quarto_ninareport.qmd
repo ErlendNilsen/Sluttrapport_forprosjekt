@@ -222,6 +222,8 @@ Our searches returned 1023 articles in total, with 542 from Web of Science, 112 
 
 At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` papers that went forward to the data extraction stage.
 
+![](images/roses (3)-01.png)
+
 ```{r}
 #| echo: false
 #| warning: false
