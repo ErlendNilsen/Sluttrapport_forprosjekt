@@ -363,7 +363,7 @@ $$
 r_t = log(N_{juv, t+1} + N_{ad, t+1}) - log(N_{juv, t} + N_{ad, t})
 $$
 
-where $N_{juv}$ and $N_{ad]$ is the number of juveniles and adults at time *t* and *t+1*. Both survival rates and population sizes were simulated with environmental stochasticity, i.e., year-to-year variation, and observation error to better reflect the «real» parameters that will be collected during the harvest experiment. 
+where $N_{juv}$ and $N_{ad}$ is the number of juveniles and adults at time *t* and *t+1*. Both survival rates and population sizes were simulated with environmental stochasticity, i.e., year-to-year variation, and observation error to better reflect the «real» parameters that will be collected during the harvest experiment. 
 
 ### Harvest treatment and covariate
 
@@ -374,7 +374,12 @@ To evaluate and analyse the effects of harvest, we assigned the simulated huntin
 
 The effects of harvest treatment and the climatic variable on survival was modelled using a generalized linear model with a quasibinomial error function. In the simulated harvest experiment, both harvest treatment had a clear effect on survival which was evident for all sample sizes (number of areas) for the 30 % harvest, while the effect of 15 % harvest was found in > 95 % of the simulations from 17 areas and upwards. The effect of the climatic variable was found in > 84 % of the simulations from 20 areas and upwards.
 
-```{r echo=FALSE, survivalplot}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-survival_sim
+#| fig-cap: "The proportion of simulations (n = 500), over a range of hunting areas, that has a significant effect of harvest treatment (15 and 30 %) and a climatic variable on survival."
 
 results_s <- readRDS("data/lirype_survival.RDS")
   
@@ -390,7 +395,7 @@ facet_labels <- c(
 lirype_s <- results_s %>% 
   filter(term != "(Intercept)") %>% 
   ggplot(aes(x = n_areas, y = prop_p)) + 
-  geom_line(size = 1.3)+
+  geom_line(linewidth = 1.3)+
   geom_hline(yintercept = 0.95, color = "red", linewidth = 1.2)+
   facet_wrap(~term, labeller = as_labeller(facet_labels))+
   theme_minimal(base_size = 15)+
@@ -405,7 +410,12 @@ lirype_s
 
 he effects of harvest treatment and the climatic variable on the population growth rate was modelled using a linear regression. The 30 % harvest treatment had an effect on the population growth rate in > 95 % of the simulations where the number of areas was above 21. The effect of 15 % harvest was harder to detect and it had an effect in about 50 % of the simulations with the number of areas above 28. The effect of the climatic variable on the population growth rate was found in > 80 % of the simulations from 27 areas and upwards.
 
-```{r echo=FALSE, rplot}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-survival_r
+#| fig-cap: "The proportion of simulations (n = 500), over a range of hunting areas, that has a significant effect of harvest treatment (15 and 30 %) and a climatic variable on the population growth rate"
 
 results_r <- readRDS("data/lirype_growth_rate.RDS")
   
@@ -421,7 +431,7 @@ facet_labels <- c(
 lirype_r <- results_r %>% 
   filter(term != "(Intercept)") %>% 
   ggplot(aes(x = n_areas, y = prop_p)) + 
-  geom_line(size = 1.3)+
+  geom_line(linewidth = 1.3)+
   geom_hline(yintercept = 0.95, color = "red", linewidth = 1.2)+
   facet_wrap(~term, labeller = as_labeller(facet_labels))+
   theme_minimal(base_size = 15)+
