@@ -337,6 +337,9 @@ Insert text and figures here...
 
 # Experimental design
 
+The setup of the experiment must be carefully designed such that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough sample, i.e., number of areas, to statistically estimate the effects of the treatments (harvest rate) and covariates (climatic variables) on survival and population density. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed in order to get the statistical power to test the effects of experimental treatments and climate.
+
+
 ### Glossary of terms
 
 #### ***General terms***
