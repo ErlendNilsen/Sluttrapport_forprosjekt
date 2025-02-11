@@ -223,6 +223,8 @@ Our searches returned 1023 articles in total, with 542 from Web of Science, 112 
 
 At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` papers that went forward to the data extraction stage.
 
+![](images/roses (3)-01.png)
+
 ```{r}
 #| echo: false
 #| warning: false
@@ -799,4 +801,16 @@ The rules or algorithms chosen when recruiting / including study subjects. Since
 
 In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by [*random assignment*]{.underline} or non-random ([*quasi random*]{.underline}) assignment. Under [*random assignment*]{.underline} of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In [*blocked designs*]{.underline}, treatment levels are randomly assigned within blocks. In a [*crossover study*]{.underline} or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a [*balanced study design*]{.underline}, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogenous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control.   
 
- 
+## Supplementary Information
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+included_full_details |> 
+  select(author,title,year,source,doi) |> 
+  kableExtra::kable() |> 
+  kableExtra::kable_styling()
+
+```
