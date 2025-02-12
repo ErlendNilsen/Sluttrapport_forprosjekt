@@ -764,9 +764,7 @@ Overall, there has been a substantial amount of research on the effects of harve
 
 # Experimental design
 
-The planned harvest experiment will rely on the existing line transect surveys gathered through Hønsefuglportalen (Ref). In cooperation with Statskog and selected "Fjellstyrer" in Norway the planned experiment will have access to a range of hunting areas from mid-Norway and northern Norway, covering a latitudinal gradient between approx. 58 <!-- (if Njardarheim is included) --> and 69 degrees.  <!--# More here -->.
-
-
+The planned harvest experiment will rely on the existing line transect surveys gathered through Hønsefuglportalen (Ref). In cooperation with Statskog and selected "Fjellstyrer" in Norway the planned experiment will have access to a range of hunting areas from mid-Norway and northern Norway, covering a latitudinal gradient between approx. 58 <!-- (if Njardarheim is included) --> and 69 degrees. <!--# More here -->.
 
 In this chapter, we will provide the basis for the experimental study design for the planned hunting experiment. We will start by defining some key terms (**BOX: Glossary of terms**), and then put this into the context of the planned experiment. First we will define the harvest treatment in terms of harvest levels. Then, we will present the results from a simulation exercise that was conducted to assess the required sample sizes. Then, we will present a detailed description of how study areas (study units) were "recruited" based on a pre-determined set of criteria. Finally, a complete list of study units will be presented together with key characteristics and the randomly allocated harvest treatments.
 
