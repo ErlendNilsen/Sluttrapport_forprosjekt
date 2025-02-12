@@ -130,7 +130,7 @@ We used a PIO (Population, Intervention, Outcome) question structure to help dev
 
 -   Outcome (O): The ecological impacts of (managed) hunting on population dynamics, demography, genetics or behaviours  
 
-We searched for academic literature (publications) in two search platforms; Web of Science and lens.org. Specifically, we will search the Web of Science Core Collection (WOS.SCI: 1987 to 2025, WOS.AHCI: 1987 to 2025, WOS.ESCI: 2020 to 2025 and WOS.SSCI: 1987 to 2025) using the NINA library subscription using the following search string: 
+We searched for academic literature (publications) in two search platforms; Web of Science and lens.org. Specifically, we searched the Web of Science Core Collection (WOS.SCI: 1987 to 2025, WOS.AHCI: 1987 to 2025, WOS.ESCI: 2020 to 2025 and WOS.SSCI: 1987 to 2025) using the NINA library subscription and the following search string: 
 
 ((TS=(galliform\* OR grouse OR ptarmigan OR Phasianidae OR pheasant OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR partridge)) 
 
@@ -138,7 +138,7 @@ AND (TS=("hunt" OR "harvest"))) 
 
 AND SU=("Ecology" OR "Wildlife" OR "Environment") 
 
-For lens.org we will use the following search string: 
+For lens.org we used the following search string: 
 
 (abstract:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus mura" OR "wild turkey" OR "bobwhite" OR "partridge") OR title:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR "partridge")) AND abstract:("hunt" OR "harvest") OR title:("hunt" OR "harvest") AND field_of_study:("Ecology" OR "Wildlife" OR "Environment") 
 
@@ -176,7 +176,7 @@ After de-duplication, title and abstract screening was done using the eligibilit
 
 ### Eligibility criteria 
 
-We reviewed scientific articles from all parts of the world. We included papers covering all galliform species. Studies of both native and introduced populations were eligible. Studies of all spatial scales and across all relevant ecosystems were considered eligible. Only studies documenting the effects of legal and/or managed harvest on galliform populations were eligible. Studies of poaching were not eligible. The effects must be assessed quantitatively for the study to be eligible. Eligible outcomes included effects of harvest on population abundance, density, sex- and age structure, recruitment, survival, behaviour, genetic, physiology and distribution. Studies focusing on lead (or heavy metal) poisoning or content in wild birds from shooting were not eligible. Both observational and experimental study designs are eligible. Mathematical simulation studies are eligible.    
+We reviewed scientific articles from all parts of the world. We included papers covering all galliform species. Studies of both native and introduced populations were eligible. Studies of all spatial scales and across all relevant ecosystems were considered eligible. Only studies documenting the effects of legal and/or managed harvest on galliform populations were eligible. Studies of poaching were not eligible. The effects must be assessed quantitatively for the study to be eligible. Eligible outcomes included effects of harvest on population abundance, density, sex- and age structure, recruitment, survival, behaviour, genetics, physiology and distribution. Studies focusing on lead (or heavy metal) poisoning or content in wild birds from shooting were not eligible. Both observational and experimental study designs are eligible. Mathematical simulation studies are eligible.    
 
 ### Title and abstract screening stage 
 
@@ -223,7 +223,7 @@ excluded <- data |>
 included <- anti_join(data, excluded)
 ```
 
-Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above [@Sandercock2011; @Pedersen2004; @Sedinger2005]. Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the Abstract and Title stage. Of the 850 included articles, a total of 200 were moved further to full-text screening, of which 166 papers that had a "include" decision and 34 a "maybe" decision. There were 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the fulltext stage and assessed for eligibility. Exclusion decisions (650 records) were due to the research not focusing on the effects of legal or managed hunting (365 records), not being focused on Galliformes (276 records), not quantitative (23 records), abstract not found online (16 records), or abstract not available in English, Norwegian, Swedish or Danish (3 records).
+Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above [@Sandercock2011; @Pedersen2004; @Sedinger2005]. Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the Abstract and Title stage. Of the 850 included articles, a total of 200 were moved further to full-text screening, of which 166 papers that had an "include" decision and 34 a "maybe" decision. There were 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the fulltext stage and assessed for eligibility. Exclusion decisions (650 records) were due to the research not focusing on the effects of legal or managed hunting (365 records), not being focused on Galliformes (276 records), not quantitative (23 records), abstract not found online (16 records), or abstract not available in English, Norwegian, Swedish or Danish (3 records).
 
 At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` papers that went forward to the data extraction stage.
 
@@ -267,7 +267,7 @@ species_colours <- c(
 
 ```
 
-Legal hunting of Galliformes has been the subject to extensive reserach. In our searches we identified studies published as far back as 1963, but we are aware that research on this topic was carried out even before that but was not covered by our serarches. The number of studies per year peaked in 2020 (8 studies per year) and the long-term average was 2.93 studies per year (@fig-Publication_year).
+Legal hunting of Galliformes has been the subject to extensive research. In our searches we identified studies published as far back as 1963, but we are aware that research on this topic was carried out even before that, however these studies were not covered by our searches. The number of studies per year peaked in 2020 (8 studies per year) and the long-term average was 2.93 studies per year (@fig-Publication_year).
 
 ```{r}
 #| echo: false
@@ -360,7 +360,7 @@ included_full_details |>
 
 ```
 
-Most studies covered in our mapping were observational (106 studies), but there were also a substantial number of studies that relied on simulations or scenario analysis (35 records; @fig-Research_design a)). Note that the sum of observatinal studies based on empirical data and studies based on simulations is higher than the total of 129 papers that were found eligible. This is because some studies used both research approaches and thus were included in both categories. In agreement with previous assessment of study designs in ecological research (refs) most of the studies that presented empirical data were based on simple (and less robust) study designs (@fig-Research_design b)). There were only 6 papers using a "Randomized Controlled Trial (RCT)" approach, the study design that leads to the highest level of evidence for causal understanding [@christie2019simple] and these were limited to Norway (5) and the USA (1). The Norwegian articles are all from the same research project/experiment conducted in the late 1990-ties.
+Most studies covered in our mapping were observational (106 studies), but there were also a substantial number of studies that relied on simulations or scenario analysis (35 records; @fig-Research_design a)). Note that the sum of observational studies based on empirical data and studies based on simulations is higher than the total of 129 papers that were found eligible. This is because some studies used both research approaches and thus were included in both categories. In agreement with previous assessments of study designs in ecological research (refs) most of the studies that presented empirical data were based on simple (and less robust) study designs (@fig-Research_design b)). There were only 6 papers using a "Randomized Controlled Trial (RCT)" approach, the study design that leads to the highest level of evidence for causal understanding [@christie2019simple] and these were limited to Norway (5) and the USA (1). The Norwegian articles are all from the same research project/experiment conducted in the late 1990-ties.
 
 ```{r}
 #| echo: false
