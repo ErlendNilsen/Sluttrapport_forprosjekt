@@ -96,13 +96,15 @@ library(purrr)
 
 # Introduction {#inl}
 
-Evidence based management of wildlife resources is an overarching goal in wildlife management (refs)....
+Harvesting of wildlife has long tradition in human history (refs). <!--# Short on development - short on grouse harvest in Scandinavia - end with adaptive management -->
+
+To understand how harvesting affects wildlife populations, it is essential to understand to which extent harvest is additive or compensatory (refs). <!--# Write here about additivity etc -->
+
+The choice of study design has a great effect on our ability to draw inference (ref). In general, designs that include
 
 In Norway, three major research projects related to willow ptarmigan hunting have been carried out in the last 30 years (respectively the "Grouse hunting project" in 1995-1999, the "Grouse management project" in 2006-2011, and "Sustainable small game management" in 2014-2017). These have produced considerable knowledge that contributes to a more sustainable management of our most important small game resource. In addition, international research in the field, with a significant element of research carried out in Norway, has moved the research front forward. Nevertheless, there are still significant uncertainties related to how to ensure a sustainable management system in a future scenario where human activity and ongoing climate change affect mountain ecosystems to a significant extent.  
 
-Today's grouse research rests on solid experimental studies of the importance of hunting, but it is not a given that the levels for sustainable harvesting that were documented in the earlier studies will also apply to future grouse populations, as these will be influenced by a different climate and changed trophic interactions. As part of an adaptive management, it will be of great importance to carry out a conceptual replication of the classic hunting experiments that were carried out in Norway under the auspices of the "Grouse hunting project" in the late 1990s. However, before such a larger empirical study is carried out, it will be a prerequisite that an up-to-date knowledge overview of the research-based literature on the sustainable management of grouse from a climate perspective is prepared, as well as that a thorough evaluation of how best to design such an experimental study is carried out. 
-
-In this report, we will present the results from the planning stage of the project. It includes two main sections:
+This report is a part of the planning stage of such a replication experiment. It includes two main sections:
 
 -   A systematic mapping of the literature related to effects of harvest on galliformes
 
@@ -142,7 +144,7 @@ For lens.org we will use the following search string: 
 
 (abstract:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus mura" OR "wild turkey" OR "bobwhite" OR "partridge") OR title:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR "partridge")) AND abstract:("hunt" OR "harvest") OR title:("hunt" OR "harvest") AND field_of_study:("Ecology" OR "Wildlife" OR "Environment") 
 
-In addition, a backward and forward citation chasing (using CitationChaser) was performed based on the three first benchmark papers listed below (Sandercock et al. 2011; Pedersen et al. 2004; Sedinger & Rotella 2005).  
+In addition, a backward and forward citation chasing (using CitationChaser) was performed based on the three first benchmark papers listed below [@Sandercock2011; @Pedersen2004; @Sedinger2005].  
 
 ### Benchmark papers 
 
@@ -791,5 +793,9 @@ The rules or algorithms chosen when recruiting / including study subjects. Since
 
 **Assignment of treatment level to each study unit**  
 
-In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by [*random assignment*]{.underline} or non-random ([*quasi random*]{.underline}) assignment. Under [*random assignment*]{.underline} of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In [*blocked designs*]{.underline}, treatment levels are randomly assigned within blocks. In a [*crossover study*]{.underline} or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a [*balanced study design*]{.underline}, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogenous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control.   
+In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by [*random assignment*]{.underline} or non-random ([*quasi random*]{.underline}) assignment. Under [*random assignment*]{.underline} of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In [*blocked designs*]{.underline}, treatment levels are randomly assigned within blocks. In a [*crossover study*]{.underline} or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a [*balanced study design*]{.underline}, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogeneous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control.   
 :::
+
+## Harvest treatments
+
+We will use the following harvest levels:
