@@ -645,7 +645,7 @@ ggarrange(p7, p8, ncol=2, align = "h")
 
 ```
 
-Different species were also subject to research focusing on different outcome variables (@fig-species_ebv). \[More text...\]
+Different species were also subject to research focusing on different outcome variables (@fig-species_ebv). As for the number of studies, wild turkey (7 outcome variables) is the most well studied species in the sense of number of different outcome variables, with bobwhite (6 outcome variables) and willow ptarmigan/grouse (5 outcome variables) following closely. Research on capercaillie and black grouse have 3 outcome variables. Noticeably, two of the outcome variables, have only been the focus of two studies on grey partridge (*Perdix perdix*; effective population size) and rock ptarmigan (*Lagopus muta*; morphology).  \[More text...\]
 
 ```{r}
 #| echo: false
@@ -704,6 +704,8 @@ ggplot(heatmap_data, aes(x = EBVname, y = Species, size = Count)) +
 
 
 ```
+
+Only 6 studies were based the robust RCT approach, of which 5 were done on willow ptarmigan/grouse and one on wild turkeys. Four species, wild turkey, willow and rock ptarmigan and the dusky grouse (*Dendragapus obscurus*) have been studied using a before-after-control-impact (BACI) approach. 
 
 ```{r}
 #| echo: false
