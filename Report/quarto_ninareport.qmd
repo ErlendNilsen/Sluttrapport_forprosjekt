@@ -764,14 +764,63 @@ Overall, there has been a substantial amount of research on the effects of harve
 
 # Experimental design
 
+The planned harvest experiment will rely on the existing line transect surveys. <!--# More here -->.
+
 In this chapter, we will provide the basis for the experimental study design for the planned hunting experiment. We will start by defining some key terms (**BOX: Glossary of terms**), and then put this into the context of the planned experiment. First we will define the harvest treatment in terms of harvest levels. Then, we will present the results from a simulation exercise that was conducted to assess the required sample sizes. Then, we will present a detailed description of how study areas (study units) were "recruited" based on a pre-determined set of criteria. Finally, a complete list of study units will be presented together with key characteristics and the randomly allocated harvest treatments.
 
 The setup of the experiment must be carefully designed such that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough samples, i.e., number of areas, to statistically estimate the effects of the treatments (harvest rate) and covariates (climatic variables) on survival and population growth rate. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed to get the statistical power to test the effects of experimental treatments and climate.
 
-## Simulation
+::: {.callout-tip appearance="minimal"}
+## BOX: Glossary of terms
+
+**General terms**
+
+**Outcome variable:** This is the variable of interest, the one to draw inference about. Defining the outcome is part of the planning of an experiment. In our harvest experiment, the outcome variables of interest include the effects of experimental harvest on i) survival and ii) population growth.   
+
+**Study population**: The population we will draw inference about. In strict terms, this is the willow ptarmigan population within the geographical boundaries of our study. Assuming that the willow ptarmigan population in our study area respond in a similar way to harvest mortality as other populations, we can make predictions about how the response will be in other areas. By including *covariates* that affect the outcome (response to harvest) these predictions could be made more accurate and less biased.
+
+**Statistical population**: A statistical population is the set of subjects that we sample from and make inference from. In our case, the statistical population is the harvest areas that are included within the study area. One subject in the statistical population from which we draw some measurement is typically named a statistical unit or a sampling unit.
+
+**Sampling frame:** The sampling frame is the “collection” of all study subjects that are available for inclusion / sampling. A structured way of thinking about this is to think of a regular grid covering the whole study area. However, in our case the grid is not regular but consists of harvest areas of different sizes. In addition, we will have to make other adjustments to the sampling frame: i) only areas with “sufficient” line transect survey data are available for inclusion, and ii) only areas larger than a cut-off size. These adjustments and their consequences should be considered before we make the final decision, as they can induce bias (see below).   
+
+**Blocked study design**: In blocked designs, the study units are grouped (blocked) by some characteristics. In a [*randomized block design*]{.underline}, the treatment level is randomly assigned within the blocks. A block design typically means that the sample size must be larger in order to obtain the same statistical power as in non-blocked designs.    
+
+**Internal and external validity**: The term [*internal validity*]{.underline} refers to which extent the inference drawn from the sample, e.g. in terms of cause-effect relationships are true for the sample itself. The term external validity relates to which extent one can generalize from the current sample to the larger population that we usually want to make statements about. While the former in large-part is determined by the robustness of the methods and how treatment levels are assigned etc, the latter is in large-part determined by the sampling design and to which extent the included units are representative for the population.  
+
+**Recruitment/inclusion of study subjects**
+
+The rules or algorithms chosen when recruiting / including study subjects. Since we cannot usually measure all subjects in the population, this usually involves some form of probabilistic or non-probabilistic sampling. Should be constructed to minimize the potential for *biased* estimates of inference. For instance, if all included subjects share a common characteristic that is not shared with other members of the statistical population, then the results might be biased. This is termed selection bias. Selection bias occurs whenever the subjects that are included in the study systematically deviate from the study population. Note that selection bias might also apply when assigning treatment level to a study unit in an experiment (covered below).  
+
+**Probabilistic sampling to recruit study subjects:** This involves using recruiting units into the study by some sort of random (probabilistic) sampling. In the basic form (i.e. [*random sampling*]{.underline}), all units have the same probability of being recruited. In [*stratified random sampling*]{.underline}, the units are sorted along one or more covariates to ensure all values along the covariate are represented with a certain proportion in the sample. Under proportional stratification, all “strata” are represented with a proportion that is similar to their proportion in the statistical population. Under balanced stratification, the number of recruited units are balanced (e.g. similar) across strata. Under [*restricted random sampling*]{.underline}, the initial sampling might be random but it is combined with rules that make the next decisions non-probabilistic. Examples include “do not include units that are located next to each other” etc. Another sampling strategy that combines probabilistic and non-probabilistic sampling is [*systematic sampling*]{.underline} when the selection of the first unit is decided by a random draw.
+
+**Non-probabilistic selection to recruit study subjects:** These approaches include methods that use non-probabilistic criteria to select study subjects. Such criteria could include geography, certain characteristics (i.e - placement along a covariate axis but with no random selection – as opposed to stratified random sampling) and expert knowledge. A very specific type of non-probabilistic selection is [*convenience sampling*]{.underline} where the units that for some reason are “easiest” to include are selected. One method that further resembles “stratified random sampling” is what is often termed [*proportional quota sampling*]{.underline} in the medical literature. Here, the number of units that are included are proportional to the size of the strata, but the selection of units to include are not done at random. In cases when the total size of the population from which to draw sampling units from is unknown, this method will be known as [*non-proportional quota sampling*]{.underline}. Finally, *purposive sampling* is a rather broad class of approaches where each study unit is recruited into the study based on one or more specific characteristics. In strict terms, a non-probabilistic selection of study subjects does not rely on a sampling frame.   
+
+**Assignment of treatment level to each study unit**  
+
+In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by [*random assignment*]{.underline} or non-random ([*quasi random*]{.underline}) assignment. Under [*random assignment*]{.underline} of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In [*blocked designs*]{.underline}, treatment levels are randomly assigned within blocks. In a [*crossover study*]{.underline} or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a [*balanced study design*]{.underline}, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogeneous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control.   
+:::
+
+## Experimental harvest treatment
+
+In the planned experiment, we will base the harvest treatment for willow ptarmigan on the same experimental levels as the former large-scale experiment carried out in the 90-ties in Norway [@Sandercock2011]: 0%, 15% and 30% harvest, respectively. This will make our results directly comparable to those results. For black grouse and capercaille, we will apply 0%, 10% and 20% harvest. The rationale for this is that these birds have a slower life history and higher natural survival rates, and thus we expect that harvest is additive for these species.
+
+### Random allocation of harvest levels
+
+Harvest treatment for each study unit will be randomly allocated based on a crossover study design. As the planned experiment will have three experimental harvest levels (see above) and last for three seasons, as study unit will be subject to each harvest treatment. The order of the treatments will be randomly decided for each study unit. To ensure a balanced design in terms of the combined allocation of harvest levels across years we will make a balanced set of sequences and randomly allocate a sequence to a study unit. <!--# Add some more description of how this is done -->
+
+### Outcome variables
+
+We will base our inference on the model presented by Nilsen and Nater to assess effects on survival. We will also investigate effects directly on population growth rate using the model presented in Bowler.
+
+### Estimation of hunting quota
+
+Each year, prior to the hunting season a hunting quota that corresponds to the randomly allocated harvest level will be allocated based on the annual line transect surveys. <!--# More detalis about how this is done -->
+
+## Simulation to assess sample size
+
 ### Population parameters
 
-The willow ptarmigan populations that will be used in the harvest experiment are all surveyed approximately one month after breeding when the chicks are large enough to take flight. To simulate the effects of harvest and climate on willow ptarmigan survival and population growth rate, we used a post breeding projection matrix ($A_t$) with two age classes: juveniles (0-1 year) and adults (1+ years): 
+The willow ptarmigan populations that will be used in the harvest experiment are all surveyed approximately one month after breeding when the chicks are large enough to take flight. To simulate the effects of harvest and climate on willow ptarmigan survival and population growth rate, we used a post breeding projection matrix ($A_t$) with two age classes: juveniles (0-1 year) and adults (1+ years):
 
 $$
 A_t =
@@ -779,29 +828,29 @@ A_t =
 f_{juv,t} & f_{ad,t} \\
 s_{juv,t} & s_{ad,t}\\
 \end{bmatrix}
-$$
-where, $s_{juv,t}$ and $s_{ad,t}$ are age-specific survival rates and $f_{juv,t}$ og $f_{ad,t}$ are recruitment (number of juveniles produced per female) multiplied with age-specific survival. A projection matrix contains both survival and reproduction for a population and can be used to calculate the population size for the next time-step, *t + 1*, directly from the age-specific population size at the last time step, *t*:
+$$ where, $s_{juv,t}$ and $s_{ad,t}$ are age-specific survival rates and $f_{juv,t}$ og $f_{ad,t}$ are recruitment (number of juveniles produced per female) multiplied with age-specific survival. A projection matrix contains both survival and reproduction for a population and can be used to calculate the population size for the next time-step, *t + 1*, directly from the age-specific population size at the last time step, *t*:
 
 $$
 N_{t+1} = A_tN_t
 $$
 
-where *A* is the projection matrix and $N_t$ is a vector containing age-specific populations sizes at time *t*. In these simulations we assumed equal recruitment for the two age classes. Survival estimates were collected from Sandercock et al., (2011) while  recruitment was modeled as a normally distributed variable with an average of two juveniles per female and SD = 0.3. The yearly population growth rate, $r_t$, was calculated as: 
+where *A* is the projection matrix and $N_t$ is a vector containing age-specific populations sizes at time *t*. In these simulations we assumed equal recruitment for the two age classes. Survival estimates were collected from Sandercock et al., (2011) while recruitment was modeled as a normally distributed variable with an average of two juveniles per female and SD = 0.3. The yearly population growth rate, $r_t$, was calculated as:
 
 $$
 r_t = log(N_{juv, t+1} + N_{ad, t+1}) - log(N_{juv, t} + N_{ad, t})
 $$
 
-where $N_{juv}$ and $N_{ad}$ is the number of juveniles and adults at time *t* and *t+1*. Both survival rates and population sizes were simulated with environmental stochasticity, i.e., year-to-year variation, and observation error to better reflect the «real» parameters that will be collected during the harvest experiment. 
+where $N_{juv}$ and $N_{ad}$ is the number of juveniles and adults at time *t* and *t+1*. Both survival rates and population sizes were simulated with environmental stochasticity, i.e., year-to-year variation, and observation error to better reflect the «real» parameters that will be collected during the harvest experiment.
 
 ### Harvest treatment and covariate
 
 To evaluate and analyse the effects of harvest, we assigned the simulated hunting areas with a harvest treatment, i.e., a harvest rate of either 0, 15 % or 30 % each year over the study period of three years. Because we aim to test the effects of all treatments in all areas, the treatments were randomly given each hunting area without replacement to ensure that each area cannot have the same treatment twice. In addition to harvest treatment, we simulated the effect of a climate covariate directly on survival. The “climatic variable” chosen was latitude and it was simulated with a slope of 0.003. This does not mean that we expect to see any direct effect of latitude in the real experiment, but rather it was included as a proof-of-concept to test the effects of a climatic covariate. To investigate how many areas are needed in the harvest experiment to be able to estimate the effects of both harvest treatments and climate we simulated ptarmigan populations over a range of hunting areas, from 15 to 35. For each number of hunting areas, we did 500 simulations over three years.
 
 ### Results
+
 #### Survival
 
-The effects of harvest treatment and the climatic variable on survival was modelled using a generalized linear model with a quasibinomial error function. In the simulated harvest experiment, both harvest treatment had a clear effect on survival which was evident for all sample sizes (number of areas) for the 30 % harvest, while the effect of 15 % harvest was found in > 95 % of the simulations from 17 areas and upwards. The effect of the climatic variable was found in > 84 % of the simulations from 20 areas and upwards.
+The effects of harvest treatment and the climatic variable on survival was modelled using a generalized linear model with a quasibinomial error function. In the simulated harvest experiment, both harvest treatment had a clear effect on survival which was evident for all sample sizes (number of areas) for the 30 % harvest, while the effect of 15 % harvest was found in \> 95 % of the simulations from 17 areas and upwards. The effect of the climatic variable was found in \> 84 % of the simulations from 20 areas and upwards.
 
 ```{r}
 #| echo: false
@@ -835,9 +884,9 @@ lirype_s
 
 ```
 
-#### Population growth rate 
+#### Population growth rate
 
-he effects of harvest treatment and the climatic variable on the population growth rate was modelled using a linear regression. The 30 % harvest treatment had an effect on the population growth rate in > 95 % of the simulations where the number of areas was above 21. The effect of 15 % harvest was harder to detect and it had an effect in about 50 % of the simulations with the number of areas above 28. The effect of the climatic variable on the population growth rate was found in > 80 % of the simulations from 27 areas and upwards.
+he effects of harvest treatment and the climatic variable on the population growth rate was modelled using a linear regression. The 30 % harvest treatment had an effect on the population growth rate in \> 95 % of the simulations where the number of areas was above 21. The effect of 15 % harvest was harder to detect and it had an effect in about 50 % of the simulations with the number of areas above 28. The effect of the climatic variable on the population growth rate was found in \> 80 % of the simulations from 27 areas and upwards.
 
 ```{r}
 #| echo: false
@@ -870,38 +919,3 @@ lirype_r <- results_r %>%
 lirype_r
 
 ```
-
-
-::: {.callout-tip appearance="minimal"}
-## BOX: Glossary of terms
-
-**General terms**
-
-**Outcome variable:** This is the variable of interest, the one to draw inference about. Defining the outcome is part of the planning of an experiment. In our harvest experiment, the outcome variables of interest include the effects of experimental harvest on i) survival and ii) population growth.   
-
-**Study population**: The population we will draw inference about. In strict terms, this is the willow ptarmigan population within the geographical boundaries of our study. Assuming that the willow ptarmigan population in our study area respond in a similar way to harvest mortality as other populations, we can make predictions about how the response will be in other areas. By including *covariates* that affect the outcome (response to harvest) these predictions could be made more accurate and less biased.
-
-**Statistical population**: A statistical population is the set of subjects that we sample from and make inference from. In our case, the statistical population is the harvest areas that are included within the study area. One subject in the statistical population from which we draw some measurement is typically named a statistical unit or a sampling unit.
-
-**Sampling frame:** The sampling frame is the “collection” of all study subjects that are available for inclusion / sampling. A structured way of thinking about this is to think of a regular grid covering the whole study area. However, in our case the grid is not regular but consists of harvest areas of different sizes. In addition, we will have to make other adjustments to the sampling frame: i) only areas with “sufficient” line transect survey data are available for inclusion, and ii) only areas larger than a cut-off size. These adjustments and their consequences should be considered before we make the final decision, as they can induce bias (see below).   
-
-**Blocked study design**: In blocked designs, the study units are grouped (blocked) by some characteristics. In a [*randomized block design*]{.underline}, the treatment level is randomly assigned within the blocks. A block design typically means that the sample size must be larger in order to obtain the same statistical power as in non-blocked designs.    
-
-**Internal and external validity**: The term [*internal validity*]{.underline} refers to which extent the inference drawn from the sample, e.g. in terms of cause-effect relationships are true for the sample itself. The term external validity relates to which extent one can generalize from the current sample to the larger population that we usually want to make statements about. While the former in large-part is determined by the robustness of the methods and how treatment levels are assigned etc, the latter is in large-part determined by the sampling design and to which extent the included units are representative for the population.  
-
-**Recruitment/inclusion of study subjects**
-
-The rules or algorithms chosen when recruiting / including study subjects. Since we cannot usually measure all subjects in the population, this usually involves some form of probabilistic or non-probabilistic sampling. Should be constructed to minimize the potential for *biased* estimates of inference. For instance, if all included subjects share a common characteristic that is not shared with other members of the statistical population, then the results might be biased. This is termed selection bias. Selection bias occurs whenever the subjects that are included in the study systematically deviate from the study population. Note that selection bias might also apply when assigning treatment level to a study unit in an experiment (covered below).  
-
-**Probabilistic sampling to recruit study subjects:** This involves using recruiting units into the study by some sort of random (probabilistic) sampling. In the basic form (i.e. [*random sampling*]{.underline}), all units have the same probability of being recruited. In [*stratified random sampling*]{.underline}, the units are sorted along one or more covariates to ensure all values along the covariate are represented with a certain proportion in the sample. Under proportional stratification, all “strata” are represented with a proportion that is similar to their proportion in the statistical population. Under balanced stratification, the number of recruited units are balanced (e.g. similar) across strata. Under [*restricted random sampling*]{.underline}, the initial sampling might be random but it is combined with rules that make the next decisions non-probabilistic. Examples include “do not include units that are located next to each other” etc. Another sampling strategy that combines probabilistic and non-probabilistic sampling is [*systematic sampling*]{.underline} when the selection of the first unit is decided by a random draw.
-
-**Non-probabilistic selection to recruit study subjects:** These approaches include methods that use non-probabilistic criteria to select study subjects. Such criteria could include geography, certain characteristics (i.e - placement along a covariate axis but with no random selection – as opposed to stratified random sampling) and expert knowledge. A very specific type of non-probabilistic selection is [*convenience sampling*]{.underline} where the units that for some reason are “easiest” to include are selected. One method that further resembles “stratified random sampling” is what is often termed [*proportional quota sampling*]{.underline} in the medical literature. Here, the number of units that are included are proportional to the size of the strata, but the selection of units to include are not done at random. In cases when the total size of the population from which to draw sampling units from is unknown, this method will be known as [*non-proportional quota sampling*]{.underline}. Finally, *purposive sampling* is a rather broad class of approaches where each study unit is recruited into the study based on one or more specific characteristics. In strict terms, a non-probabilistic selection of study subjects does not rely on a sampling frame.   
-
-**Assignment of treatment level to each study unit**  
-
-In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by [*random assignment*]{.underline} or non-random ([*quasi random*]{.underline}) assignment. Under [*random assignment*]{.underline} of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In [*blocked designs*]{.underline}, treatment levels are randomly assigned within blocks. In a [*crossover study*]{.underline} or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a [*balanced study design*]{.underline}, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogeneous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control.   
-:::
-
-## Harvest treatments
-
-We will use the following harvest levels:
