@@ -170,7 +170,7 @@ The following benchmark papers was used to assess the effectiveness of the searc
 
 In our searches, all benchmark papers were found except.... XXX, which was not indexed by any of the databases that we searched. Overall, this is found to be satisfactory.
 
-## Article screening  
+### Article screening  
 
 We used pre-determined inclusion/exclusion criteria when screening eligible studies. Excluded papers will be shown in a flowchart using the ROSES flow chart [@Haddaway2018]. Included studies was de-duplicated based on DOI and title matches using the deduplication tool in Rayyan.  
 
@@ -182,9 +182,7 @@ We reviewed scientific articles from all parts of the world. We included papers 
 
 ### Title and abstract screening stage 
 
-We used a decision tree to make decisions about inclusion and exclusion at the Title and Abstract stage. The tree is presented in the protocol and in the Appendix to this report. The decision tree helped the reviewers to make decisions about eligibility of each paper in a structured way. <!--# Matt - include information about disagreement and agreement scores -->
-
-  
+We used a decision tree to make decisions about inclusion and exclusion at the Title and Abstract stage. The tree is presented in the protocol and in the Appendix to this report. The decision tree helped the reviewers to make decisions about eligibility of each paper in a structured way. Duel screening was carried out on 20 % of papers (n = 183). Agreement between reviewers was assessed using the kappa statistic which was over 0.7.
 
 ### Full text eligibility 
 
@@ -229,7 +227,7 @@ Our searches returned 1023 articles in total, with 542 from Web of Science, 112 
 
 At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` papers that went forward to the data extraction stage.
 
-![PRISMA Flowchart](images/roses%20(3)-01.png){#fig-prisma}
+![ROSES Flowchart showing the number of papers included or excluded in the review ](images/roses%20(3)-01.png){#fig-prisma}
 
 ```{r}
 #| echo: false
@@ -584,7 +582,9 @@ country_data<-included_full_details |>
       "Virgina", "Virginia", "West Virginia", "Wisconsin", "Wisonsin"
     ) ~ "USA",
     TRUE ~ study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma
-  ))
+  ))|> 
+  mutate(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma= case_when(study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma %in% c("United Kingdom", "UK", "Scotland", "England")~"UK",
+            TRUE~study_area_location_country_e_g_sweden_if_multiple_seperate_with_a_comma))
 
 country_sp_data<-country_data |> 
   separate_rows(species_if_multiple_seperate_with_a_comma_use_full_latin_names_e_g_lagopus_lagopus_lagopus_muta, sep = ", ") |>
@@ -645,7 +645,7 @@ ggarrange(p7, p8, ncol=2, align = "h")
 
 ```
 
-Different species were also subject to research focusing on different outcome variables (@fig-species_ebv). As for the number of studies, wild turkey (7 outcome variables) is the most well studied species in the sense of number of different outcome variables, with bobwhite (6 outcome variables) and willow ptarmigan/grouse (5 outcome variables) following closely. Research on capercaillie and black grouse have 3 outcome variables. Noticeably, two of the outcome variables, have only been the focus of two studies on grey partridge (*Perdix perdix*; effective population size) and rock ptarmigan (*Lagopus muta*; morphology).  \[More text...\]
+Different species were also subject to research focusing on different outcome variables (@fig-species_ebv). As for the number of studies, wild turkey (7 outcome variables) is the most well studied species in the sense of number of different outcome variables, with bobwhite (6 outcome variables) and willow ptarmigan/grouse (5 outcome variables) following closely. Research on capercaillie and black grouse have 3 outcome variables. Noticeably, two of the outcome variables, have only been the focus of two studies on grey partridge (*Perdix perdix*; effective population size) and rock ptarmigan (*Lagopus muta*; morphology). \[More text...\]
 
 ```{r}
 #| echo: false
@@ -691,6 +691,9 @@ heatmap_data <- sp_EBV |>
 # Rename columns for easier use in ggplot
 colnames(heatmap_data) <- c("EBVname", "Species", "Count")
 
+heatmap_data$Species <- factor(heatmap_data$Species, levels = levels(with(species_data, reorder(Species, n))))
+
+
 ggplot(heatmap_data, aes(x = EBVname, y = Species, size = Count)) +
   geom_point(colour = species_colours[3], alpha = 0.8)+
   scale_fill_manual(values = species_colours) +
@@ -705,7 +708,7 @@ ggplot(heatmap_data, aes(x = EBVname, y = Species, size = Count)) +
 
 ```
 
-Only 6 studies were based the robust RCT approach, of which 5 were done on willow ptarmigan/grouse and one on wild turkeys. Four species, wild turkey, willow and rock ptarmigan and the dusky grouse (*Dendragapus obscurus*) have been studied using a before-after-control-impact (BACI) approach. 
+Only 6 studies were based the robust RCT approach, of which 5 were done on willow ptarmigan/grouse and one on wild turkeys. Four species, wild turkey, willow and rock ptarmigan and the dusky grouse (*Dendragapus obscurus*) have been studied using a before-after-control-impact (BACI) approach.
 
 ```{r}
 #| echo: false
@@ -748,6 +751,7 @@ mutate(name = fct_relevel(study_design_observational_studies_skip_if_simulation_
 
 # Rename columns for easier use in ggplot
 colnames(heatmap_data) <- c("Design", "Species", "Count")
+heatmap_data$Species <- factor(heatmap_data$Species, levels = levels(with(species_data, reorder(Species, n))))
 ggplot(heatmap_data, aes(x = Design, y = Species, size = Count)) +
   geom_point(colour = species_colours[3], alpha = 0.8)+
   scale_fill_manual(values = species_colours) +
@@ -760,7 +764,7 @@ ggplot(heatmap_data, aes(x = Design, y = Species, size = Count)) +
   theme(text = element_text(size = 15))
 ```
 
-### Summary of the literature mapping
+## Summary of the literature mapping
 
 Overall, there has been a substantial amount of research on the effects of harvest on galliform species. However, our mapping of the literature also revealed that the literature is dominated by non-experimental research and often conducted at a local or regional scale. We identified only two research projects that were based on a RCT approach, of which one of the projects (represented with five papers) were the former Norwegian project on willow ptarmigan carried out in the late 1990-ties. Moreover, while the willow ptarmigan (or willow grouse) is well represented in the literature, there was little research on capercaillie (x records) and black grouse (x records), and no experimental assessment of the effects of harvest were identified.
 
@@ -816,7 +820,7 @@ We will base our inference on the model presented by Nilsen and Nater to assess 
 
 ### Estimation of hunting quota
 
-Each year, prior to the hunting season, a hunting quota that corresponds to the randomly allocated harvest level will be allocated based on the annual line transect surveys. The population density in a given hunting area is estimated using distance sampling techniques <!--#(Buckland 1985 ?)--> . The transect surveys are coordinated through Hønsefuglportalen and the results can be used to estimate the total population density as well as the number of adults and juveniles (that years production of chicks). In most hunting areas the yearly production is an important parameter in setting the yearly quotas, but in the harvest experiment the quotas are based on the total population size. For example, if the harvest level for a given year is 0.3 and the density is estimated as 15 birds/km^2 in a area of 100 km^2, that years hunting quota will be $density \cdot area \cdot harvest level = 15 \cdot 100 \cdot 0.3 = 450 birds$.  <!--# More detalis about how this is done - added some here /C -->
+Each year, prior to the hunting season, a hunting quota that corresponds to the randomly allocated harvest level will be allocated based on the annual line transect surveys. The population density in a given hunting area is estimated using distance sampling techniques <!--#(Buckland 1985 ?)--> . The transect surveys are coordinated through Hønsefuglportalen and the results can be used to estimate the total population density as well as the number of adults and juveniles (that years production of chicks). In most hunting areas the yearly production is an important parameter in setting the yearly quotas, but in the harvest experiment the quotas are based on the total population size. For example, if the harvest level for a given year is 0.3 and the density is estimated as 15 birds/km\^2 in a area of 100 km\^2, that years hunting quota will be $density \cdot area \cdot harvest level = 15 \cdot 100 \cdot 0.3 = 450 birds$. <!--# More detalis about how this is done - added some here /C -->
 
 ## Simulation to assess sample size
 
