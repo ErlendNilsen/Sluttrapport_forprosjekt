@@ -766,7 +766,7 @@ ggplot(heatmap_data, aes(x = Design, y = Species, size = Count)) +
 
 ## Summary of the literature mapping
 
-Overall, there has been a substantial amount of research on the effects of harvest on galliform species. However, our mapping of the literature also revealed that the literature is dominated by non-experimental research and often conducted at a local or regional scale. We identified only two research projects that were based on a RCT approach, of which one of the projects (represented with five papers) were the former Norwegian project on willow ptarmigan carried out in the late 1990-ties. Moreover, while the willow ptarmigan (or willow grouse) is well represented in the literature, there was little research on capercaillie (x records) and black grouse (x records), and no experimental assessment of the effects of harvest were identified.
+Overall, there has been a substantial amount of research on the effects of harvest on galliform species. However, our mapping of the literature also revealed that the literature is dominated by non-experimental research and often conducted at a local or regional scale. We identified only two research projects that were based on a RCT approach, of which one of the projects (represented with five papers) were the former Norwegian project on willow ptarmigan carried out in the late 1990-ties. Moreover, while the willow ptarmigan (or willow grouse) is well represented in the literature (28 records), there was little research on capercaillie (4 records) and black grouse (6 records), and no experimental assessment of the effects of harvest were identified.
 
 # Experimental design
 
