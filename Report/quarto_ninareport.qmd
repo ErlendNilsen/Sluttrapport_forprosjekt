@@ -764,7 +764,7 @@ Overall, there has been a substantial amount of research on the effects of harve
 
 # Experimental design
 
-The planned harvest experiment will rely on the existing line transect surveys gathered through Hønsefuglportalen (Ref). In cooperation with Statskog and selected "Fjellstyrer" in Norway the planned experiment will have access to a range of hunting areas from mid-Norway and northern Norway, covering a latitudinal gradient between approx. 58 <!-- (if Njardarheim is included) --> and 69 degrees. <!--# More here -->.
+The planned harvest experiment will rely on the existing line transect surveys gathered through Hønsefuglportalen (Ref). In cooperation with Statskog and selected "Fjellstyrer" in Norway, the planned experiment will have access to a range of hunting areas from mid- and northern-Norway covering a latitudinal gradient between approx. 58 <!-- (if Njardarheim is included) --> and 69 degrees. <!--# More here -->.
 
 In this chapter, we will provide the basis for the experimental study design for the planned hunting experiment. We will start by defining some key terms (**BOX: Glossary of terms**), and then put this into the context of the planned experiment. First we will define the harvest treatment in terms of harvest levels. Then, we will present the results from a simulation exercise that was conducted to assess the required sample sizes. Then, we will present a detailed description of how study areas (study units) were "recruited" based on a pre-determined set of criteria. Finally, a complete list of study units will be presented together with key characteristics and the randomly allocated harvest treatments.
 
@@ -814,7 +814,7 @@ We will base our inference on the model presented by Nilsen and Nater to assess 
 
 ### Estimation of hunting quota
 
-Each year, prior to the hunting season a hunting quota that corresponds to the randomly allocated harvest level will be allocated based on the annual line transect surveys. <!--# More detalis about how this is done -->
+Each year, prior to the hunting season, a hunting quota that corresponds to the randomly allocated harvest level will be allocated based on the annual line transect surveys. The population density in a given hunting area is estimated using distance sampling techniques <!--#(Buckland 1985 ?)--> . The transect surveys are coordinated through Hønsefuglportalen and the results can be used to estimate the total population density as well as the number of adults and juveniles (that years production of chicks). In most hunting areas the yearly production is an important parameter in setting the yearly quotas, but in the harvest experiment the quotas are based on the total population size. For example, if the harvest level for a given year is 0.3 and the density is estimated as 15 birds/km^2 in a area of 100 km^2, that years hunting quota will be $density \cdot area \cdot harvest level = 15 \cdot 100 \cdot 0.3 = 450 birds$.  <!--# More detalis about how this is done - added some here /C -->
 
 ## Simulation to assess sample size
 
