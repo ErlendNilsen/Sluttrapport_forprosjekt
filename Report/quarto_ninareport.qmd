@@ -760,11 +760,13 @@ ggplot(heatmap_data, aes(x = Design, y = Species, size = Count)) +
 
 ### Summary of the literature mapping
 
-Overall, there has been a substantial amount of research on the effects of harvest on galliform speceis. However, our mapping of the literature also revealed that the literature is dominated by non-experimental research and often conducted at a local or regional scale. We identified only two research projects that were based on a RCT approach, of which one of the projects (represented with five papers) were the former Norwegian project on willow ptarmigan carried out in the late 1990-ties. Moreover, while the willow ptarmigan (or willow grouse) is well represented in the literature, there was little research on capercaillie (x records) and black grouse (x records), and no experimental assessment of the effects of harvest were identified.
+Overall, there has been a substantial amount of research on the effects of harvest on galliform species. However, our mapping of the literature also revealed that the literature is dominated by non-experimental research and often conducted at a local or regional scale. We identified only two research projects that were based on a RCT approach, of which one of the projects (represented with five papers) were the former Norwegian project on willow ptarmigan carried out in the late 1990-ties. Moreover, while the willow ptarmigan (or willow grouse) is well represented in the literature, there was little research on capercaillie (x records) and black grouse (x records), and no experimental assessment of the effects of harvest were identified.
 
 # Experimental design
 
-The planned harvest experiment will rely on the existing line transect surveys. <!--# More here -->.
+The planned harvest experiment will rely on the existing line transect surveys gathered through Hønsefuglportalen (Ref). In cooperation with Statskog and selected "Fjellstyrer" in Norway the planned experiment will have access to a range of hunting areas from mid-Norway and northern Norway, covering a latitudinal gradient between approx. 58 <!-- (if Njardarheim is included) --> and 69 degrees.  <!--# More here -->.
+
+
 
 In this chapter, we will provide the basis for the experimental study design for the planned hunting experiment. We will start by defining some key terms (**BOX: Glossary of terms**), and then put this into the context of the planned experiment. First we will define the harvest treatment in terms of harvest levels. Then, we will present the results from a simulation exercise that was conducted to assess the required sample sizes. Then, we will present a detailed description of how study areas (study units) were "recruited" based on a pre-determined set of criteria. Finally, a complete list of study units will be presented together with key characteristics and the randomly allocated harvest treatments.
 
@@ -806,7 +808,7 @@ In the planned experiment, we will base the harvest treatment for willow ptarmig
 
 ### Random allocation of harvest levels
 
-Harvest treatment for each study unit will be randomly allocated based on a crossover study design. As the planned experiment will have three experimental harvest levels (see above) and last for three seasons, as study unit will be subject to each harvest treatment. The order of the treatments will be randomly decided for each study unit. To ensure a balanced design in terms of the combined allocation of harvest levels across years we will make a balanced set of sequences and randomly allocate a sequence to a study unit. <!--# Add some more description of how this is done -->
+Harvest treatment for each study unit will be randomly allocated based on a crossover study design. As the planned experiment will have three experimental harvest levels (see above) and last for three seasons, one study unit, i.e., one hunting area, will be subject to each harvest treatment. The order of the treatments will be randomly decided for each study unit. To ensure a balanced design in terms of the combined allocation of harvest levels across years we will make a balanced set of sequences and randomly allocate a sequence to a study unit. Since there are three harvest treatments there will be six unique combinations of treatments of which each area will be given for the duration of the experiment. For example, if there would be 30 study units included in the experiment, each treatment combination would be given for $30/6 = 5$ areas. <!--# Add some more description of how this is done - Added some more here /Chris -->
 
 ### Outcome variables
 
