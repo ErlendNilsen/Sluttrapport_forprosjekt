@@ -625,7 +625,8 @@ p7 <- ggplot(species_data, aes(x = reorder(Species, n), y = n, fill = Species)) 
     ) +
     theme_minimal() +
     coord_flip() + 
-    theme(text = element_text(size = 20))
+    theme(text = element_text(size = 20),
+          legend.position = "none")
 
 
 
@@ -701,9 +702,9 @@ ggplot(heatmap_data, aes(x = EBVname, y = Species, size = Count, color = colour)
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
   labs(x = "EBV name",
-       y = "Species",
-       color = "Species") +  # Updated legend title
-  theme(text = element_text(size = 15))
+       y = "Species") +  
+  theme(text = element_text(size = 15),
+        legend.position = "none")
 
 
 ```
