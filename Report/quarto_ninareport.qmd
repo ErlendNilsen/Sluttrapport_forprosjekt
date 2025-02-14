@@ -692,11 +692,13 @@ heatmap_data <- sp_EBV |>
 colnames(heatmap_data) <- c("EBVname", "Species", "Count")
 
 heatmap_data$Species <- factor(heatmap_data$Species, levels = levels(with(species_data, reorder(Species, n))))
+#species_colours
+heatmap_data$colour <- species_colours[as.character(heatmap_data$Species)]
 
 
-ggplot(heatmap_data, aes(x = EBVname, y = Species, size = Count)) +
-  geom_point(colour = species_colours[3], alpha = 0.8)+
-  scale_fill_manual(values = species_colours) +
+ggplot(heatmap_data, aes(x = EBVname, y = Species, size = Count, colour=colour)) +
+  geom_point(alpha = 0.8)+
+  #scale_fill_manual(values = species_colours) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
   labs(x = "EBV name",
@@ -752,9 +754,12 @@ mutate(name = fct_relevel(study_design_observational_studies_skip_if_simulation_
 # Rename columns for easier use in ggplot
 colnames(heatmap_data) <- c("Design", "Species", "Count")
 heatmap_data$Species <- factor(heatmap_data$Species, levels = levels(with(species_data, reorder(Species, n))))
-ggplot(heatmap_data, aes(x = Design, y = Species, size = Count)) +
-  geom_point(colour = species_colours[3], alpha = 0.8)+
-  scale_fill_manual(values = species_colours) +
+#species_colours
+heatmap_data$colour <- species_colours[as.character(heatmap_data$Species)]
+
+
+ggplot(heatmap_data, aes(x = Design, y = Species, size = Count, colour=colour)) +
+  geom_point(alpha = 0.8)+
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
   labs(x = "Study design",
