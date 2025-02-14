@@ -112,7 +112,7 @@ We will first present the results from the systematic mapping of the literature,
 
 # Systematic mapping of the literature
 
-This systematic map is produced as part of the preparation of a large-scale harvest experiment in Norway outlined above. We aimed to identify studies that have quantitatively assessed the effects of legal harvest (i.e. managed hunting) on Galliformes to ensure that the planned experimental studies on the sustainability of galliform hunting are based on the best available evidence. This mapping aims to identify, categorise, and synthesise existing research on how hunting mortality interacts with ecological and environmental factors. By systematically compiling relevant studies, we provide a foundation for assessing knowledge gaps and determining the generalisability of past research. 
+This systematic map is produced as part of the preparation of a large-scale harvest experiment in Norway outlined above. We aimed to identify studies that have quantitatively assessed the effects of legal harvest (i.e. managed hunting) on Galliformes to ensure that the planned experimental studies on the sustainability of galliform hunting are based on the best available evidence. This mapping aims to identify, categorise, and synthesise existing research on how hunting mortality interacts with ecological and environmental factors. By systematically compiling relevant studies, we provide a foundation for assessing knowledge gaps and determining the generalisability of past research.
 
 The [protocol](https://osf.io/ny2jt/) was prepared prior to conducting the search. Here, we include the relevant information and report any deviation from the protocol.
 
@@ -775,7 +775,7 @@ Overall, there has been a substantial amount of research on the effects of harve
 
 # Experimental design
 
-The planned harvest experiment will rely on the existing line transect surveys gathered through Hønsefuglportalen (Ref). In cooperation with Statskog and selected "Fjellstyrer" in Norway, the planned experiment will have access to a range of hunting areas from mid- and northern-Norway covering a latitudinal gradient between approx. 58 <!-- (if Njardarheim is included) --> and 69 degrees. <!--# More here -->.
+The planned harvest experiment will rely on the existing line transect surveys gathered through [Hønsefuglportalen](https://honsefugl.nina.no/Innsyn/nb). In cooperation with Statskog and selected "Fjellstyrer" in Norway, the planned experiment will have access to a range of hunting areas from mid- and northern-Norway covering a latitudinal gradient between approx. 58 <!-- (if Njardarheim is included) --> and 69 degrees. <!--# More here -->.
 
 In this chapter, we will provide the basis for the experimental study design for the planned hunting experiment. We will start by defining some key terms (**BOX: Glossary of terms**), and then put this into the context of the planned experiment. First we will define the harvest treatment in terms of harvest levels. Then, we will present the results from a simulation exercise that was conducted to assess the required sample sizes. Then, we will present a detailed description of how study areas (study units) were "recruited" based on a pre-determined set of criteria. Finally, a complete list of study units will be presented together with key characteristics and the randomly allocated harvest treatments.
 
@@ -808,7 +808,7 @@ The rules or algorithms chosen when recruiting / including study subjects. Since
 
 **Assignment of treatment level to each study unit**  
 
-In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by [*random assignment*]{.underline} or non-random ([*quasi random*]{.underline}) assignment. Under [*random assignment*]{.underline} of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In [*blocked designs*]{.underline}, treatment levels are randomly assigned within blocks. In a [*crossover study*]{.underline} or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a [*balanced study design*]{.underline}, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogeneous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control. 
+In manipulative experiments, there also need to be rules for assigning treatment level to the study subjects. This can be done by [*random assignment*]{.underline} or non-random ([*quasi random*]{.underline}) assignment. Under [*random assignment*]{.underline} of experimental treatment level the treatment level (or control vs treatment) is randomly assigned to each unit. This is efficient in terms of assuring internal validity, as there will be no confounding effects from covariates. In [*blocked designs*]{.underline}, treatment levels are randomly assigned within blocks. In a [*crossover study*]{.underline} or trial, each study subject obtains a series of treatments allocated at random. In most cases, the study is designed so that all included subjects receive all treatments in a random order. This will result in a [*balanced study design*]{.underline}, where the number of observations for each treatment are the same. This is in contrast to parallel studies or non-crossover studies where each unit is exposed to only one treatment level. For heterogeneous samples, one advantage (depending on the analyses methods) is that each study subject can serve as their own control.
 
 **Key references**
 
@@ -831,7 +831,7 @@ We will base our inference on the model presented by @nilsen2023 to assess effec
 
 ### Estimation of hunting quota
 
-Each year, prior to the hunting season, a hunting quota that corresponds to the randomly allocated harvest level will be allocated based on the annual line transect surveys. The population density in a given hunting area is estimated using distance sampling techniques (@nilsen2023, @Bowler2020). The transect surveys are coordinated through Hønsefuglportalen and the results can be used to estimate the total population density as well as the number of adults and juveniles (that years production of chicks). In most hunting areas the yearly production is an important parameter in setting the yearly quotas, but in the harvest experiment the quotas are based on the total population size. For example, if the harvest level for a given year is 30 % and the density is estimated as 15 birds/km\^2 in a area of 100 km\^2, that years hunting quota will be $density \cdot area \cdot harvest level = 15 \cdot 100 \cdot 0.3 = 450 birds$.
+Each year, prior to the hunting season, a hunting quota that corresponds to the randomly allocated harvest level will be allocated based on the annual line transect surveys. The population density in a given hunting area is estimated using distance sampling techniques (@nilsen2023, @Bowler2020). The transect surveys are coordinated through [Hønsefuglportalen](https://honsefugl.nina.no/Innsyn/nb) and the results can be used to estimate the total population density as well as the number of adults and juveniles (that years production of chicks). In most hunting areas the yearly production is an important parameter in setting the yearly quotas, but in the harvest experiment the quotas are based on the total population size. For example, if the harvest level for a given year is 30 % and the density is estimated as 15 birds/km^2^ in a area of 100 km^2^, that years hunting quota will be $density \cdot area \cdot harvest level = 15 \cdot 100 \cdot 0.3 = 450$ birds.
 
 ## Simulation to assess sample size
 
@@ -857,7 +857,7 @@ $$
 r_t = log(N_{juv, t+1} + N_{ad, t+1}) - log(N_{juv, t} + N_{ad, t})
 $$
 
-where $N_{juv}$ and $N_{ad}$ is the number of juveniles and adults at time *t* and *t+1*. Both survival rates and population sizes were simulated with environmental stochasticity, i.e., year-to-year variation, and observation error to better reflect the «real» parameters that will be collected during the harvest experiment.
+where $N_{juv}$ and $N_{ad}$ is the number of juveniles and adults at time *t* and *t+1*. Both survival rates and population sizes were simulated with environmental stochasticity, i.e., year-to-year variation, and observation error to better reflect the **real** parameters that will be collected during the harvest experiment.
 
 ### Harvest treatment and covariate
 
