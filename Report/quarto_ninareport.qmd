@@ -617,7 +617,7 @@ colnames(heatmap_data) <- c("Country", "Species", "Count")
 heatmap_data <- heatmap_data %>% left_join(., species_data)
 
 p7 <- ggplot(species_data, aes(reorder(Species, n), n)) +
-  geom_col(fill=species_colours[3]) + # Changed from geom_histogram(stat="identity") to geom_col()
+  geom_col(fill=species_colours) + # Changed from geom_histogram(stat="identity") to geom_col()
   labs(
     x = "Species",
     y = "Total number of records"
