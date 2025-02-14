@@ -255,7 +255,7 @@ species_colours <- c(
   "Tetrao urogallus" = "#2B2B2B",           # Capercaillie (dark grey/black)
   "Tetrastes bonasia" = "#8C7051",          # Hazel Grouse (brownish-grey)
   "Perdix perdix" = "#A67B5B",              # Grey Partridge (grey-brown)
-  "Lagopus muta" = "#FAF9F6",               # Rock Ptarmigan (white in winter)
+ "Lagopus muta" = "#6E6259",               # Rock Ptarmigan (darker grey-brown)
   "Alectoris graeca" = "#B0A48B",           # Rock Partridge (grey-brown)
   "Alectoris rufa" = "#A5694F",             # Red-legged Partridge (red-brown)
   "Alectoris chukar" = "#B48B7D",           # Chukar Partridge (beige-brown)
@@ -616,28 +616,27 @@ heatmap_data <- country_sp_data %>%
 colnames(heatmap_data) <- c("Country", "Species", "Count") 
 heatmap_data <- heatmap_data %>% left_join(., species_data)
 
-p7 <- ggplot(species_data, aes(reorder(Species, n), n)) +
-  geom_col(fill=species_colours) + # Changed from geom_histogram(stat="identity") to geom_col()
-  labs(
-    x = "Species",
-    y = "Total number of records"
-  ) +
-  theme_minimal() +
-  coord_flip() + 
-  theme(text = element_text(size = 20))
+p7 <- ggplot(species_data, aes(x = reorder(Species, n), y = n, fill = Species)) +
+    geom_col() +
+    scale_fill_manual(values = species_colours) + 
+    labs(
+        x = "Species",
+        y = "Total number of records"
+    ) +
+    theme_minimal() +
+    coord_flip() + 
+    theme(text = element_text(size = 20))
 
 
-p8 <- ggplot(heatmap_data, aes(x = Country, y = reorder(Species, n), size = Count)) +
-  geom_point(colour = species_colours[3], alpha = 0.8)+
-  scale_fill_manual(values = species_colours) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
-  labs(x = "Country",
-       y = "",
-       fill = "") +
-  theme(legend.position = "none", legend.title = element_blank()) +
-  theme(axis.text.y=element_blank()) +
-  theme(text = element_text(size = 20))
+
+p8 <- ggplot(heatmap_data, aes(x = Country, y = reorder(Species, n), size = Count, color = Species)) +
+    geom_point(alpha = 0.8) +
+    scale_color_manual(values = species_colours) + 
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    labs(x = "Country", y = "", color = "Species") + 
+    theme(legend.position = "none", text = element_text(size = 20))
+
 
 
 ggarrange(p7, p8, ncol=2, align = "h")
@@ -696,15 +695,14 @@ heatmap_data$Species <- factor(heatmap_data$Species, levels = levels(with(specie
 heatmap_data$colour <- species_colours[as.character(heatmap_data$Species)]
 
 
-ggplot(heatmap_data, aes(x = EBVname, y = Species, size = Count, colour=colour)) +
-  geom_point(alpha = 0.8)+
-  #scale_fill_manual(values = species_colours) +
+ggplot(heatmap_data, aes(x = EBVname, y = Species, size = Count, color = colour)) +
+  geom_point(alpha = 0.8) +
+  scale_color_manual(values = unique(heatmap_data$colour)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
   labs(x = "EBV name",
        y = "Species",
-       fill="") +
-  theme(legend.position = "none", legend.title = element_blank()) +
+       color = "Species") +  # Updated legend title
   theme(text = element_text(size = 15))
 
 
@@ -760,6 +758,7 @@ heatmap_data$colour <- species_colours[as.character(heatmap_data$Species)]
 
 ggplot(heatmap_data, aes(x = Design, y = Species, size = Count, colour=colour)) +
   geom_point(alpha = 0.8)+
+   scale_color_manual(values = unique(heatmap_data$colour))+
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
   labs(x = "Study design",
