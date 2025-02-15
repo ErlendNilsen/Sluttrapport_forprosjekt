@@ -134,7 +134,7 @@ We used a PIO (Population, Intervention, Outcome) question structure to help dev
 
 We searched for academic literature (publications) in two search platforms; Web of Science and lens.org. Specifically, we searched the Web of Science Core Collection (WOS.SCI: 1987 to 2025, WOS.AHCI: 1987 to 2025, WOS.ESCI: 2020 to 2025 and WOS.SSCI: 1987 to 2025) using the NINA library subscription and the following search string: 
 
-((TS=(galliform\* OR grouse OR ptarmigan OR Phasianidae OR pheasant OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR partridge))  
+((TS=(galliform\* OR grouse OR ptarmigan OR Phasianidae OR pheasant OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR partridge)) 
 
 <!-- This comment is a little too late, but this is not an extensive list of all the galliform species that are harvested - notably neither "tetrao" or "lyrurus" are included. It probably wouldn't have a big effect on the results, but it seems a bit strange to not include the names of the species we plan to to do the harvest experiment on -->
 
@@ -184,7 +184,7 @@ We reviewed scientific articles from all parts of the world covering all gallifo
 
 ### Title and abstract screening stage 
 
-We used a decision tree to make decisions about inclusion and exclusion at the *Title* and *Abstract* stage. The tree is presented in the protocol and in the *Appendix* of this report. The decision tree helped the reviewers to make decisions about eligibility of each paper in a structured way. Duel screening was carried out on 20 % of papers (n = 183). Agreement between reviewers was assessed using the kappa statistic which was over 0.7. <!-- is this number good or bad ? --> 
+We used a decision tree to make decisions about inclusion and exclusion at the *Title* and *Abstract* stage. The tree is presented in the protocol and in the *Appendix* of this report. The decision tree helped the reviewers to make decisions about eligibility of each paper in a structured way. Duel screening was carried out on 20 % of papers (n = 183). Agreement between reviewers was assessed using the kappa statistic which was over 0.7. <!-- is this number good or bad ? -->
 
 ### Full text eligibility 
 
@@ -330,7 +330,7 @@ tally() |>
   theme(text = element_text(size = 13))
 ```
 
-The extent of the study areas were predominately regional or local, with very few studies at the site level (@fig-Study_area). Few studies were of "national" or multinational scale. Note that following our definition used here, regional studies typically cover one mountain area or a county, whereas a local study would cover a municipality or parts of a municipality. Note that this contrasts previous calls for more large-scale research [@estes_spatial_2018] that might be needed to uncover the ecological dynamics and provide input to management and natural resource management policy at larger spatial scales. <!--  Not needed here, but if this is going to be published we could consider classifying the extent of study area by using km^2, study done on jungle fowl in the Vatican would be considered a national area using our current methodology but might still be smaller than the majority of regional areas in the USA for example. Bad example but you get my point :) --> 
+The extent of the study areas were predominately regional or local, with very few studies at the site level (@fig-Study_area). Few studies were of "national" or multinational scale. Note that following our definition used here, regional studies typically cover one mountain area or a county, whereas a local study would cover a municipality or parts of a municipality. Note that this contrasts previous calls for more large-scale research [@estes_spatial_2018] that might be needed to uncover the ecological dynamics and provide input to management and natural resource management policy at larger spatial scales. <!--  Not needed here, but if this is going to be published we could consider classifying the extent of study area by using km^2, study done on jungle fowl in the Vatican would be considered a national area using our current methodology but might still be smaller than the majority of regional areas in the USA for example. Bad example but you get my point :) -->
 
 ```{r}
 #| echo: false
