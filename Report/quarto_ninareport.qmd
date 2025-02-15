@@ -6,7 +6,7 @@ first_author:
     address: NINA Trondheim
     email: erlend.nilsen@nina.no
 second_authors:
-  - name: Lasse F. Eriksen
+  - name: Lasse Frost Eriksen
     address: NINA Trondheim
     email: lasse.eriksen@nina.no
   - name: Christoffer Høyvik Hilde
@@ -95,6 +95,8 @@ library(purrr)
 ```
 
 # Introduction {#inl}
+
+<!--# In the HTML version the words "NINA Rapport 2570" comes out duplicated under "Siteres som"-->
 
 Sustainable harvest management of our game resources is a key goal in Norwegian nature management. In order to achieve sustainable management, it is generally recommended to use an adaptive approach, where one actively searches for new knowledge that is necessary to fill existing knowledge gaps [@Johnson1997]. In the last couple of decades a series of environmental challenges have arisen, which are expected to largely affect hunting management. These challenges are largely linked to climate change and other man-made changes in the natural environment, such as habitat loss and degradation, but also changes in other components of the socio-ecological systems wildlife species are part of and which are expected to influence how sustainable management is defined [@Bowler2020; @Eriksen2018; @Henden2020; @Mansson2023]. With increased focus in society on the loss of biological diversity on a global and national scale, one can further expect increased expectations in society that recreational hunting is carried out in a sustainable way with little risk of overharvesting. This will lead to stricter requirements for documentation of sustainability and data bases will increase <!-- I dont understand the last part of this last sentence, "data bases will increase" -->. More recent conceptual studies of adaptive management have discussed how such new "settings" not only force new knowledge needs, but that it can also lead to changed objectives and measurement parameters for adaptive management [@Mansson2023]. <!-- Perhaps give some specific examples at the end of the sentence ? --> In the light of the drastic changes happening across the worlds' ecosystems, largely driven by anthropogenic activity - it is vital to simultaneously investigate and quantify the effects of harvest and environmental variability on wildlife populations. <!-- suggestion for making the transition to the next part more natural, maybe too much ?  -->
 
@@ -937,4 +939,125 @@ lirype_r <- results_r %>%
        title = "Effects of hunting on the population growth rate")
 lirype_r
 
+```
+
+## Inclusion of study units
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| include: false
+
+library(sf)
+eu <- readRDS("./data/study_units.RDS")
+fg <- st_drop_geometry(eu)
+fg <- fg %>% filter(species == "forest grouse")
+wp <- st_drop_geometry(eu)
+wp <- wp %>% filter(species == "willow ptarmigan")
+units <- readRDS("./data/all_units.RDS")
+```
+
+Guided by the simulations above, we estimated a number of required study units necessary to detect the effects of harvest treatment and climatic variables on survival and population growth rates. As black grouse and capercaillie have slower life histories, with higher natural survival rates and lower reproductive potential than willow ptarmigan, we expect that it will be easier to detect effects of harvest for the two forest grouse species. However, the planned harvest treatments for the forest grouse are lower (0, 10 and 20%) than for willow ptarmigan (0, 15 and 30%), and the lower harvest level should be expected to require a higher number of study units to detect effects. Based on the results from the simulations, we assumed that a minimum of 25 study units for each species would be satisfactory. However, this requires that the included study units do not inwoke selection bias, in order to generalise from the sample to the larger population (see *Box: Glossary of terms*).
+
+### Criterias for inclusion of study units
+
+First, we set specific rules for inclusion of study units from the larger sampling frame. This was done not only to avoid selection bias, but the rules also included certain management considerations that disqualified units. The set of criteria we applied to the entire sampling frame of Statskog's harvest management units (n = `r nrow(units)`) were the following:
+
+1.  Based on current knowledge of the ranges of the species, we set a minimum area size of 25 km^2^ to be eligible for inclusion.
+
+2.  We disqualified units where a high degree of isolation would clearly interfere with the ability to obtain a sufficient amount of distance sampling line transects, or sufficient harvest effort to reach the desired treatment.
+
+3.  We disqualified units where it was not possible due to management concerns to perform a randomisation between the treatment levels for the full three-year period.
+
+4.  We disqualified units where the experimental set-up could be assumed to impose conflicts with indigenous sami reindeer herding.
+
+In cooperation with Statskog, we actively investigated options for qualifying study units that initially did not meet criteria 1 or 2, in particular when such units would give better coverage of geographical or climatic variation (cf. next section). This implies that if single management units did not meet the area size criteria, we created new units by combining two or more adjacent units when possible, as long as the combined unit constituted a coherent area for the species. Further, we investigated possibilities for re-allocating personnel resources for transect lines during the study period, to qualify a higher number of study units.
+
+Following the above set of criteria, `r nrow(fg)` forest grouse units and `r nrow(wp)` willow ptarmigan units were available for inclusion as statistical units.
+
+### Key characteristics of study units
+
+An important step in avoiding selection bias is to ensure that statistical units do not systematically deviate from the study population. As such, we opted to select study units where the variation in central characteristics will reflect the general population of units in the sampling frame. The characteristics we considered included population density and environmental variables in terms of climate and habitat.
+
+The study units were geographically distributed across a latitude gradient. As there tends to be spatial variation in willow ptarmigan population densites between the northern and southern parts of the country [@Bowler2020], this will most likely means that our ptarmigan study units will cover a wide range of population densities each year. Although the empirical basis is not as strong for the forest grouse species, any such geographical variation will be accounted for by the inclusion of study units along much of the latitudinal range of these species in Norway.
+
+![Study units in the harvest experiment](images/map_study_units.png){#map width="817"}
+
+@bakkestuen2008step assessed major environmental gradients in Norway using principal components analyses (PCA). They found that the two most important gradients were a regional gradient from humid to continental and coast to inland (PCA1) and a regional gradient from north to south and from high to low altitudes (PCA2). These two PCA axes corresponded with the previous classification of Norwegian biogeographical regions into a humidity gradient, *bioclimatic sections*, and a temperature gradient, *bioclimatic zones* [@moen1999vegetation]. We used these two gradients to assess whether our available study units represented the environmental bioclimatic variation in the larger population. To achieve this, we used the raster map from @bakkestuen2008step with 1x1 km resolution to calculate mean values of both the PCA axes for each study unit, as well as each unit in the overall sampling frame of Statskog units. In addition, we used the habitat suitability map from @kvasnes2018quantifying to quantify the bioclimatic variation within suitable willow ptarmigan habitat in all of Norway. The end result can be seen in @fig-pca.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-pca
+#| fig-cap: "Willow ptarmigan and forest grouse experimental study units, placed along gradients of bioclimatic sections and zones based on the mean value for each unit. Higher section values = drier bioclimatic region, and higher zone values = lower altitude and/or latitude. Grey dots show the total Statskog harvest management units to select from (not scaled by size). The heat map in the background shows amount of suitable habitat across Norway for willow ptarmigan only, with darker colours signifying higher amount of habitat within a given bioclimatic region."
+
+library(ggeffects)
+library(ggtext)
+
+eu <- readRDS("./data/study_units.RDS")
+units <- readRDS("./data/all_units.RDS")
+pca <- readRDS("./data/pca.RDS")
+
+species_col <- scale_color_manual(name = "species", values = c("forest grouse" = "darkgreen", "willow ptarmigan" = "purple"))
+
+ggplot(pca) +
+  geom_tile(aes(x = PCA1, y = PCA2, fill = wphab)) +
+  scale_fill_gradientn(colours = heat.colors(30), trans = "reverse", guide="none") +
+  theme_ggeffects() +
+  theme(axis.title.x = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=12)) +
+  labs(x = "Section", y = "Zone") +
+  geom_hline(aes(yintercept = 0)) +
+  geom_vline(aes(xintercept = 0)) +
+  geom_point(data = units,
+             aes(x = pca1_mean, y = pca2_mean),
+             colour = "grey50", alpha = 0.3, stroke = NA) +
+  geom_point(data = eu,
+             aes(x = pca1_mean, y = pca2_mean, size = area, colour = species),
+             alpha = 0.7, stroke = NA) +
+  species_col +
+  guides(colour = guide_legend(position = "right", order = 1, title = "experimental units", ),
+         size = guide_legend(position = "right", order = 2, title = "area size (km<sup>2</sup>)", theme(legend.title = element_markdown())))
+```
+
+Overall, @fig-pca give confidence that we may generalise from our results beyond our study units. By visualising our willow ptarmigan study units together with the assumed bioclimatic variation in the larger population, we can verify that our sample of willow ptarmigan units covers much of the overall variation. There may be a slight underrepresentation among highly humid lowland areas (i.e. the upper left corner of the plot), which is usually considered less suitable among willow ptamigan habitats @kvasnes2018quantifying, and thus without Statskog areas that qualified for inclusion. It is also worth noting that the study units are presented with the mean of each bioclimatic gradient for each area, signifying that there is in many cases a proportion of values above and below the mean which is also represented in low amounts (i.e. lighter colour) in the heat map in.
+
+For forest grouse, the plot enables us to verify that the study units are satisfactory scattered across the vegetation sections and the boreal forest vegetation zones, within the range of Statskog forest grouse harvest units. There is no existing habitat suitability map for forest grouse in Norway, such as for willow ptarmigan. Nevertheless, the Statskog management units are located over vast parts of Norway, thus it seems fair to assume that they cover much of the bioclimatic variation of forest grouse hunting areas in Norway.
+
+### Calculation of area sizes
+
+The willow ptarmigan study units naturally include various amounts of habitat unsuitable for willow ptarmigan (e.g. lakes, lowland forest in the unit edges, or high mountain peaks). Thus, for willow ptarmigan we calculated area size of suitable habitat within the study units, following the classification by @kvasnes2018quantifying. When estimating population densities based on distance sampling line transects we will use the classification of suitable habitat to calculate the abundance within each study unit per year. For forest grouse, the study units are usually smaller and the total area of the selected management units are generally representative of the forest grouse habitat within each unit. Thus, for the forest grouse species we use the total area of the units as basis for the abundance calculations.
+
+## Experimental study units
+
+We here present the experimental study units together with key characteristics and the randomly allocated harvest treatments.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-units
+#| tbl-cap: "Study units"
+
+library(sf)
+library(gt)
+
+### NOTE: TEMPORARY SUGGESTION FOR THE FINAL TABLE - AWAITING HARVEST TREATMENTS
+
+eutab <- st_drop_geometry(eu)
+eutab <- eutab %>%
+  mutate(suit_wparea_km2 = ifelse(species == "willow ptarmigan", suit_wparea_km2, NA)) %>%
+  dplyr::select(name, species, area_total, suit_wparea_km2, pca1_mean, pca2_mean) %>%
+  mutate(pca1_mean = round(pca1_mean, 2)) %>%
+  mutate(pca2_mean = round(pca2_mean, 2)) %>%
+  rename('WP area' = suit_wparea_km2) %>%
+  rename('Total area' = area_total) %>%
+  rename('PCA1 (mean)' = pca1_mean) %>%
+  rename('PCA2 (mean)' = pca2_mean) %>%
+  rename(Species = species) %>%
+  rename('Experimental unit' = name)
+
+eutab %>% gt()
 ```
