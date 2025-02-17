@@ -172,7 +172,7 @@ The following benchmark papers was used to assess the effectiveness of the searc
 
 -   Small, R.J., Holzwart, J.C. & Rusch, D.H. 1991. Predation and hunting mortality of ruffed grouse in central Wisconsin. Journal of Wildlife Management, 55, 512–520. 
 
-In our searches, all benchmark papers were found except.... XXX <!-- Which one (s) ?-->, which was not indexed by any of the databases that we searched. Overall, this is found to be satisfactory.
+In our searches, all benchmark papers were found. @Henden2020 and @small1991 were not indexed in lens.org but were found in Web of Science.
 
 ### Article screening  
 
