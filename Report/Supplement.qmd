@@ -1,6 +1,6 @@
 ---
 title: "Supplementary Information"
-format: html
+format: docx
 editor: visual
 ---
 
@@ -46,184 +46,68 @@ Additional information about the systematic review:
 
     b\) No - Add/select ‘Not quantitative’  in the ‘Exclude with Reason’ box.   
 
-Data coding
+**Data coding**
 
 From all papers that met the eligibility criteria, we extracted key variables (aka “data coding”). In addition to metadata about the publication (publication year, journal name etc) we extracted the following information:   
 
--   Species 
-
-<!-- -->
-
--   Study area location 
-
-<!-- -->
-
--   Country/countries 
-
-<!-- -->
-
--   County/counties 
-
-<!-- -->
-
--   Municipality/municipalities 
-
-<!-- -->
-
--   Study extent / size of study area 
-
-<!-- -->
-
--   Multinational 
-
-<!-- -->
-
--   National 
-
-<!-- -->
-
--   Regional (e.g. a county, a larger mountain area etc) 
-
-<!-- -->
-
--   Local (e.g. a municipality or part of municipality) 
-
-<!-- -->
-
--   Site level (\< 1km2) 
-
-<!-- -->
-
--   Research type 
-
-<!-- -->
-
--   Observational  / analyses of empirical data 
-
-<!-- -->
-
--   Simulation based / scenario 
-
-<!-- -->
-
--   Study design – observational studies 
-
-<!-- -->
-
--   Randomized Controlled Trials (RCTs) 
-
-<!-- -->
-
--   Before-After-Control-Impact (BACI) 
-
-<!-- -->
-
--   Control-Impact (CA) 
-
-<!-- -->
-
--   Before-After (BA) 
-
-<!-- -->
-
--   After (A) 
-
-<!-- -->
-
--   Harvest level 
-
-<!-- -->
-
--   Reported harvest mortality 
-
-<!-- -->
-
--   Assessment of additivity of harvest mortality 
-
-<!-- -->
-
--   Boolean (Yes / No) 
-
-<!-- -->
-
--   Outcome variables: EBV class 
-
-<!-- -->
-
--   Genetic composition 
-
-<!-- -->
-
--   Species population 
-
-<!-- -->
-
--   Species trait 
-
-<!-- -->
-
--   Outcome variable: EBV name \[not exhaustive; \* indicate name that is not included in original framework\] 
-
-<!-- -->
-
--   Inbreeding 
-
-<!-- -->
-
--   Effective population size 
-
-<!-- -->
-
--   Species distribution 
-
-<!-- -->
-
--   Species abundance 
-
-<!-- -->
-
--   Population density \* 
-
-<!-- -->
-
--   Morphology 
-
-<!-- -->
-
--   Physiology 
-
-<!-- -->
-
--   Movement rates\* 
-
-<!-- -->
-
--   Habitat use / selection\* 
-
-<!-- -->
-
--   Reproduction  
-
-<!-- -->
-
--   Survival\* 
-
-<!-- -->
-
--   Sex- and age structure\* 
+-   Species
+-   Study area location
+-   Country/countries
+-   County/counties
+-   Municipality/municipalities
+-   Study extent / size of study area
+    -   Multinational
+    -   National
+    -   Regional (e.g. a county, a larger mountain area etc)
+    -   Local (e.g. a municipality or part of municipality)
+    -   Site level (\< 1km2)
+-   Research type
+-   Observational  / analyses of empirical data
+-   Simulation based / scenario
+-   Study design – observational studies
+-   Randomized Controlled Trials (RCTs)
+-   Before-After-Control-Impact (BACI)
+-   Control-Impact (CA)
+-   Before-After (BA)
+-   After (A)
+-   Harvest level
+    -   Boolean (Yes / No)
+-   Assessment of additivity of harvest mortality
+    -   Boolean (Yes / No)
+-   Outcome variables: EBV class
+    -   Genetic composition
+    -   Species population
+    -   Species trait
+-   Outcome variable: EBV name \[not exhaustive; \* indicate name that is not included in original framework\]
+    -   Inbreeding
+    -   Effective population size
+    -   Species distribution
+    -   Species abundance
+    -   Population density \*
+    -   Morphology
+    -   Physiology
+    -   Movement rates\*
+    -   Habitat use / selection\*
+    -   Reproduction
+    -   Survival\* 
+    -   Sex- and age structure\* 
 
 ## Appendix 2
 
 List of eligible papers:
 
+THE LIST WILL BE INCLUDED IN FINAL REPORT
+
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
+
 library(synthesisr)
 require(xtable)
 require(tidyverse)
 require(knitr)
+require(flextable)
 
 data <- readRDS("data/GS_data_Raw.RDS")
 data<-data |> 
@@ -240,10 +124,52 @@ included_full_details <- left_join(included, all_RIS, by = c("Study ID" = "acces
 included_full_details <- included_full_details |> janitor::clean_names()
 
 
-included_full_details |> 
-  select(author,title,year,source,doi) |> 
-  kableExtra::kable() |> 
-  kableExtra::kable_styling()
+# included_full_details |> 
+#   select(author,title,year,source,doi) |> 
+#   kableExtra::kable() |> 
+#   kableExtra::kable_styling()
+
+# included_full_details |>
+# select(author,title,year,source,doi) |>
+# kable()
+
+
+```
+
+## Appendix 3
+
+**Table S3:** *Overview of included study units*
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-units
+
+library(sf)
+library(gt)
+
+### NOTE: TEMPORARY SUGGESTION FOR THE FINAL TABLE - AWAITING HARVEST TREATMENTS
+### NOTE2: LAST-MINUTE CHANGE TO BE DONE: HEADLINE NOT BOLD IN HTML OUTPUT
+
+eu <- readRDS("./data/study_units.RDS")
+
+eutab <- st_drop_geometry(eu)
+eutab <- eutab %>%
+  mutate(suit_wparea_km2 = ifelse(species == "willow ptarmigan", suit_wparea_km2, NA)) %>%
+  dplyr::select(name, species, area_total, suit_wparea_km2, pca1_mean, pca2_mean) %>%
+  mutate(pca1_mean = round(pca1_mean, 2)) %>%
+  mutate(pca2_mean = round(pca2_mean, 2)) %>%
+  rename('WP area' = suit_wparea_km2) %>%
+  rename('Total area' = area_total) %>%
+  rename('PCA1 (mean)' = pca1_mean) %>%
+  rename('PCA2 (mean)' = pca2_mean) %>%
+  rename(Species = species) %>%
+  rename('Experimental unit' = name) 
+
+kable(eutab)   
+
+
 
 
 ```

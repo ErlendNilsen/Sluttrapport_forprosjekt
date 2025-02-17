@@ -98,7 +98,7 @@ library(purrr)
 
 <!--# In the HTML version the words "NINA Rapport 2570" comes out duplicated under "Siteres som"-->
 
-<!-- Added a photo that may be used in the text (or if desired, as cover photo) under folder 'images': ptarmiganhunt_LFE -->
+<!--# Added a photo that may be used in the text (or if desired, as cover photo) under folder 'images': ptarmiganhunt_LFE -->
 
 Sustainable harvest management of our game resources is a key goal in Norwegian nature management. In order to achieve sustainable management, it is generally recommended to use an adaptive approach, where one actively searches for new knowledge that is necessary to fill existing knowledge gaps [@Johnson1997]. In the last couple of decades a series of environmental challenges have arisen, which are expected to largely affect hunting management. These challenges are largely linked to climate change and other man-made changes in the natural environment, such as habitat loss and degradation, but also changes in other components of the socio-ecological systems wildlife species are part of and which are expected to influence how sustainable management is defined [@Bowler2020; @Eriksen2018; @Henden2020; @Mansson2023]. With increased focus in society on the loss of biological diversity on a global and national scale, one can further anticipate increased expectations in society that recreational hunting is carried out in a sustainable way with minimal risk of overharvesting. This can eventually be assumed to lead to stricter requirements for documentation of sustainability. More recent conceptual studies of adaptive management have discussed how these new situations not only force new knowledge needs, but that it can also lead to changed objectives and measurement parameters for adaptive management [@Mansson2023]. <!-- Perhaps give some specific examples at the end of the sentence ? --> In the light of the drastic changes happening across the world's ecosystems, largely driven by anthropogenic activity, it is vital to simultaneously investigate and quantify the effects of harvest and environmental variability on wildlife populations.
 
@@ -964,29 +964,29 @@ wp <- wp %>% filter(species == "willow ptarmigan")
 units <- readRDS("./data/all_units.RDS")
 ```
 
-Guided by the simulations above, we estimated a number of required study units necessary to detect the effects of harvest treatment and climatic variables on survival and population growth rates. As black grouse and capercaillie have slower life histories, with higher natural survival rates and lower reproductive potential than willow ptarmigan, we expect that it will be easier to detect effects of harvest for the two forest grouse species. However, the planned harvest treatments for the forest grouse are lower (0, 10 and 20%) than for willow ptarmigan (0, 15 and 30%), and the lower harvest level should be expected to require a higher number of study units to detect effects. Based on the results from the simulations, we assumed that a minimum of 25 study units for each species would be satisfactory. However, this requires that the included study units do not inwoke selection bias, in order to generalise from the sample to the larger population (see *Box: Glossary of terms*).
+Guided by the simulations above, we estimated a number of required study units necessary to detect the effects of harvest treatment and climatic variables on survival and population growth rates. As black grouse and capercaillie have slower life histories, with higher natural survival rates and lower reproductive potential than willow ptarmigan, we expect that it will be easier to detect effects of harvest for the two forest grouse species. However, the planned harvest treatments for the forest grouse are lower (0, 10 and 20%) than for willow ptarmigan (0, 15 and 30%), and the lower harvest level should be expected to require a higher number of study units to detect effects. For forest grouse we did not include protecting only female birds (i.e. 0% harvest on females) as a harvest treatment in the experiment. Based on the results from the simulations, we assumed that a minimum of 25 study units for each species would be satisfactory. In order to generalize from the sample to the larger population and to ensure high external validity, study units should be selected to avoid selection bias (see *Box: Glossary of terms*).
 
-### Criterias for inclusion of study units
+### Criteria for inclusion of study units
 
-First, we set specific rules for inclusion of study units from the larger sampling frame. This was done not only to avoid selection bias, but the rules also included certain management considerations that disqualified units. The set of criteria we applied to the entire sampling frame of Statskog's harvest management units (n = `r nrow(units)`) were the following:
+We used specific rules when making descisions about inclusion of study units from the larger sampling frame. This was done to avoid selection bias, but the rules also included management considerations that disqualified units. The set of criteria we applied to the entire sampling frame of Statskog's harvest management units (n = `r nrow(units)`) were the following:
 
 1.  Based on current knowledge of the ranges of the species, we set a minimum area size of 25 km^2^ to be eligible for inclusion.
 
-2.  We disqualified units where a high degree of isolation would clearly interfere with the ability to obtain a sufficient amount of distance sampling line transects, or sufficient harvest effort to reach the desired treatment.
+2.  We disqualified units where access to the unit is limited (e.g. because they are located far from roads or larger lakes where hunters could be transported with boats) would clearly interfere with the ability to obtain a sufficient amount of distance sampling line transects, or sufficient harvest effort to reach the desired treatment.
 
-3.  We disqualified units where it was not possible due to management concerns to perform a randomisation between the treatment levels for the full three-year period.
+3.  We disqualified units where it was not possible due to management concerns to perform a full randomization between the treatment levels for the full three-year period.
 
 4.  We disqualified units where the experimental set-up could be assumed to impose conflicts with indigenous sami reindeer herding.
 
-In cooperation with Statskog, we actively investigated options for qualifying study units that initially did not meet criteria 1 or 2, in particular when such units would give better coverage of geographical or climatic variation (cf. next section). This implies that if single management units did not meet the area size criteria, we created new units by combining two or more adjacent units when possible, as long as the combined unit constituted a coherent area for the species. Further, we investigated possibilities for re-allocating personnel resources for transect lines during the study period, to qualify a higher number of study units.
+In cooperation with Statskog, we investigated options for qualifying study units that initially did not meet criteria 1 or 2, in particular when such units would give better coverage of geographical or climatic variation (cf. next section). This implies that if single management units did not meet the area size criteria, we created new units by combining two or more adjacent units when possible, as long as the combined unit constituted a coherent area for the species. Further, we investigated possibilities for re-allocating personnel resources for transect lines during the study period, to qualify a higher number of study units.
 
-Following the above set of criteria, `r nrow(fg)` forest grouse units and `r nrow(wp)` willow ptarmigan units were available for inclusion as statistical units.
+Following the above set of criteria, `r nrow(fg)` forest grouse units and `r nrow(wp)` willow ptarmigan units included as study units.
 
 ### Key characteristics of study units
 
-An important step in avoiding selection bias is to ensure that statistical units do not systematically deviate from the study population. As such, we opted to select study units where the variation in central characteristics will reflect the general population of units in the sampling frame. The characteristics we considered included population density and environmental variables in terms of climate and habitat.
+An important step in avoiding selection bias and ensuring high external validity is to ensure that statistical units do not systematically deviate from the study population. As such, we opted to select study units where the variation in central characteristics will reflect the general population of units in the sampling frame. The characteristics we considered included population density and environmental variables in terms of climate and habitat.
 
-The study units were geographically distributed across a latitude gradient. As there tends to be spatial variation in willow ptarmigan population densites between the northern and southern parts of the country [@Bowler2020], this will most likely means that our ptarmigan study units will cover a wide range of population densities each year. Although the empirical basis is not as strong for the forest grouse species, any such geographical variation will be accounted for by the inclusion of study units along much of the latitudinal range of these species in Norway.
+The included study units [@fig-map] were geographically distributed across a latitude gradient. As there tends to be spatial variation in willow ptarmigan population dynamics between the northern and southern parts of the country [@Bowler2020], this will most likely means that our ptarmigan study units will cover a wide range of population densities each year. Although the empirical basis is not as strong for the forest grouse species, any such geographical variation will be accounted for by the inclusion of study units along much of the latitudinal range of these species in Norway.
 
 ![Study units in the harvest experiment](images/map_study_units.png){#fig-map width="817"}
 
@@ -1034,40 +1034,7 @@ For forest grouse, the plot enables us to verify that the study units are satisf
 
 ### Calculation of area sizes
 
-The willow ptarmigan study units naturally include various amounts of habitat unsuitable for willow ptarmigan (e.g. lakes, lowland forest in the unit edges, or high mountain peaks). Thus, for willow ptarmigan we calculated area size of suitable habitat within the study units, following the classification by @kvasnes2018quantifying. When estimating population densities based on distance sampling line transects we will use the classification of suitable habitat to calculate the abundance within each study unit per year. For forest grouse, the study units are usually smaller and the total area of the selected management units are generally representative of the forest grouse habitat within each unit. Thus, for the forest grouse species we use the total area of the units as basis for the abundance calculations.
-
-# Appendix
-
-## Experimental study units with key characteristics
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: tbl-units
-#| tbl-cap: "Study units"
-
-library(sf)
-library(gt)
-
-### NOTE: TEMPORARY SUGGESTION FOR THE FINAL TABLE - AWAITING HARVEST TREATMENTS
-### NOTE2: LAST-MINUTE CHANGE TO BE DONE: HEADLINE NOT BOLD IN HTML OUTPUT
-
-eutab <- st_drop_geometry(eu)
-eutab <- eutab %>%
-  mutate(suit_wparea_km2 = ifelse(species == "willow ptarmigan", suit_wparea_km2, NA)) %>%
-  dplyr::select(name, species, area_total, suit_wparea_km2, pca1_mean, pca2_mean) %>%
-  mutate(pca1_mean = round(pca1_mean, 2)) %>%
-  mutate(pca2_mean = round(pca2_mean, 2)) %>%
-  rename('WP area' = suit_wparea_km2) %>%
-  rename('Total area' = area_total) %>%
-  rename('PCA1 (mean)' = pca1_mean) %>%
-  rename('PCA2 (mean)' = pca2_mean) %>%
-  rename(Species = species) %>%
-  rename('Experimental unit' = name)
-
-eutab %>% gt()
-```
+The willow ptarmigan study units naturally include various amounts of habitat unsuitable for willow ptarmigan (e.g. lakes, lowland forest in the unit edges, or high mountain peaks). Thus, for willow ptarmigan we calculated area size of suitable habitat within the study units, following the classification by @kvasnes2018quantifying. When estimating population densities based on distance sampling line transects we will use the classification of suitable habitat to calculate the abundance within each study unit per year. For forest grouse, the study units are usually smaller and the total area of the selected management units are generally representative of the forest grouse habitat within each unit. Thus, for the forest grouse species we use the total area of the units as basis for the abundance calculations. A complete list of included study units is found in Appendix 3.
 
 # Conclusions
 
