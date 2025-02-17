@@ -6,7 +6,7 @@ first_author:
     address: NINA Trondheim
     email: erlend.nilsen@nina.no
 second_authors:
-  - name: Lasse F. Eriksen
+  - name: Lasse Frost Eriksen
     address: NINA Trondheim
     email: lasse.eriksen@nina.no
   - name: Christoffer Høyvik Hilde
@@ -96,13 +96,15 @@ library(purrr)
 
 # Introduction {#inl}
 
-Sustainable harvest management of our game resources is a key goal in Norwegian nature management. In order to achieve sustainable management, it is generally recommended to an adaptive approach, where one actively searches for new knowledge that is necessary to fill existing knowledge gaps [@Johnson1997]. In recent years, however, people have become more aware of the partly enormous changes we face in the coming years, which are expected to largely affect hunting management. These challenges are largely linked to climate change and other (man-made) changes in the natural environment, but also changes in other components of the socio-ecological systems wildlife species are part of are expected to influence how sustainable management is defined [@Bowler2020; @Eriksen2018; @Henden2020; @Mansson2023]. With increased focus in society on the loss of biological diversity on a global and national scale, one can further expect increased expectations in society that recreational hunting is carried out in a sustainable way with little risk of overharvesting. This will lead to stricter requirements for documentation of sustainability and data bases will increase. More recent conceptual studies of adaptive management have discussed how such new "settings" not only force new knowledge needs, but that it can also lead to changed objectives and measurement parameters for adaptive management [@Mansson2023].
+<!--# In the HTML version the words "NINA Rapport 2570" comes out duplicated under "Siteres som"-->
 
-A central concept for predicting the effect of hunting on wildlife populations is the relationship between additive hunting mortality (which comes in addition to other mortality) vs compensatory hunting mortality (which is compensated by other mortality being reduced in proportion to the harvest mortality - see @Perone2013 and @Sandercock2011). Our knowledge of this comes largely from experimental studies carried out at the end of the 1990s under the auspices of the "Rypejaktprosjektet" (with Hans Chr. Pedersen, NINA, as project leader). Here it was concluded that hunting mortality was partially compensatory at low harvest rates, while it was additive or even super-additive at high harvest rates [@Sandercock2011; @Pedersen2004]. This knowledge base was produced by carrying out large-scale experimental studies, where the hunting harvest (respectively 0, 15 and 30%) was distributed randomly between the study areas. Effects were investigated both directly in terms of survival (using radio-tagged birds - see @Sandercock2011) and indirectly via population densities (see @Pedersen2004). This project focused exclusively on willow ptarmigan (*Lagopus lagopus*), and no similar knowledge exist for black grouse *(Lyrurus tetrix*) and capercaillie (*Tetrao urogallus*).
+Sustainable harvest management of our game resources is a key goal in Norwegian nature management. In order to achieve sustainable management, it is generally recommended to use an adaptive approach, where one actively searches for new knowledge that is necessary to fill existing knowledge gaps [@Johnson1997]. In the last couple of decades a series of environmental challenges have arisen, which are expected to largely affect hunting management. These challenges are largely linked to climate change and other man-made changes in the natural environment, such as habitat loss and degradation, but also changes in other components of the socio-ecological systems wildlife species are part of and which are expected to influence how sustainable management is defined [@Bowler2020; @Eriksen2018; @Henden2020; @Mansson2023]. With increased focus in society on the loss of biological diversity on a global and national scale, one can further expect increased expectations in society that recreational hunting is carried out in a sustainable way with little risk of overharvesting. This will lead to stricter requirements for documentation of sustainability and data bases will increase <!-- I dont understand the last part of this last sentence, "data bases will increase" -->. More recent conceptual studies of adaptive management have discussed how such new "settings" not only force new knowledge needs, but that it can also lead to changed objectives and measurement parameters for adaptive management [@Mansson2023]. <!-- Perhaps give some specific examples at the end of the sentence ? --> In the light of the drastic changes happening across the worlds' ecosystems, largely driven by anthropogenic activity - it is vital to simultaneously investigate and quantify the effects of harvest and environmental variability on wildlife populations. <!-- suggestion for making the transition to the next part more natural, maybe too much ?  -->
 
-Whether results from the former large scale experiement is transferable in time (i.e. to the current environmental conditions) and to other species (i.e. black grouse and capercaillie) is an empirical question that cannot be answered by directly by existing data. For example, one can expect that climate change will have significant effects on the trophic interactions that largely affect grouse population dynamics and densities [@Bowler2020, @Henden2020]. Changes in these interactions will have the potential to directly affect grouse populations' potential to compensate for hunting mortality (see discussions in e.g. @Perone2013). Similarly, large changes in the size of the grouse population could have similar effects, since the degree of compensation can be closely linked to density dependence [@Sinclair1996]. One way to address these uncertainties would be to conduct an conceptual replication of the well-known experiments carried out in the 90-ties. Such conceptual replication studies (*sensu* @Nakagawa2015) are rare in ecology [@Fraser2020], but have recently been strongly recommended to examine the validity and generalizability of previously conducted studies [@Fraser2020; @Nakagawa2015].
+A central concept for predicting the effect of hunting on wildlife populations is the relationship between additive hunting mortality (which comes in addition to other mortality) vs compensatory hunting mortality (which is compensated by other mortality being reduced in proportion to the harvest mortality - see @Perone2013 and @Sandercock2011). Our knowledge of this comes largely from experimental studies carried out at the end of the 1990s under the auspices of the "Rypejaktprosjektet" (with Hans Chr. Pedersen, NINA, as project leader). Here it was concluded that hunting mortality was partially compensatory at low harvest rates, while it was additive or even super-additive at high harvest rates [@Sandercock2011; @Pedersen2004]. This knowledge base was produced by carrying out large-scale experimental studies, where the hunting harvest (respectively 0, 15 and 30%) was distributed randomly between the study areas. Effects were investigated both directly in terms of survival (using radio-tagged birds - see @Sandercock2011) and indirectly via population densities (see @Pedersen2004). This project focused exclusively on willow ptarmigan (*Lagopus lagopus*), and no similar knowledge exist for black grouse *(Lyrurus tetrix*) and capercaillie (*Tetrao urogallus*). <!-- Should we mention the 4th species, Tetrastes bonasia? To add a small token into the hippocampus of the people reading this from e.g., landbruksdirektoratet - for future projects.. -->
 
-However, before such a replication is carried out it is a prerequisite that an up-to-date mapping of the research-based literature on the sustainable management of galliformes from a climate change perspective is conducted (see also @Grainger2020), to ensure that the replication rests on the best available knowledge. In addition, a thorough planning of how best to design such in a way that both sample sizes and climatic gradients are sufficient to close the most pressing knowledge gaps. This report is a part of the planning stage of such a project, where the intent is to apply experimental harvest treatment to populations of willow grouse, black grouse and capercaillie in Norway. It includes two main sections:
+Whether results from the former large scale experiment is transferable in time (i.e. to the current environmental conditions) and to other species (i.e. black grouse and capercaillie) is an empirical question that cannot be answered directly by existing data. For example, one can expect that climate change will have significant effects on the trophic interactions that largely affect grouse population dynamics and densities [@Bowler2020, @Henden2020]. Changes in these interactions will have the potential to directly affect grouse populations' potential to compensate for hunting mortality (see discussions in e.g. @Perone2013). Similarly, large changes in the size of the grouse population could have similar effects, since the degree of compensation can be closely linked to density dependence [@Sinclair1996]. One way to address these uncertainties would be to conduct an conceptual replication of the well-known experiments carried out in the 90-ties. Such conceptual replication studies (*sensu* @Nakagawa2015) are rare in ecology [@Fraser2020], but have recently been strongly recommended to examine the validity and generalisability of previously conducted studies [@Fraser2020; @Nakagawa2015].
+
+However, before such a replication is carried out it is a prerequisite that an up-to-date mapping of the research-based literature on the sustainable management of galliformes from a climate change perspective is conducted (see also @Grainger2020), to ensure that the replication rests on the best available knowledge. In addition, a thorough planning of how best to design such an experiment in a way that both sample sizes and climatic gradients are sufficiently estimated to close the most pressing knowledge gaps. This report is a part of the planning stage of such a project, where the intent is to apply experimental harvest treatments to populations of willow grouse, black grouse and capercaillie in Norway. It includes two main sections:
 
 -   A systematic mapping of the literature related to effects of harvest on galliformes
 
@@ -112,13 +114,13 @@ We will first present the results from the systematic mapping of the literature,
 
 # Systematic mapping of the literature
 
-This systematic map is produced as part of the preparation of a large-scale harvest experiment in Norway outlined above. We aimed to identify studies that have quantitatively assessed the effects of legal harvest (i.e. managed hunting) on Galliformes to ensure that the planned experimental studies on the sustainability of galliform hunting are based on the best available evidence. This mapping aims to identify, categorise, and synthesise existing research on how hunting mortality interacts with ecological and environmental factors. By systematically compiling relevant studies, we provide a foundation for assessing knowledge gaps and determining the generalisability of past research.
+This systematic map is produced as part of the preparation of a large-scale harvest experiment in Norway, as outlined above. We aimed to identify studies that have quantitatively assessed the effects of legal harvest (i.e., managed hunting) on galliformes to ensure that the planned experimental studies on the sustainability of galliform hunting are based on the best available evidence. This mapping aims to identify, categorise, and synthesise existing research on how hunting mortality interacts with ecological and environmental factors. By systematically compiling relevant studies, we provide a foundation for assessing knowledge gaps and determining the generalisability of past research.
 
-The [protocol](https://osf.io/ny2jt/) was prepared prior to conducting the search. Here, we include the relevant information and report any deviation from the protocol.
+The [protocol](https://osf.io/ny2jt/) i.e., the workflow of identifying, categorising and analysing the exisiting literature, was prepared prior to conducting the search. Here, we include the relevant information and report any deviation from the protocol.
 
 ## Objective of the review and research question
 
-The main objective of this review is to map the available literature on effects of managed harvest/hunting on species of the order Galliformes.
+The main objective of this review is to map the available literature on effects of managed harvest/hunting on species of the order Galliformes. <!-- Do we need this section ? Isnt it already answered under the previous part ? (Systematic mapping of the literature) -->
 
 ## Methods 
 
@@ -135,6 +137,8 @@ We used a PIO (Population, Intervention, Outcome) question structure to help dev
 We searched for academic literature (publications) in two search platforms; Web of Science and lens.org. Specifically, we searched the Web of Science Core Collection (WOS.SCI: 1987 to 2025, WOS.AHCI: 1987 to 2025, WOS.ESCI: 2020 to 2025 and WOS.SSCI: 1987 to 2025) using the NINA library subscription and the following search string: 
 
 ((TS=(galliform\* OR grouse OR ptarmigan OR Phasianidae OR pheasant OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR partridge)) 
+
+<!-- This comment is a little too late, but this is not an extensive list of all the galliform species that are harvested - notably neither "tetrao" or "lyrurus" are included. It probably wouldn't have a big effect on the results, but it seems a bit strange to not include the names of the species we plan to to do the harvest experiment on -->
 
 AND (TS=("hunt" OR "harvest"))) 
 
@@ -168,34 +172,34 @@ The following benchmark papers was used to assess the effectiveness of the searc
 
 -   Small, R.J., Holzwart, J.C. & Rusch, D.H. 1991. Predation and hunting mortality of ruffed grouse in central Wisconsin. Journal of Wildlife Management, 55, 512–520. 
 
-In our searches, all benchmark papers were found except.... XXX, which was not indexed by any of the databases that we searched. Overall, this is found to be satisfactory.
+In our searches, all benchmark papers were found except.... XXX <!-- Which one (s) ?-->, which was not indexed by any of the databases that we searched. Overall, this is found to be satisfactory.
 
 ### Article screening  
 
-We used pre-determined inclusion/exclusion criteria when screening eligible studies. Excluded papers will be shown in a flowchart using the ROSES flow chart [@Haddaway2018]. Included studies was de-duplicated based on DOI and title matches using the deduplication tool in Rayyan.  
+We used the online screening tool Rayyan (ref) for screening the results of the article search. A pre-determined inclusion/exclusion criteria was used when screening eligible studies. Excluded papers will be shown in a flowchart using the ROSES flow chart [@Haddaway2018]. Included studies was de-duplicated based on DOI and title matches using the deduplication tool in Rayyan.  
 
-After de-duplication, title and abstract screening was done using the eligibility criteria. If uncertainty remained, the full text version was visited to confirm/reject. The screening was done using Rayyan. A set of 54 papers was reviewed by three members of the review team to ensure consistency.  
+After de-duplication, title and abstract screening was done using the eligibility criteria. If uncertainty remained, the full text version was visited to confirm/reject. A set of 54 papers was reviewed by three members of the review team to ensure consistency.  
 
 ### Eligibility criteria 
 
-We reviewed scientific articles from all parts of the world. We included papers covering all galliform species. Studies of both native and introduced populations were eligible. Studies of all spatial scales and across all relevant ecosystems were considered eligible. Only studies documenting the effects of legal and/or managed harvest on galliform populations were eligible. Studies of poaching were not eligible. The effects must be assessed quantitatively for the study to be eligible. Eligible outcomes included effects of harvest on population abundance, density, sex- and age structure, recruitment, survival, behaviour, genetics, physiology and distribution. Studies focusing on lead (or heavy metal) poisoning or content in wild birds from shooting were not eligible. Both observational and experimental study designs are eligible. Mathematical simulation studies are eligible.    
+We reviewed scientific articles from all parts of the world covering all galliform species. Studies of both native and introduced populations were eligible. Studies of all spatial scales and across all relevant ecosystems were considered eligible. Only studies documenting the effects of legal and/or managed harvest on galliform populations were eligible. Studies of poaching were not eligible. The effects must be assessed quantitatively for the study to be eligible. Eligible outcomes included effects of harvest on population abundance, density, sex- and age structure, recruitment, survival, behaviour, genetics, physiology and distribution. Studies focusing on lead (or heavy metal) poisoning or content in wild birds from shooting were not eligible. Both observational and experimental study designs are eligible. Mathematical simulation studies are eligible.    
 
 ### Title and abstract screening stage 
 
-We used a decision tree to make decisions about inclusion and exclusion at the Title and Abstract stage. The tree is presented in the protocol and in the Appendix to this report. The decision tree helped the reviewers to make decisions about eligibility of each paper in a structured way. Duel screening was carried out on 20 % of papers (n = 183). Agreement between reviewers was assessed using the kappa statistic which was over 0.7.
+We used a decision tree to make decisions about inclusion and exclusion at the *Title* and *Abstract* stage. The tree is presented in the protocol and in the *Appendix* of this report. The decision tree helped the reviewers to make decisions about eligibility of each paper in a structured way. Duel screening was carried out on 20 % of papers (n = 183). Agreement between reviewers was assessed using the kappa statistic which was over 0.7. <!-- is this number good or bad ? -->
 
 ### Full text eligibility 
 
-Papers included at the Title and Abstract stage was taken forward to the full text screening stage. A RIS file of included articles was downloaded from Rayyan and added to a Zotero database. PDF versions of each paper was searched using Zotero’s “Find Available PDF” tool, ResearchGate, Google Scholar and Google. If a PDF was not available online (or was not open to us), the paper was excluded at this stage of the review. Full text papers was excluded if they are/did not: 
+Papers included at the *Title* and *Abstract* stage was taken forward to the full text screening stage. A RIS file of included articles was downloaded from Rayyan and added to a Zotero database. PDF versions of each paper was searched using Zotero’s “Find Available PDF” tool, ResearchGate, Google Scholar and Google. If a PDF was not available online (or was not open to us), the paper was excluded at this stage of the review. Full text papers was excluded if they are/did not: 
 
 -   Written in English, Norwegian, Swedish or Danish  
--   Focus on species from order Galliformes
--   Document the effect of legal or managed hunting on Galliformes
+-   Focus on species from order galliformes
+-   Document the effect of legal or managed hunting on galliformes
 -   Assess the effect of hunting quantitatively 
 
 ### Data coding  
 
-From all papers that met the eligibility criteria, we extracted key variables (aka “data coding”). In addition to metadata about the publication (publication year, journal name etc) we extracted from the full-text information about study species, study area location and extent, research approach and experimental design, outcome variables and to which extent the paper reported harvest rates and to which extent the study assessed whether harvest was additive or compensatory. For outcome variables, we used the Essential Biodiversity Variable (EBV) framework (refs), and coded both for EBV class (high order classification) and EBV name (lower order classification). A detailed description of data coding is presented in the protocol and in the Appendix.    
+From all papers that met the eligibility criteria, we extracted key variables (aka “data coding”). In addition to metadata about the publication (publication year, journal name etc.) we extracted from the full-text information about study species, study area location and extent, research approach and experimental design, outcome variables and to which extent the paper reported harvest rates and to which extent the study assessed whether harvest was additive or compensatory. For outcome variables, we used the Essential Biodiversity Variable (EBV) framework (refs), and coded both for EBV class (high order classification) and EBV name (lower order classification). A detailed description of data coding is presented in the protocol and in the Appendix.    
 
 ## Results from the literature review
 
@@ -223,9 +227,9 @@ excluded <- data |>
 included <- anti_join(data, excluded)
 ```
 
-Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above [@Sandercock2011; @Pedersen2004; @Sedinger2005]. Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the Abstract and Title stage. Of the 850 included articles, a total of 200 were moved further to full-text screening, of which 166 papers that had an "include" decision and 34 a "maybe" decision. There were 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the fulltext stage and assessed for eligibility. Exclusion decisions (650 records) were due to the research not focusing on the effects of legal or managed hunting (365 records), not being focused on Galliformes (276 records), not quantitative (23 records), abstract not found online (16 records), or abstract not available in English, Norwegian, Swedish or Danish (3 records).
+Our searches returned 1023 articles in total, with 542 from Web of Science, 112 from lens.org, 9 benchmark articles and 192 from backward-, and 168 from forward citation chasing from the three benchmark articles mentioned above [@Sandercock2011; @Pedersen2004; @Sedinger2005]. Of these 173 were duplicates which were removed from the database. We screened the remaining 850 articles for eligibility at the *Abstract* and *Title* stage. Of the 850 included articles, a total of 200 were moved further to full-text screening, of which 166 papers that had an "include" decision and 34 a "maybe" decision. There were 9 conflicts (where reviewers disagreed on eligibility). All these papers were taken through to the fulltext stage and assessed for eligibility. Exclusion decisions (650 records) were due to the research not focusing on the effects of legal or managed hunting (365 records), not being focused on galliformes (276 records), not quantitative (23 records), abstract not found online (16 records), or abstract not available in English, Norwegian, Swedish or Danish (3 records).
 
-At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on Galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` papers that went forward to the data extraction stage.
+At the fulltext stage `r dim(excluded)[1]` articles were excluded (3 with no available pdf, 6 not focused on galliformes, 12 not assessing the effects of hunting quantitatively and the rest, 61, not documenting the effects of legal harvest). This left `r dim(included)[1]` papers that went forward to the data extraction stage.
 
 ![ROSES Flowchart showing the number of papers included or excluded in the review](images/roses%20(3)-01.png){#fig-prisma}
 
@@ -267,7 +271,7 @@ species_colours <- c(
 
 ```
 
-Legal hunting of Galliformes has been the subject to extensive research. In our searches we identified studies published as far back as 1963, but we are aware that research on this topic was carried out even before that, however these studies were not covered by our searches. The number of studies per year peaked in 2020 (8 studies per year) and the long-term average was 2.93 studies per year (@fig-Publication_year).
+Legal hunting of galliformes has been the subject to extensive research. In our searches we identified studies published as far back as 1963, but we are aware that research on this topic was carried out even before that, however these studies were not covered by our searches.<!--Because we didnt search further back in time or because the keywords didnt match ? If the former- we should explain why we limited the search to a certain time-period  --> The number of studies per year peaked in 2020 (8 studies) and the long-term average was 2.93 studies per year (@fig-Publication_year).
 
 ```{r}
 #| echo: false
@@ -292,7 +296,7 @@ included_full_details |>
         text = element_text(size =13))
 ```
 
-The most common geographic location for studies was in the USA (99 studies), followed by Norway (16) and the UK (9) (@fig-location). In the USA studies were carried out in 33 States (Alaska, California, Colorado, Florida, Georgia, Idaho, Illinois, Indiana, Kansas, Kentucky, Louisiana, Maine, Michigan, Mississippi, Missouri, Montana, Nevada, New York, North Carolina, Ohio, Oklahoma, Oregon, Pennsylvania, Poland, Rhode Island, South Carolina, South Dakota, Tennessee, Texas,Utah,Virginia, West Virginia, Wisconsin).
+The most common geographic location for studies was in the USA (99 studies), followed by Norway (16) and the UK (9) (@fig-location). In the USA studies were carried out in 33 States (Alaska, California, Colorado, Florida, Georgia, Idaho, Illinois, Indiana, Kansas, Kentucky, Louisiana, Maine, Michigan, Mississippi, Missouri, Montana, Nevada, New York, North Carolina, Ohio, Oklahoma, Oregon, Pennsylvania, Poland, Rhode Island, South Carolina, South Dakota, Tennessee, Texas,Utah,Virginia, West Virginia, Wisconsin). <!-- a map showing the studies would be cool, maybe with the world's distribution of harvested galliforms, or just galliforms in general, as a layer (If that layer exists)? -->
 
 ```{r}
 #| echo: false
@@ -328,7 +332,7 @@ tally() |>
   theme(text = element_text(size = 13))
 ```
 
-The extent of the study areas were predominately regional or local, with very few studies at the site level (@fig-Study_area). Few studies were of "national" or multinational scale. Note that following our definition used here, regional studies typically cover one mountain area or a county, whereas a local study would cover a municipality or parts of a municipality. Note that this contrasts previous calls for more large-scale research [@estes_spatial_2018] that might be need to uncover the ecological dynamics and provide input to management and natural resource management policy at larger spatial scales.
+The extent of the study areas were predominately regional or local, with very few studies at the site level (@fig-Study_area). Few studies were of "national" or multinational scale. Note that following our definition used here, regional studies typically cover one mountain area or a county, whereas a local study would cover a municipality or parts of a municipality. Note that this contrasts previous calls for more large-scale research [@estes_spatial_2018] that might be needed to uncover the ecological dynamics and provide input to management and natural resource management policy at larger spatial scales. <!--  Not needed here, but if this is going to be published we could consider classifying the extent of study area by using km^2, study done on jungle fowl in the Vatican would be considered a national area using our current methodology but might still be smaller than the majority of regional areas in the USA for example. Bad example but you get my point :) -->
 
 ```{r}
 #| echo: false
@@ -360,7 +364,7 @@ included_full_details |>
 
 ```
 
-Most studies covered in our mapping were observational (106 studies), but there were also a substantial number of studies that relied on simulations or scenario analysis (35 records; @fig-Research_design a)). Note that the sum of observational studies based on empirical data and studies based on simulations is higher than the total of 129 papers that were found eligible. This is because some studies used both research approaches and thus were included in both categories. In agreement with previous assessments of study designs in ecological research (refs) most of the studies that presented empirical data were based on simple (and less robust) study designs (@fig-Research_design b)). There were only 6 papers using a "Randomized Controlled Trial (RCT)" approach, the study design that leads to the highest level of evidence for causal understanding [@christie2019simple] and these were limited to Norway (5) and the USA (1). The Norwegian articles are all from the same research project/experiment conducted in the late 1990-ties.
+Most studies covered in our mapping were observational (n = 106), but there were also a substantial number of studies that relied on simulations or scenario analysis (n = 35; @fig-Research_design a)). Note that the sum of observational studies based on empirical data and studies based on simulations is higher than the total of 129 papers that were found eligible. This is because some studies used both research approaches and thus were included in both categories. In agreement with previous assessments of study designs in ecological research (refs) most of the studies that presented empirical data were based on simple (and less robust) study designs (@fig-Research_design b)). There were only 6 papers using a "Randomized Controlled Trial (RCT)" approach, the study design that leads to the highest level of evidence for causal understanding [@christie2019simple] and these were limited to Norway (5) and the USA (1). The Norwegian articles are all from the same research project/experiment conducted in the late 1990-ties.
 
 ```{r}
 #| echo: false
@@ -940,3 +944,138 @@ lirype_r <- results_r %>%
 lirype_r
 
 ```
+
+## Inclusion of study units
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| include: false
+
+library(sf)
+eu <- readRDS("./data/study_units.RDS")
+fg <- st_drop_geometry(eu)
+fg <- fg %>% filter(species == "forest grouse")
+wp <- st_drop_geometry(eu)
+wp <- wp %>% filter(species == "willow ptarmigan")
+units <- readRDS("./data/all_units.RDS")
+```
+
+Guided by the simulations above, we estimated a number of required study units necessary to detect the effects of harvest treatment and climatic variables on survival and population growth rates. As black grouse and capercaillie have slower life histories, with higher natural survival rates and lower reproductive potential than willow ptarmigan, we expect that it will be easier to detect effects of harvest for the two forest grouse species. However, the planned harvest treatments for the forest grouse are lower (0, 10 and 20%) than for willow ptarmigan (0, 15 and 30%), and the lower harvest level should be expected to require a higher number of study units to detect effects. Based on the results from the simulations, we assumed that a minimum of 25 study units for each species would be satisfactory. However, this requires that the included study units do not inwoke selection bias, in order to generalise from the sample to the larger population (see *Box: Glossary of terms*).
+
+### Criterias for inclusion of study units
+
+First, we set specific rules for inclusion of study units from the larger sampling frame. This was done not only to avoid selection bias, but the rules also included certain management considerations that disqualified units. The set of criteria we applied to the entire sampling frame of Statskog's harvest management units (n = `r nrow(units)`) were the following:
+
+1.  Based on current knowledge of the ranges of the species, we set a minimum area size of 25 km^2^ to be eligible for inclusion.
+
+2.  We disqualified units where a high degree of isolation would clearly interfere with the ability to obtain a sufficient amount of distance sampling line transects, or sufficient harvest effort to reach the desired treatment.
+
+3.  We disqualified units where it was not possible due to management concerns to perform a randomisation between the treatment levels for the full three-year period.
+
+4.  We disqualified units where the experimental set-up could be assumed to impose conflicts with indigenous sami reindeer herding.
+
+In cooperation with Statskog, we actively investigated options for qualifying study units that initially did not meet criteria 1 or 2, in particular when such units would give better coverage of geographical or climatic variation (cf. next section). This implies that if single management units did not meet the area size criteria, we created new units by combining two or more adjacent units when possible, as long as the combined unit constituted a coherent area for the species. Further, we investigated possibilities for re-allocating personnel resources for transect lines during the study period, to qualify a higher number of study units.
+
+Following the above set of criteria, `r nrow(fg)` forest grouse units and `r nrow(wp)` willow ptarmigan units were available for inclusion as statistical units.
+
+### Key characteristics of study units
+
+An important step in avoiding selection bias is to ensure that statistical units do not systematically deviate from the study population. As such, we opted to select study units where the variation in central characteristics will reflect the general population of units in the sampling frame. The characteristics we considered included population density and environmental variables in terms of climate and habitat.
+
+The study units were geographically distributed across a latitude gradient. As there tends to be spatial variation in willow ptarmigan population densites between the northern and southern parts of the country [@Bowler2020], this will most likely means that our ptarmigan study units will cover a wide range of population densities each year. Although the empirical basis is not as strong for the forest grouse species, any such geographical variation will be accounted for by the inclusion of study units along much of the latitudinal range of these species in Norway.
+
+![Study units in the harvest experiment](images/map_study_units.png){#fig-map width="817"}
+
+@bakkestuen2008step assessed major environmental gradients in Norway using principal components analyses (PCA). They found that the two most important gradients were a regional gradient from humid to continental and coast to inland (PCA1) and a regional gradient from north to south and from high to low altitudes (PCA2). These two PCA axes corresponded with the previous classification of Norwegian biogeographical regions into a humidity gradient, *bioclimatic sections*, and a temperature gradient, *bioclimatic zones* [@moen1999vegetation]. We used these two gradients to assess whether our available study units represented the environmental bioclimatic variation in the larger population. To achieve this, we used the raster map from @bakkestuen2008step with 1x1 km resolution to calculate mean values of both the PCA axes for each study unit, as well as each unit in the overall sampling frame of Statskog units. In addition, we used the habitat suitability map from @kvasnes2018quantifying to quantify the bioclimatic variation within suitable willow ptarmigan habitat in all of Norway. The end result can be seen in @fig-pca.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-pca
+#| fig-cap: "Willow ptarmigan and forest grouse experimental study units, placed along gradients of bioclimatic sections and zones based on the mean value for each unit. Higher section values = drier bioclimatic region, and higher zone values = lower altitude and/or latitude. Grey dots show the total Statskog harvest management units to select from (not scaled by size). The heat map in the background shows amount of suitable habitat across Norway for willow ptarmigan only, with darker colours signifying higher amount of habitat within a given bioclimatic region."
+
+library(ggeffects)
+library(ggtext)
+
+eu <- readRDS("./data/study_units.RDS")
+units <- readRDS("./data/all_units.RDS")
+pca <- readRDS("./data/pca.RDS")
+
+species_col <- scale_color_manual(name = "species", values = c("forest grouse" = "darkgreen", "willow ptarmigan" = "purple"))
+
+ggplot(pca) +
+  geom_tile(aes(x = PCA1, y = PCA2, fill = wphab)) +
+  scale_fill_gradientn(colours = heat.colors(30), trans = "reverse", guide="none") +
+  theme_ggeffects() +
+  theme(axis.title.x = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=12)) +
+  labs(x = "Section", y = "Zone") +
+  geom_hline(aes(yintercept = 0)) +
+  geom_vline(aes(xintercept = 0)) +
+  geom_point(data = units,
+             aes(x = pca1_mean, y = pca2_mean),
+             colour = "grey50", alpha = 0.3, stroke = NA) +
+  geom_point(data = eu,
+             aes(x = pca1_mean, y = pca2_mean, size = area, colour = species),
+             alpha = 0.7, stroke = NA) +
+  species_col +
+  guides(colour = guide_legend(position = "right", order = 1, title = "experimental units", ),
+         size = guide_legend(position = "right", order = 2, title = "area size (km<sup>2</sup>)", theme(legend.title = element_markdown())))
+```
+
+Overall, @fig-pca give confidence that we may generalise from our results beyond our study units. By visualising our willow ptarmigan study units together with the assumed bioclimatic variation in the larger population, we can verify that our sample of willow ptarmigan units covers much of the overall variation. There may be a slight underrepresentation among highly humid lowland areas (i.e. the upper left corner of the plot), which is usually considered less suitable among willow ptamigan habitats @kvasnes2018quantifying, and thus without Statskog areas that qualified for inclusion. It is also worth noting that the study units are presented with the mean of each bioclimatic gradient for each area, signifying that there is in many cases a proportion of values above and below the mean which is also represented in low amounts (i.e. lighter colour) in the heat map in.
+
+For forest grouse, the plot enables us to verify that the study units are satisfactory scattered across the vegetation sections and the boreal forest vegetation zones, within the range of Statskog forest grouse harvest units. There is no existing habitat suitability map for forest grouse in Norway, such as for willow ptarmigan. Nevertheless, the Statskog management units are located over vast parts of Norway, thus it seems fair to assume that they cover much of the bioclimatic variation of forest grouse hunting areas in Norway.
+
+### Calculation of area sizes
+
+The willow ptarmigan study units naturally include various amounts of habitat unsuitable for willow ptarmigan (e.g. lakes, lowland forest in the unit edges, or high mountain peaks). Thus, for willow ptarmigan we calculated area size of suitable habitat within the study units, following the classification by @kvasnes2018quantifying. When estimating population densities based on distance sampling line transects we will use the classification of suitable habitat to calculate the abundance within each study unit per year. For forest grouse, the study units are usually smaller and the total area of the selected management units are generally representative of the forest grouse habitat within each unit. Thus, for the forest grouse species we use the total area of the units as basis for the abundance calculations.
+
+## Experimental study units
+
+We here present the experimental study units together with key characteristics and the randomly allocated harvest treatments.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-units
+#| tbl-cap: "Study units"
+
+library(sf)
+library(gt)
+
+### NOTE: TEMPORARY SUGGESTION FOR THE FINAL TABLE - AWAITING HARVEST TREATMENTS
+
+eutab <- st_drop_geometry(eu)
+eutab <- eutab %>%
+  mutate(suit_wparea_km2 = ifelse(species == "willow ptarmigan", suit_wparea_km2, NA)) %>%
+  dplyr::select(name, species, area_total, suit_wparea_km2, pca1_mean, pca2_mean) %>%
+  mutate(pca1_mean = round(pca1_mean, 2)) %>%
+  mutate(pca2_mean = round(pca2_mean, 2)) %>%
+  rename('WP area' = suit_wparea_km2) %>%
+  rename('Total area' = area_total) %>%
+  rename('PCA1 (mean)' = pca1_mean) %>%
+  rename('PCA2 (mean)' = pca2_mean) %>%
+  rename(Species = species) %>%
+  rename('Experimental unit' = name)
+
+eutab %>% gt()
+```
+
+# Conclusions
+
+Based on the systematic litterateur mapping, the mathematical simulations and the selection of study units. In general, the systematic mapping of the literature revealed that, although there has been relatively extensive research on the effects of harvest on galliform species, there several key aspects that deserves further research and emphasis. First, the literature is dominated by research with relatively "weak" study designs (including After, Before-After and Control-Impact). Although these are often the only options that are available due to ethical, logistic and practical reasons, it is well known that manipulative experiments and in particular Randomized Controlled Trials (RCT) are better suited for drawing firm conclusions about causal relationships. This holds true even though recent advances in statistical methodology also allow to a larger extent to make causal inference from non-manipulative experiments (refs). In our systematic mapping of the litterature, we only identified two research projects that relied on RCT: One study from Norway represented with five publications, and one project from USA on bobwhite. As documenting the relative additivity of harvest mortality under different environmental and demographic conditions on wildlife populations is fraugth with statistical difficulties, manipulative randomized experiments might be particularily important in order to progress our understanding of this topic. Second, most studies had a relatively small or moderate spatial extent. As ecological dynamics is often context dependent (refs) and might vary both in time and space, and because some ecological properties play out over larger areas, this might limit our ability to draw firm conclusions that could be transferred to other ecological conditions (and species). Our planned study will be unique in that it both has a (near) national spatial extent, and that it cover three related but ecologically distinct species. Fourth, while there has been a fair amount of research on willow ptarmigan related to effects of harvest (including the before-mentioned RCTs), the amount of research on black grouse and capercaillie is very limited. This also means that current management of these species is not based on the same solid basis as the willow ptarmigan management when it comes to knowledge about "safe" harvest limits. Thus, overall the project described here is likely to fill several key knowledge gaps in the literature, and will be highly relevant for harvest management (and basic ecological understanding of the effects of human impact on wildlife populations) well beyond the study context.
+
+We used mathematical simulations to assess the sample sizes (i.e. number of study units / "jatkfelter") that would be need in order to detect the prescribed experiemental harvest treatment levels (0, 15 and 30% for willow ptarmigan, and 0, 10 and 20% for forest grouse). We note that our approach is rather rough, as the exact power to detect effects will depend on both the consistency of the treatment effects in time and space (e.g. due to ecological correlates), the precision and accuracy of the line transect survey data, and the specific statistical models that will be applied. In addition, we only performed simulations for willow ptarmigan, as we did not have comparable data to construct simulations models for forest grouse without relying on additional assumptions. However, as these species has a slower life history than willow ptarmigan we assume that sample sizes that are sufficient for willow ptarmigan are also sufficient for forest grouse. In general, we found, as expected, that sample sizes need to detect an effect of 30% harvest (compared to 0% harvest) was smaller than those needed to detect an effect of 15% harvest. Moreover, the sample sizes need to detect an direct effect on population growth rate was higher than those for detecting effects on survival. In the last harvest experiment in Norway, the sample size was approximately 13 areas followed for 3-4 years (most areas followed for 4 years) - and it was concluded that such large sample sizes would be needed to detect the relevant effects due to large heterogeneity among areas [@Pedersen2004]. Thus, in our planned experiments we opted to recruit *ca* 35 study units for willow ptarmigan and *ca* 30 study units for forest grouse, each subject to a randomized three year harvest experiment.
+
+To select (or "recruit") study units, we applied a set of criteria and algorithms. We did not randomly select study units from the sampling grid, but used a approach resembling the "*Proportional quota sampling*" described in Box 1. In addition to certain key requirements in terms of area size and access to the required amount of distance sampling line transect data, we actively selected study units to give a good and balanced geographical coverage both in terms of a trivial north-south axis, but also in terms of environmental covariates and gradients. As the major environmental gradients against which we stratified our sampling of study units against, we the *bioclimatic sections* and *bioclimatic zones* in Norway (see @bakkestuen2008step; @moen1999vegetation). Overall, we think these variables should give us an adequate distribution of study units in terms of key environmental gradients.
+
+Each study unit will be subject to a randomly allocated harvest treatment. In the planned experiment, we suggest to use a "Crossover-design" where each unit is subject to a randomly selected *sequence* of harvest treatments. Because we are planning for a three year experiment and there are three harvest levels, each unit will be exposed to each treatment. If there is substantial heterogeneity, cross over designs could be powerful as each unit would serve as "it's own control". In addition, by applying a sequence of treatments we avoid any adverse effects that could arise if e.g. one unit was subject to the highest harvest treatment across all years.
+
+\[WE WILL DRAW THE TREATEMENT BEFORE WE PUBLISH THE REPORT, AND THEY WILL BE INCLUDED IN THE REPORT\]
+
+In general, we think the experimental study of the effects of harvest on willow ptarmigan, black grouse and capercaillie as explained here will be a unique and substantial contribution to the field. The systematic mapping of the literature clearly revealed that the knowledge that would be created by this study will fill important knowledge gaps. The final list of study units for inclusion also suggest that the study will be of adequate power and cover important environmental gradients in a robust way so that the results will be highly transferable across environmental and geographical space.
