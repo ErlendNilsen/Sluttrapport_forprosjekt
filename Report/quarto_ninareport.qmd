@@ -1,6 +1,6 @@
 ---
 title: "Experimental harvest of ptarmigan, black grouse and capercaillie:" 
-subtitle: "Summary of planning stage"
+subtitle: "Summary of the planning stage"
 first_author:
   - name: Erlend B. Nilsen
     address: NINA Trondheim
@@ -106,7 +106,7 @@ A central concept for predicting the effects of hunting on wildlife populations 
 
 Whether results from the former large scale experiment is transferable in time (i.e. to the current environmental conditions) and to other species (i.e. black grouse and capercaillie) is an empirical question that cannot be answered directly by existing data. For example, one can expect that climate change will have significant effects on the trophic interactions that largely affect grouse population dynamics and densities [@Bowler2020, @Henden2020]. Changes in these interactions will have the potential to directly affect grouse populations' potential to compensate for hunting mortality (see discussions in e.g. @Perone2013). Similarly, large changes in the size of the grouse population could have similar effects, since the degree of compensation can be closely linked to density dependence [@Sinclair1996]. One way to address these uncertainties would be to conduct a conceptual replication of the experiments carried out in the 1990s. Such conceptual replication studies (*sensu* @Nakagawa2015) are rare in ecology [@Fraser2020], but have recently been strongly recommended to examine the validity and generalisability of previously conducted studies [@Fraser2020; @Nakagawa2015].
 
-However, several aspects should be carefully investigated before carrying out such a replication. Initially, it is a prerequisite to conduct an up-to-date mapping of the research-based literature on the sustainable management of galliformes from a climate change perspective (see also @Grainger2020), to identify gaps in the literature and to ensure that the replication rests on the best available knowledge. Further, it requires thorough planning of how best to design such an experiment in a way that sample sizes and climatic gradients are sufficiently estimated in order to close the most pressing knowledge gaps. This report is a central part of the planning stage of such a project, where the intent is to apply experimental harvest treatments to populations of willow ptarmigan, black grouse and capercaillie in Norway. It includes two main sections:
+However, several aspects should be carefully investigated before carrying out such a replication. Initially, it is a prerequisite to conduct an up-to-date mapping of the research-based literature on the sustainable management of galliformes from a climate change perspective (see also @Grainger2020), to identify gaps in the literature and to ensure that the replication rests on the best available knowledge. Further, it requires thorough planning of how best to design such an experiment in a way that sample sizes and climatic gradients are sufficiently estimated in order to close the most pressing knowledge gaps. This report is a central part of the planning stage of such a project, where the intent is to apply experimental harvest treatments to populations of willow ptarmigan, black grouse and capercaillie in Norway. The project is planned to take place across a three-year experiment within a select number of hunting areas managed by Statskog across Norway (from Agder in South to Troms in the North). The report includes two main sections:
 
 -   A systematic mapping of the literature related to effects of harvest on galliformes
 
@@ -146,11 +146,11 @@ For lens.org we used the following search string: 
 
 (abstract:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR "partridge") OR title:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR "partridge")) AND abstract:("hunt" OR "harvest") OR title:("hunt" OR "harvest") AND field_of_study:("Ecology" OR "Wildlife" OR "Environment") 
 
-In addition, a backward and forward citation chasing (using CitationChaser) was performed based on the three first benchmark papers listed below [@Sandercock2011; @Pedersen2004; @Sedinger2005].  
+Adding "capercaillie", "lyrurus" and "tetrao" did not result in additional eligible papers. In addition, a backward and forward citation chasing (using CitationChaser) was performed based on the three first benchmark papers listed below [@Sandercock2011; @Pedersen2004; @Sedinger2005].  
 
 ### Benchmark papers 
 
-The following benchmark papers were used to assess the effectiveness of the search string. We expected to find all these papers in a review of this question. We recorded if each benchmark paper was found in the searches (WoS and lens.org).  
+The following benchmark papers were used to assess the effectiveness of the search string. We expected to find all these papers in a review of this question. We recorded if each benchmark paper was found in the searches (Wo and lens.org).  
 
 -   Sandercock, B. K., E. B. Nilsen, H. Brøseth, and H. C. Pedersen. 2011. Is hunting mortality additive or compensatory to natural mortality? Effects of experimental harvest on the survival and cause-specific mortality of willow ptarmigan. Journal of Animal Ecology 80:244-258. 
 
@@ -184,7 +184,7 @@ We reviewed scientific articles from all parts of the world covering all gallifo
 
 ### Title and abstract screening stage 
 
-We used a decision tree to make decisions about inclusion and exclusion at the *Title* and *Abstract* stage. The tree is presented in the protocol and in the *Appendix* of this report. The decision tree helped the reviewers to make decisions about eligibility of each paper in a structured way. Dual screening was carried out on 20% of papers (n = 183). Agreement between reviewers was assessed using the kappa statistic which was over 0.7. <!--# is this number good or bad ? -->
+We used a decision tree to make decisions about inclusion and exclusion at the *Title* and *Abstract* stage. The tree is presented in the protocol and in the *Appendix* of this report. The decision tree helped the reviewers to make decisions about eligibility of each paper in a structured way. Dual screening was carried out on 20% of papers (n = 183). Agreement between reviewers was assessed using the kappa statistic which was over 0.7, which is deemed acceptable.
 
 ### Full text eligibility 
 
@@ -785,7 +785,7 @@ The planned harvest experiment will rely on the existing line transect surveys g
 
 In this chapter, we will provide the basis for the experimental study design for the planned hunting experiment. We will start by defining some key terms (**BOX: Glossary of terms**), and then put this into the context of the planned experiment. First, we will define the harvest treatments in terms of harvest levels. Then, we will present the results from a simulation exercise that was conducted to assess the required sample sizes. Finally, we will present a detailed description of how study units (i.e., hunting areas) were included based on a pre-determined set of criteria. A complete list of study units will be presented together with key characteristics in the *Appendix*. <!--# Later, include here: "...and the randomly allocated harvest treatments."  -->
 
-The setup of the experiment must be carefully designed so that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough samples, i.e., number of study units, to statistically estimate the effects of the treatments (harvest rates) and covariates (climatic variables) on survival and population growth rate. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed to get the statistical power to test the effects of experimental treatments and climate.
+The setup of the experiment must be carefully designed so that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough samples, i.e., number of study units, to statistically estimate the effects of the treatments (harvest rates) and covariates (climatic variables) on survival and population growth rate. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed to get the statistical power to test the effects of experimental treatmens and climate.
 
 ::: {.callout-tip appearance="minimal"}
 ## BOX: Glossary of terms
@@ -964,7 +964,7 @@ Guided by the simulations above, we estimated a number of required study units n
 
 ### Criteria for inclusion of study units
 
-We used specific rules when making descisions about inclusion of study units from the larger sampling frame. This was done to avoid selection bias, but the rules also included management considerations that disqualified units. The set of criteria we applied to the entire sampling frame of Statskog's harvest management units (n = `r nrow(units)`) were the following:
+We used specific rules when making descisions about inclusion of study units from the larger sampling frame. This was done to avoid selection bias, but the rules also included management considerations that disqualified units. Our approach resembles the "*Proportional quota sampling*" outlined in Box 1. The set of criteria we applied to the entire sampling frame of Statskog's harvest management units (n = `r nrow(units)`) were the following:
 
 1.  Based on current knowledge of the ranges of the species, we set a minimum area size of 25 km^2^ to be eligible for inclusion.
 
@@ -982,7 +982,7 @@ Following the above set of criteria, `r nrow(fg)` forest grouse units and `r nro
 
 An important step in avoiding selection bias and ensuring high external validity is to ensure that statistical units do not systematically deviate from the study population. As such, we opted to select study units where the variation in central characteristics will reflect the general population of units in the sampling frame. The characteristics we considered included population density and environmental variables in terms of climate and habitat.
 
-The included study units [@fig-map] were geographically distributed across a latitude gradient. As there tends to be spatial variation in willow ptarmigan population dynamics between the northern and southern parts of the country [@Bowler2020], this will most likely means that our ptarmigan study units will cover a wide range of population densities each year. Although the empirical basis is not as strong for the forest grouse species, any such geographical variation will be accounted for by the inclusion of study units along much of the latitudinal range of these species in Norway.
+The included study units (@fig-map) were geographically distributed across a latitude gradient. As there tends to be spatial variation in willow ptarmigan population dynamics between the northern and southern parts of the country [@Bowler2020], this will most likely means that our ptarmigan study units will cover a wide range of population densities each year. Although the empirical basis is not as strong for the forest grouse species, any such geographical variation will be accounted for by the inclusion of study units along much of the latitudinal range of these species in Norway.
 
 ![Study units in the harvest experiment](images/map_study_units.png){#fig-map width="817"}
 
@@ -1030,9 +1030,9 @@ For forest grouse, the plot enables us to verify that the study units are satisf
 
 ### Calculation of area sizes
 
-\<\<\<\<\<\<\< HEAD The willow ptarmigan study units naturally include various amounts of habitat unsuitable for willow ptarmigan (e.g. lakes, lowland forest in the unit edges, or high mountain peaks). Thus, for willow ptarmigan we calculated area size of suitable habitat within the study units, following the classification by @kvasnes2018quantifying. When estimating population densities based on distance sampling line transects we will use the classification of suitable habitat to calculate the abundance within each study unit per year. For forest grouse, the study units are usually smaller and the total area of the selected management units are generally representative of the forest grouse habitat within each unit. Thus, for the forest grouse species we use the total area of the units as basis for the abundance calculations. A complete list of included study units is found in Appendix 3.
+The willow ptarmigan study units naturally include various amounts of habitat unsuitable for willow ptarmigan (e.g. lakes, lowland forest in the unit edges, or high mountain peaks). Thus, for willow ptarmigan we calculated area size of suitable habitat within the study units, following the classification by @kvasnes2018quantifying. When estimating population densities based on distance sampling line transects we will use the classification of suitable habitat to calculate the abundance within each study unit per year. For forest grouse, the study units are usually smaller and the total area of the selected management units are generally representative of the forest grouse habitat within each unit. Thus, for the forest grouse species we use the total area of the units as basis for the abundance calculations. A complete list of included study units is found in Appendix 3.
 
-The willow ptarmigan study units naturally include various amounts of habitat unsuitable for willow ptarmigan (e.g. lakes, lowland forest in the unit edges, or high mountain peaks). Thus, for willow ptarmigan we calculated area size of suitable habitat within the study units, following the classification by @kvasnes2018quantifying. When estimating population densities based on distance sampling line transects we will use the classification of suitable habitat to calculate the abundance within each study unit per year. For forest grouse, the study units are usually smaller and the total area of the selected management units are generally representative of the forest grouse habitat within each unit. Thus, for the forest grouse species we use the total area of the units as basis for the abundance calculations.
+
 
 # Conclusions
 
