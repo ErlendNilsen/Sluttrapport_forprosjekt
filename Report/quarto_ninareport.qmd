@@ -964,7 +964,7 @@ Guided by the simulations above, we estimated a number of required study units n
 
 ### Criteria for inclusion of study units
 
-We used specific rules when making descisions about inclusion of study units from the larger sampling frame. This was done to avoid selection bias, but the rules also included management considerations that disqualified units. Our apporach resembles the "*Proportional quota sampling*" outlined in Box 1. The set of criteria we applied to the entire sampling frame of Statskog's harvest management units (n = `r nrow(units)`) were the following:
+We used specific rules when making descisions about inclusion of study units from the larger sampling frame. This was done to avoid selection bias, but the rules also included management considerations that disqualified units. Our approach resembles the "*Proportional quota sampling*" outlined in Box 1. The set of criteria we applied to the entire sampling frame of Statskog's harvest management units (n = `r nrow(units)`) were the following:
 
 1.  Based on current knowledge of the ranges of the species, we set a minimum area size of 25 km^2^ to be eligible for inclusion.
 
