@@ -219,6 +219,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#experimental-study-units" id="toc-experimental-study-units" class="nav-link" data-scroll-target="#experimental-study-units"><span class="header-section-number">3.4</span> Experimental study units</a></li>
   </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">4</span> Conclusions</a></li>
   </ul>
 </nav>
 </div>
@@ -668,13 +669,17 @@ Figur&nbsp;13: The proportion of simulations (n = 500), over a range of hunting 
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="key-characteristics-of-study-units"><span class="header-section-number">3.3.2</span> Key characteristics of study units</h3>
 <p>An important step in avoiding selection bias is to ensure that statistical units do not systematically deviate from the study population. As such, we opted to select study units where the variation in central characteristics will reflect the general population of units in the sampling frame. The characteristics we considered included population density and environmental variables in terms of climate and habitat.</p>
 <p>The study units were geographically distributed across a latitude gradient. As there tends to be spatial variation in willow ptarmigan population densites between the northern and southern parts of the country <span class="citation" data-cites="Bowler2020">(<a href="#ref-Bowler2020" role="doc-biblioref">Bowler et al. 2020</a>)</span>, this will most likely means that our ptarmigan study units will cover a wide range of population densities each year. Although the empirical basis is not as strong for the forest grouse species, any such geographical variation will be accounted for by the inclusion of study units along much of the latitudinal range of these species in Norway.</p>
-<div id="map" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/map_study_units.png" class="img-fluid figure-img" width="817"></p>
-<figcaption>Study units in the harvest experiment</figcaption>
+<div id="fig-map" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_study_units.png" class="img-fluid figure-img" width="817">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14: Study units in the harvest experiment
+</figcaption>
 </figure>
 </div>
-<p><span class="citation" data-cites="bakkestuen2008step">Bakkestuen et al. (<a href="#ref-bakkestuen2008step" role="doc-biblioref">2008</a>)</span> assessed major environmental gradients in Norway using principal components analyses (PCA). They found that the two most important gradients were a regional gradient from humid to continental and coast to inland (PCA1) and a regional gradient from north to south and from high to low altitudes (PCA2). These two PCA axes corresponded with the previous classification of Norwegian biogeographical regions into a humidity gradient, <em>bioclimatic sections</em>, and a temperature gradient, <em>bioclimatic zones</em> <span class="citation" data-cites="moen1999vegetation">(<a href="#ref-moen1999vegetation" role="doc-biblioref">Moen et al. 1999</a>)</span>. We used these two gradients to assess whether our available study units represented the environmental bioclimatic variation in the larger population. To achieve this, we used the raster map from <span class="citation" data-cites="bakkestuen2008step">Bakkestuen et al. (<a href="#ref-bakkestuen2008step" role="doc-biblioref">2008</a>)</span> with 1x1 km resolution to calculate mean values of both the PCA axes for each study unit, as well as each unit in the overall sampling frame of Statskog units. In addition, we used the habitat suitability map from <span class="citation" data-cites="kvasnes2018quantifying">Kvasnes et al. (<a href="#ref-kvasnes2018quantifying" role="doc-biblioref">2018</a>)</span> to quantify the bioclimatic variation within suitable willow ptarmigan habitat in all of Norway. The end result can be seen in <a href="#fig-pca" class="quarto-xref">Figur&nbsp;14</a>.</p>
+<p><span class="citation" data-cites="bakkestuen2008step">Bakkestuen et al. (<a href="#ref-bakkestuen2008step" role="doc-biblioref">2008</a>)</span> assessed major environmental gradients in Norway using principal components analyses (PCA). They found that the two most important gradients were a regional gradient from humid to continental and coast to inland (PCA1) and a regional gradient from north to south and from high to low altitudes (PCA2). These two PCA axes corresponded with the previous classification of Norwegian biogeographical regions into a humidity gradient, <em>bioclimatic sections</em>, and a temperature gradient, <em>bioclimatic zones</em> <span class="citation" data-cites="moen1999vegetation">(<a href="#ref-moen1999vegetation" role="doc-biblioref">Moen et al. 1999</a>)</span>. We used these two gradients to assess whether our available study units represented the environmental bioclimatic variation in the larger population. To achieve this, we used the raster map from <span class="citation" data-cites="bakkestuen2008step">Bakkestuen et al. (<a href="#ref-bakkestuen2008step" role="doc-biblioref">2008</a>)</span> with 1x1 km resolution to calculate mean values of both the PCA axes for each study unit, as well as each unit in the overall sampling frame of Statskog units. In addition, we used the habitat suitability map from <span class="citation" data-cites="kvasnes2018quantifying">Kvasnes et al. (<a href="#ref-kvasnes2018quantifying" role="doc-biblioref">2018</a>)</span> to quantify the bioclimatic variation within suitable willow ptarmigan habitat in all of Norway. The end result can be seen in <a href="#fig-pca" class="quarto-xref">Figur&nbsp;15</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-pca" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -683,13 +688,13 @@ Figur&nbsp;13: The proportion of simulations (n = 500), over a range of hunting 
 <img src="quarto_ninareport_files/figure-html/fig-pca-1.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figur&nbsp;14: Willow ptarmigan and forest grouse experimental study units, placed along gradients of bioclimatic sections and zones based on the mean value for each unit. Higher section values = drier bioclimatic region, and higher zone values = lower altitude and/or latitude. Grey dots show the total Statskog harvest management units to select from (not scaled by size). The heat map in the background shows amount of suitable habitat across Norway for willow ptarmigan only, with darker colours signifying higher amount of habitat within a given bioclimatic region.
+Figur&nbsp;15: Willow ptarmigan and forest grouse experimental study units, placed along gradients of bioclimatic sections and zones based on the mean value for each unit. Higher section values = drier bioclimatic region, and higher zone values = lower altitude and/or latitude. Grey dots show the total Statskog harvest management units to select from (not scaled by size). The heat map in the background shows amount of suitable habitat across Norway for willow ptarmigan only, with darker colours signifying higher amount of habitat within a given bioclimatic region.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Overall, <a href="#fig-pca" class="quarto-xref">Figur&nbsp;14</a> give confidence that we may generalise from our results beyond our study units. By visualising our willow ptarmigan study units together with the assumed bioclimatic variation in the larger population, we can verify that our sample of willow ptarmigan units covers much of the overall variation. There may be a slight underrepresentation among highly humid lowland areas (i.e.&nbsp;the upper left corner of the plot), which is usually considered less suitable among willow ptamigan habitats <span class="citation" data-cites="kvasnes2018quantifying">Kvasnes et al. (<a href="#ref-kvasnes2018quantifying" role="doc-biblioref">2018</a>)</span>, and thus without Statskog areas that qualified for inclusion. It is also worth noting that the study units are presented with the mean of each bioclimatic gradient for each area, signifying that there is in many cases a proportion of values above and below the mean which is also represented in low amounts (i.e.&nbsp;lighter colour) in the heat map in.</p>
+<p>Overall, <a href="#fig-pca" class="quarto-xref">Figur&nbsp;15</a> give confidence that we may generalise from our results beyond our study units. By visualising our willow ptarmigan study units together with the assumed bioclimatic variation in the larger population, we can verify that our sample of willow ptarmigan units covers much of the overall variation. There may be a slight underrepresentation among highly humid lowland areas (i.e.&nbsp;the upper left corner of the plot), which is usually considered less suitable among willow ptamigan habitats <span class="citation" data-cites="kvasnes2018quantifying">Kvasnes et al. (<a href="#ref-kvasnes2018quantifying" role="doc-biblioref">2018</a>)</span>, and thus without Statskog areas that qualified for inclusion. It is also worth noting that the study units are presented with the mean of each bioclimatic gradient for each area, signifying that there is in many cases a proportion of values above and below the mean which is also represented in low amounts (i.e.&nbsp;lighter colour) in the heat map in.</p>
 <p>For forest grouse, the plot enables us to verify that the study units are satisfactory scattered across the vegetation sections and the boreal forest vegetation zones, within the range of Statskog forest grouse harvest units. There is no existing habitat suitability map for forest grouse in Norway, such as for willow ptarmigan. Nevertheless, the Statskog management units are located over vast parts of Norway, thus it seems fair to assume that they cover much of the bioclimatic variation of forest grouse hunting areas in Norway.</p>
 </section>
 <section id="calculation-of-area-sizes" class="level3" data-number="3.3.3">
@@ -708,23 +713,23 @@ Tabell&nbsp;1: Study units
 </figcaption>
 <div aria-describedby="tbl-units-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="jvgndvpifs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jvgndvpifs table {
+<div id="ednhyxfcsx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ednhyxfcsx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jvgndvpifs thead, #jvgndvpifs tbody, #jvgndvpifs tfoot, #jvgndvpifs tr, #jvgndvpifs td, #jvgndvpifs th {
+#ednhyxfcsx thead, #ednhyxfcsx tbody, #ednhyxfcsx tfoot, #ednhyxfcsx tr, #ednhyxfcsx td, #ednhyxfcsx th {
   border-style: none;
 }
 
-#jvgndvpifs p {
+#ednhyxfcsx p {
   margin: 0;
   padding: 0;
 }
 
-#jvgndvpifs .gt_table {
+#ednhyxfcsx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -750,12 +755,12 @@ Tabell&nbsp;1: Study units
   border-left-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_caption {
+#ednhyxfcsx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jvgndvpifs .gt_title {
+#ednhyxfcsx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -767,7 +772,7 @@ Tabell&nbsp;1: Study units
   border-bottom-width: 0;
 }
 
-#jvgndvpifs .gt_subtitle {
+#ednhyxfcsx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -779,7 +784,7 @@ Tabell&nbsp;1: Study units
   border-top-width: 0;
 }
 
-#jvgndvpifs .gt_heading {
+#ednhyxfcsx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -791,13 +796,13 @@ Tabell&nbsp;1: Study units
   border-right-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_bottom_border {
+#ednhyxfcsx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_col_headings {
+#ednhyxfcsx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -812,7 +817,7 @@ Tabell&nbsp;1: Study units
   border-right-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_col_heading {
+#ednhyxfcsx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -832,7 +837,7 @@ Tabell&nbsp;1: Study units
   overflow-x: hidden;
 }
 
-#jvgndvpifs .gt_column_spanner_outer {
+#ednhyxfcsx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -844,15 +849,15 @@ Tabell&nbsp;1: Study units
   padding-right: 4px;
 }
 
-#jvgndvpifs .gt_column_spanner_outer:first-child {
+#ednhyxfcsx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jvgndvpifs .gt_column_spanner_outer:last-child {
+#ednhyxfcsx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jvgndvpifs .gt_column_spanner {
+#ednhyxfcsx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -864,11 +869,11 @@ Tabell&nbsp;1: Study units
   width: 100%;
 }
 
-#jvgndvpifs .gt_spanner_row {
+#ednhyxfcsx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jvgndvpifs .gt_group_heading {
+#ednhyxfcsx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -894,7 +899,7 @@ Tabell&nbsp;1: Study units
   text-align: left;
 }
 
-#jvgndvpifs .gt_empty_group_heading {
+#ednhyxfcsx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -909,15 +914,15 @@ Tabell&nbsp;1: Study units
   vertical-align: middle;
 }
 
-#jvgndvpifs .gt_from_md > :first-child {
+#ednhyxfcsx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jvgndvpifs .gt_from_md > :last-child {
+#ednhyxfcsx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jvgndvpifs .gt_row {
+#ednhyxfcsx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -936,7 +941,7 @@ Tabell&nbsp;1: Study units
   overflow-x: hidden;
 }
 
-#jvgndvpifs .gt_stub {
+#ednhyxfcsx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -949,7 +954,7 @@ Tabell&nbsp;1: Study units
   padding-right: 5px;
 }
 
-#jvgndvpifs .gt_stub_row_group {
+#ednhyxfcsx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -963,15 +968,15 @@ Tabell&nbsp;1: Study units
   vertical-align: top;
 }
 
-#jvgndvpifs .gt_row_group_first td {
+#ednhyxfcsx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jvgndvpifs .gt_row_group_first th {
+#ednhyxfcsx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jvgndvpifs .gt_summary_row {
+#ednhyxfcsx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -981,16 +986,16 @@ Tabell&nbsp;1: Study units
   padding-right: 5px;
 }
 
-#jvgndvpifs .gt_first_summary_row {
+#ednhyxfcsx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_first_summary_row.thick {
+#ednhyxfcsx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jvgndvpifs .gt_last_summary_row {
+#ednhyxfcsx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1000,7 +1005,7 @@ Tabell&nbsp;1: Study units
   border-bottom-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_grand_summary_row {
+#ednhyxfcsx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1010,7 +1015,7 @@ Tabell&nbsp;1: Study units
   padding-right: 5px;
 }
 
-#jvgndvpifs .gt_first_grand_summary_row {
+#ednhyxfcsx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1020,7 +1025,7 @@ Tabell&nbsp;1: Study units
   border-top-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_last_grand_summary_row_top {
+#ednhyxfcsx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1030,11 +1035,11 @@ Tabell&nbsp;1: Study units
   border-bottom-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_striped {
+#ednhyxfcsx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jvgndvpifs .gt_table_body {
+#ednhyxfcsx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1043,7 +1048,7 @@ Tabell&nbsp;1: Study units
   border-bottom-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_footnotes {
+#ednhyxfcsx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1057,7 +1062,7 @@ Tabell&nbsp;1: Study units
   border-right-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_footnote {
+#ednhyxfcsx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1066,7 +1071,7 @@ Tabell&nbsp;1: Study units
   padding-right: 5px;
 }
 
-#jvgndvpifs .gt_sourcenotes {
+#ednhyxfcsx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1080,7 +1085,7 @@ Tabell&nbsp;1: Study units
   border-right-color: #D3D3D3;
 }
 
-#jvgndvpifs .gt_sourcenote {
+#ednhyxfcsx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1088,63 +1093,63 @@ Tabell&nbsp;1: Study units
   padding-right: 5px;
 }
 
-#jvgndvpifs .gt_left {
+#ednhyxfcsx .gt_left {
   text-align: left;
 }
 
-#jvgndvpifs .gt_center {
+#ednhyxfcsx .gt_center {
   text-align: center;
 }
 
-#jvgndvpifs .gt_right {
+#ednhyxfcsx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jvgndvpifs .gt_font_normal {
+#ednhyxfcsx .gt_font_normal {
   font-weight: normal;
 }
 
-#jvgndvpifs .gt_font_bold {
+#ednhyxfcsx .gt_font_bold {
   font-weight: bold;
 }
 
-#jvgndvpifs .gt_font_italic {
+#ednhyxfcsx .gt_font_italic {
   font-style: italic;
 }
 
-#jvgndvpifs .gt_super {
+#ednhyxfcsx .gt_super {
   font-size: 65%;
 }
 
-#jvgndvpifs .gt_footnote_marks {
+#ednhyxfcsx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jvgndvpifs .gt_asterisk {
+#ednhyxfcsx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jvgndvpifs .gt_indent_1 {
+#ednhyxfcsx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jvgndvpifs .gt_indent_2 {
+#ednhyxfcsx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jvgndvpifs .gt_indent_3 {
+#ednhyxfcsx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jvgndvpifs .gt_indent_4 {
+#ednhyxfcsx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jvgndvpifs .gt_indent_5 {
+#ednhyxfcsx .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1690,8 +1695,17 @@ Tabell&nbsp;1: Study units
 </figure>
 </div>
 </div>
-
 </section>
+</section>
+<section id="conclusions" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Conclusions</h1>
+<p>Based on the systematic litterateur mapping, the mathematical simulations and the selection of study units. In general, the systematic mapping of the literature revealed that, although there has been relatively extensive research on the effects of harvest on galliform species, there several key aspects that deserves further research and emphasis. First, the literature is dominated by research with relatively “weak” study designs (including After, Before-After and Control-Impact). Although these are often the only options that are available due to ethical, logistic and practical reasons, it is well known that manipulative experiments and in particular Randomized Controlled Trials (RCT) are better suited for drawing firm conclusions about causal relationships. This holds true even though recent advances in statistical methodology also allow to a larger extent to make causal inference from non-manipulative experiments (refs). In our systematic mapping of the litterature, we only identified two research projects that relied on RCT: One study from Norway represented with five publications, and one project from USA on bobwhite. As documenting the relative additivity of harvest mortality under different environmental and demographic conditions on wildlife populations is fraugth with statistical difficulties, manipulative randomized experiments might be particularily important in order to progress our understanding of this topic. Second, most studies had a relatively small or moderate spatial extent. As ecological dynamics is often context dependent (refs) and might vary both in time and space, and because some ecological properties play out over larger areas, this might limit our ability to draw firm conclusions that could be transferred to other ecological conditions (and species). Our planned study will be unique in that it both has a (near) national spatial extent, and that it cover three related but ecologically distinct species. Fourth, while there has been a fair amount of research on willow ptarmigan related to effects of harvest (including the before-mentioned RCTs), the amount of research on black grouse and capercaillie is very limited. This also means that current management of these species is not based on the same solid basis as the willow ptarmigan management when it comes to knowledge about “safe” harvest limits. Thus, overall the project described here is likely to fill several key knowledge gaps in the literature, and will be highly relevant for harvest management (and basic ecological understanding of the effects of human impact on wildlife populations) well beyond the study context.</p>
+<p>We used mathematical simulations to assess the sample sizes (i.e.&nbsp;number of study units / “jatkfelter”) that would be need in order to detect the prescribed experiemental harvest treatment levels (0, 15 and 30% for willow ptarmigan, and 0, 10 and 20% for forest grouse). We note that our approach is rather rough, as the exact power to detect effects will depend on both the consistency of the treatment effects in time and space (e.g.&nbsp;due to ecological correlates), the precision and accuracy of the line transect survey data, and the specific statistical models that will be applied. In addition, we only performed simulations for willow ptarmigan, as we did not have comparable data to construct simulations models for forest grouse without relying on additional assumptions. However, as these species has a slower life history than willow ptarmigan we assume that sample sizes that are sufficient for willow ptarmigan are also sufficient for forest grouse. In general, we found, as expected, that sample sizes need to detect an effect of 30% harvest (compared to 0% harvest) was smaller than those needed to detect an effect of 15% harvest. Moreover, the sample sizes need to detect an direct effect on population growth rate was higher than those for detecting effects on survival. In the last harvest experiment in Norway, the sample size was approximately 13 areas followed for 3-4 years (most areas followed for 4 years) - and it was concluded that such large sample sizes would be needed to detect the relevant effects due to large heterogeneity among areas <span class="citation" data-cites="Pedersen2004">(<a href="#ref-Pedersen2004" role="doc-biblioref">Pedersen et al. 2004</a>)</span>. Thus, in our planned experiments we opted to recruit <em>ca</em> 35 study units for willow ptarmigan and <em>ca</em> 30 study units for forest grouse, each subject to a randomized three year harvest experiment.</p>
+<p>To select (or “recruit”) study units, we applied a set of criteria and algorithms. We did not randomly select study units from the sampling grid, but used a approach resembling the “<em>Proportional quota sampling</em>” described in Box 1. In addition to certain key requirements in terms of area size and access to the required amount of distance sampling line transect data, we actively selected study units to give a good and balanced geographical coverage both in terms of a trivial north-south axis, but also in terms of environmental covariates and gradients. As the major environmental gradients against which we stratified our sampling of study units against, we the <em>bioclimatic sections</em> and <em>bioclimatic zones</em> in Norway (see <span class="citation" data-cites="bakkestuen2008step">Bakkestuen et al. (<a href="#ref-bakkestuen2008step" role="doc-biblioref">2008</a>)</span>; <span class="citation" data-cites="moen1999vegetation">Moen et al. (<a href="#ref-moen1999vegetation" role="doc-biblioref">1999</a>)</span>). Overall, we think these variables should give us an adequate distribution of study units in terms of key environmental gradients.</p>
+<p>Each study unit will be subject to a randomly allocated harvest treatment. In the planned experiment, we suggest to use a “Crossover-design” where each unit is subject to a randomly selected <em>sequence</em> of harvest treatments. Because we are planning for a three year experiment and there are three harvest levels, each unit will be exposed to each treatment. If there is substantial heterogeneity, cross over designs could be powerful as each unit would serve as “it’s own control”. In addition, by applying a sequence of treatments we avoid any adverse effects that could arise if e.g.&nbsp;one unit was subject to the highest harvest treatment across all years.</p>
+<p>[WE WILL DRAW THE TREATEMENT BEFORE WE PUBLISH THE REPORT, AND THEY WILL BE INCLUDED IN THE REPORT]</p>
+<p>In general, we think the experimental study of the effects of harvest on willow ptarmigan, black grouse and capercaillie as explained here will be a unique and substantial contribution to the field. The systematic mapping of the literature clearly revealed that the knowledge that would be created by this study will fill important knowledge gaps. The final list of study units for inclusion also suggest that the study will be of adequate power and cover important environmental gradients in a robust way so that the results will be highly transferable across environmental and geographical space.</p>
+
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
