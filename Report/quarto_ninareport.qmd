@@ -52,19 +52,19 @@ format:
     toc-location: left
     #default-image-extension: svg
     fig-format: svg
-    toc-title: Innhold
+    toc-title: Contents
   # ninareport-docx:
   #   highlight: tango
   #   #prefer-html: true
   #   toc: true
   #   toc-depth: 3
   #   number-sections: true
+  #   fig-format: svg
+  #   dpi: 300
+  #   fig-width: 8
+  #   fig-height: 6
 crossref:
-  fig-title: Figur     # (default is "Figure")
-  tbl-title: Tabell     # (default is "Table") 
-  fig-prefix: Figur   # (default is "Figure")
-  tbl-prefix: Tabell    # (default is "Table")   
-  sec-prefix: Kapittel
+  sec-prefix: Chapter
 foreword: 
     text: [Forord inn her]
     location: [Sted, forord]
@@ -408,7 +408,11 @@ mutate(name = fct_relevel(study_design_observational_studies_skip_if_simulation_
   ) +
   theme_minimal() +
   coord_flip() +
-  theme(text = element_text(size = 15))
+  theme(
+    text = element_text(size = 15),
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1, margin = margin(t = 10)),  # Adjust rotation and margin
+    axis.title.x = element_text(margin = margin(t = 15))  # Add space for axis title
+  )
 
 ggarrange(p1, p2, ncol = 1, labels = c("a)", "b)"), 
           align= "v")
