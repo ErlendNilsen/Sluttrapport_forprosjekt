@@ -44,25 +44,25 @@ format:
   #  # default-image-extension: svg
   #   fig-format: pdf
   #   fig-dpi: 600
-  ninareport-html:
-    highlight-style: tango
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    toc-location: left
-    #default-image-extension: svg
-    fig-format: svg
-    toc-title: Contents
-  # ninareport-docx:
-  #   highlight: tango
-  #   #prefer-html: true
+  # ninareport-html:
+  #   highlight-style: tango
   #   toc: true
   #   toc-depth: 3
   #   number-sections: true
+  #   toc-location: left
+  #   #default-image-extension: svg
   #   fig-format: svg
-  #   dpi: 300
-  #   fig-width: 8
-  #   fig-height: 6
+  #   toc-title: Contents
+  ninareport-docx:
+    highlight: tango
+    #prefer-html: true
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    fig-format: svg
+    dpi: 300
+    fig-width: 8
+    fig-height: 6
 crossref:
   sec-prefix: Chapter
 foreword: 
@@ -783,9 +783,9 @@ Overall, there has been a substantial amount of research on the effects of harve
 
 The planned harvest experiment will rely on the existing line transect surveys gathered through the grouse inventory portal [Hønsefuglportalen](https://honsefugl.nina.no/Innsyn/nb). In cooperation with Statskog, the state enterprise managing state-owned forest and mountain properties in Norway, the planned experiment will have access to a wide range of hunting areas in Norway covering a latitudinal gradient between 58 and 70 degrees north. <!--# More here? -->.
 
-In this chapter, we will provide the basis for the experimental study design for the planned hunting experiment. We will start by defining some key terms (**BOX: Glossary of terms**), and then put this into the context of the planned experiment. First, we will define the harvest treatments in terms of harvest levels. Then, we will present the results from a simulation exercise that was conducted to assess the required sample sizes. Finally, we will present a detailed description of how study units (i.e., hunting areas) were included based on a pre-determined set of criteria. A complete list of study units will be presented together with key characteristics in the *Appendix*. <!--# Later, include here: "...and the randomly allocated harvest treatments."  -->
+In this chapter, we will provide the basis for the experimental study design for the planned hunting experiment. We will start by defining some key terms (**BOX: Glossary of terms**), and then put this into the context of the planned experiment. First, we will define the harvest treatments in terms of harvest levels. Then, we will present the results from a simulation exercise that was conducted to assess the required sample sizes. Finally, we will present a detailed description of how study units (i.e., hunting areas) were included based on a pre-determined set of criteria. A complete list of study units will be presented together with key characteristics as an *Appendix*. <!--# Later, include here: "...and the randomly allocated harvest treatments."  -->
 
-The setup of the experiment must be carefully designed so that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough samples, i.e., number of study units, to statistically estimate the effects of the treatments (harvest rates) and covariates (climatic variables) on survival and population growth rate. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed to get the statistical power to test the effects of experimental treatmens and climate.
+The setup of the experiment must be carefully designed so that the potential effects of both climate and harvest on ptarmigan and forest grouse populations will be detectable in the study. This means that the experimental design must include 1) areas with enough climatic variation and 2) large enough samples, i.e., number of study units, to statistically estimate the effects of the treatments (harvest rates) and covariates (climatic variables) on survival and population growth rate. Here, we have done a power analysis using simulations, with reported values of survival and population density from the literature, to estimate the number of areas needed to get the statistical power to test the effects of experimental treatments and climate.
 
 ::: {.callout-tip appearance="minimal"}
 ## BOX: Glossary of terms
@@ -1030,13 +1030,11 @@ For forest grouse, the plot enables us to verify that the study units are satisf
 
 ### Calculation of area sizes
 
-The willow ptarmigan study units naturally include various amounts of habitat unsuitable for willow ptarmigan (e.g. lakes, lowland forest in the unit edges, or high mountain peaks). Thus, for willow ptarmigan we calculated area size of suitable habitat within the study units, following the classification by @kvasnes2018quantifying. When estimating population densities based on distance sampling line transects we will use the classification of suitable habitat to calculate the abundance within each study unit per year. For forest grouse, the study units are usually smaller and the total area of the selected management units are generally representative of the forest grouse habitat within each unit. Thus, for the forest grouse species we use the total area of the units as basis for the abundance calculations. A complete list of included study units is found in Appendix 3.
-
-
+The willow ptarmigan study units naturally include various amounts of habitat unsuitable for willow ptarmigan (e.g. lakes, lowland forest in the unit edges, or high mountain peaks). Thus, for willow ptarmigan we calculated area size of suitable habitat within the study units, following the classification by @kvasnes2018quantifying. For forest grouse, the study units are usually smaller and the total area of the selected management units are generally representative of the forest grouse habitat within each unit. Thus, for the forest grouse species we use the total area of the units as basis for the abundance calculations. A complete list of included study units is found in Appendix 3.
 
 # Conclusions
 
-The systematic mapping of the literature revealed that, although there has been relatively extensive research on the effects of harvest on galliform species, there are several important key aspects that require further research and emphasis. First, the literature is dominated by research with study designs with a relatively weak ability to detect causal relationships (including After, Before-After and Control-Impact). Although these are often the only options that are available due to ethical, logistic and practical reasons, it is well known that manipulative experiments and in particular Randomized Controlled Trials (RCT) are better suited for drawing firm conclusions about causal relationships. This holds true even though recent advances in statistical methodology also allow to a larger extent to make causal inference from non-manipulative experiments [@christie2019simple]. In our systematic literature mapping, we only identified two research projects that relied on RCT: One study from Norway represented with five publications, and one study from USA on bobwhite. As documenting the relative additivity of harvest mortality under different environmental and demographic conditions is fraught with statistical difficulties, manipulative randomised experiments would be particularly important in order to progress our understanding of this topic.
+The systematic mapping of the literature revealed that, although there has been relatively extensive research on the effects of harvest on galliform species, there are several important key aspects that require further research and emphasis. First, the literature is dominated by research with study designs with a relatively weak ability to detect causal relationships (including After, Before-After and Control-Impact). Although these are often the only options that are available due to ethical, logistic and practical reasons, it is well known that manipulative experiments and in particular Randomized Controlled Trials (RCT) are better suited for drawing firm conclusions about causal relationships. This holds true even though recent advances in statistical methodology also allow to a larger extent to make causal inference from non-manipulative experiments [@christie2019simple]. In our systematic literature mapping, we only identified two research projects that relied on RCT: One study from Norway represented with five publications, and one study from USA on bobwhite. As documenting the relative additivity of harvest mortality under different environmental and demographic conditions is fraught with statistical difficulties, manipulative randomized experiments would be particularly important in order to progress our understanding of this topic.
 
 Second, most studies had a relatively small or moderate spatial extent. As ecological dynamics are often context dependent [@Bowler2020] and might vary both in time and space, and because some ecological properties play out over larger areas, this might limit our ability to draw firm conclusions that could be transferred to other ecological conditions (and species). Our planned study will be unique not only because it has a (near) national spatial extent, but also because it covers three related but ecologically distinct species. While there has been a fair amount of research on willow ptarmigan related to effects of harvest (including the before-mentioned RCTs from the 1990s), the amount of similar research on black grouse and capercaillie is very limited. This highlights that the current management of these species is not based on a solid knowledge base about harvest sustainability, such as for willow ptarmigan management (although we have limited knowledge of harvest sustainability of willow ptarmigan under the current environmental conditions). Overall, the project described here is likely to fill several key knowledge gaps in the literature, and will be highly relevant for harvest management (as well as basic ecological understanding of the effects of human impact on wildlife populations) well beyond the study context.
 
