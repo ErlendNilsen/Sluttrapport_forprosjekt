@@ -1,0 +1,15 @@
+---
+title: "Huskeliste"
+format: html
+editor: visual
+---
+
+### To-Do
+
+-   Legg til kommentar ang RCT studie om bobwhite
+
+-   Oppdatere figur 14
+
+-   Fikse Appendix med liste over inkluderte studier
+
+-   Legge til ekstra kart i vedlegg
