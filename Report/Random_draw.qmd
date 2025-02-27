@@ -1,0 +1,119 @@
+---
+title: "Making the random draw"
+format: docx
+editor: visual
+---
+
+## Making the draw....
+
+```{r}
+
+## Random draw with replacement across entire sample
+
+library(tidyverse)
+
+Unique_sequences_ptarmigan <- rep(c("0-15-30", 
+                                "0-30-15", 
+                                "15-0-30",
+                                "15-30-0",
+                                "30-0-15",
+                                "30-15-0"), 
+                                each=6)
+
+eu <- readRDS("./data/study_units.RDS")
+
+set.seed(270225)
+Units_draws <- eu %>% select(name, species) %>%
+              filter(species == "willow ptarmigan") %>%
+              mutate(treatment = sample(Unique_sequences_ptarmigan, 35, replace = FALSE))
+
+
+
+```
+
+```{r}
+
+# Random draw with replacement within regions 
+
+library(tidyverse)
+
+eu <- readRDS("./data/study_units.RDS")
+
+Units_draws <- eu %>% select(name, species) %>%
+  filter(species == "willow ptarmigan") %>%
+  arrange(., name) %>%
+  mutate(region = c("Troms", "Troms", "Midt", "Midt", "Nord", "Nord", "Nord", "Troms", 
+                    "Nord", "Midt", "Sor", "Midt", "Midt", "Midt", "Midt", "Midt", "Midt", "Midt", "Sor", "Troms", "Nord", "Nord", "Nord", "Nord", 
+                    "Troms", "Sor", "Midt", "Midt", 
+                    "Nord", "Nord", "Nord", "Nord", "Nord", 
+                    "Troms", "Troms"))
+
+################################################################################
+################################################################################
+
+Unique_sequences_ptarmigan_midt <- rep(c("0-15-30", 
+                                    "0-30-15", 
+                                    "15-0-30",
+                                    "15-30-0",
+                                    "30-0-15",
+                                    "30-15-0"), 
+                                  each=2)
+  set.seed(246)
+  Midt_draw <- Units_draws %>% filter(region == "Midt") %>% 
+  mutate(treatment = sample(Unique_sequences_ptarmigan_midt, 12, replace = FALSE))
+
+################################################################################
+################################################################################
+
+  Unique_sequences_ptarmigan_nord <- rep(c("0-15-30", 
+                                           "0-30-15", 
+                                           "15-0-30",
+                                           "15-30-0",
+                                           "30-0-15",
+                                           "30-15-0"), 
+                                         each=3)
+  set.seed(246)
+  Nord_draw <- Units_draws %>% filter(region == "Nord") %>% 
+    mutate(treatment = sample(Unique_sequences_ptarmigan_nord, 13, replace = FALSE))
+  
+
+################################################################################
+################################################################################
+  
+  Unique_sequences_ptarmigan_troms <- rep(c("0-15-30", 
+                                           "0-30-15", 
+                                           "15-0-30",
+                                           "15-30-0",
+                                           "30-0-15",
+                                           "30-15-0"), 
+                                         each=2)
+  set.seed(246)
+  Troms_draw <- Units_draws %>% filter(region == "Troms") %>% 
+    mutate(treatment = sample(Unique_sequences_ptarmigan_troms, 7, replace = FALSE))
+  
+
+################################################################################
+################################################################################
+  
+  Unique_sequences_ptarmigan_south <- rep(c("0-15-30", 
+                                            "0-30-15", 
+                                            "15-0-30",
+                                            "15-30-0",
+                                            "30-0-15",
+                                            "30-15-0"), 
+                                          each=1)
+  set.seed(246)
+  South_draw <- Units_draws %>% filter(region == "Sor") %>% 
+    mutate(treatment = sample(Unique_sequences_ptarmigan_south, 3, replace = FALSE))
+  
+################################################################################
+################################################################################
+
+  Units_draws_complete <- bind_rows(Midt_draw,Troms_draw, Nord_draw, South_draw)  
+  kable(Units_draws_complete)
+  
+  
+
+
+
+```
