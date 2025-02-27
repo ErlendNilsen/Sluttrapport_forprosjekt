@@ -33,7 +33,7 @@ Units_draws <- eu %>% select(name, species) %>%
 
 ```{r}
 
-# Random draw with replacement within regions 
+# Random draw with replacement within regions - WILLOW PTARMIGAN
 
 library(tidyverse)
 
@@ -111,6 +111,76 @@ Unique_sequences_ptarmigan_midt <- rep(c("0-15-30",
 
   Units_draws_complete <- bind_rows(Midt_draw,Troms_draw, Nord_draw, South_draw)  
   kable(Units_draws_complete)
+  
+  
+
+
+
+```
+
+```{r}
+
+# Random draw with replacement within regions - FOREST GROUSE
+
+library(tidyverse)
+
+eu <- readRDS("./data/study_units.RDS")
+
+Units_draws_FG <- eu %>% select(name, species) %>%
+  filter(species == "forest grouse") %>%
+  arrange(., name) %>%
+  mutate(region = c("Nord-Midt", "Nord-Midt", "Sor", "Sor", "Sor", "Sor", "Nord-Midt", "Ost", "Ost", "Ost", "Ost", "Ost", "Ost", "Nord-Midt", "Ost", "Ost", "Nord-Midt", "Nord-Midt", "Ost", "Ost", "Nord-Midt", "Nord-Midt", "Nord-Midt", "Ost", "Ost", "Ost", "Sor", "Sor", "Ost", "Ost"))
+
+################################################################################
+################################################################################
+
+Unique_sequences_FG_nord_midt <- rep(c("0-10-20", 
+                                    "0-20-10", 
+                                    "10-0-20",
+                                    "10-20-0",
+                                    "20-0-10",
+                                    "20-10-0"), 
+                                  each=2)
+set.seed(246)
+Nord_Midt_draw_FG <- Units_draws_FG %>% filter(region == "Nord-Midt") %>% 
+  mutate(treatment = sample(Unique_sequences_FG_nord_midt, 9, replace = FALSE))
+
+################################################################################
+################################################################################
+
+Unique_sequences_FG_sor <- rep(c("0-10-20",
+                                    "0-20-10", 
+                                    "10-0-20",
+                                    "10-20-0",
+                                    "20-0-10",
+                                    "20-10-0"), 
+                                  each=1)
+set.seed(246)
+Sor_draw_FG <- Units_draws_FG %>% filter(region == "Sor") %>% 
+  mutate(treatment = sample(Unique_sequences_FG_sor, 6, replace = FALSE))
+
+
+
+################################################################################
+################################################################################
+
+Unique_sequences_FG_ost <- rep(c("0-10-20",
+                                    "0-20-10", 
+                                    "10-0-20",
+                                    "10-20-0",
+                                    "20-0-10",
+                                    "20-10-0"), 
+                                  each=3)
+set.seed(246)
+Ost_draw_FG <- Units_draws_FG %>% filter(region == "Ost") %>% 
+  mutate(treatment = sample(Unique_sequences_FG_ost, 15, replace = FALSE))
+
+
+################################################################################
+################################################################################
+
+Units_draws_complete_FG <- bind_rows(Nord_Midt_draw_FG,Sor_draw_FG, Ost_draw_FG)  
+kable(Units_draws_complete_FG)
   
   
 
