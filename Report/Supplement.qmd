@@ -80,63 +80,30 @@ From all papers that met the eligibility criteria, we extracted key variables (a
     -   Species trait
 -   Outcome variable: EBV name \[not exhaustive; \* indicate name that is not included in original framework\]
     -   Inbreeding
+
     -   Effective population size
+
     -   Species distribution
+
     -   Species abundance
+
     -   Population density \*
+
     -   Morphology
+
     -   Physiology
+
     -   Movement rates\*
+
     -   Habitat use / selection\*
+
     -   Reproduction
+
     -   Survival\* 
+
     -   Sex- and age structure\* 
 
 ## Appendix 2
-
-List of eligible papers:
-
-THE LIST WILL BE INCLUDED IN FINAL REPORT
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-library(synthesisr)
-require(xtable)
-require(tidyverse)
-require(knitr)
-require(flextable)
-
-data <- readRDS("data/GS_data_Raw.RDS")
-data<-data |> 
-  distinct(`Study ID`, .keep_all = TRUE)
-
-excluded <- data |>
-  filter(!rowSums(across(4:8, ~ . == "Yes")) == 5)
-included <- anti_join(data, excluded)
-
-all_RIS <- read_refs("data/articles.ris")
-
-included_full_details <- left_join(included, all_RIS, by = c("Study ID" = "accession_zr"))
-
-included_full_details <- included_full_details |> janitor::clean_names()
-
-
-# included_full_details |> 
-#   select(author,title,year,source,doi) |> 
-#   kableExtra::kable() |> 
-#   kableExtra::kable_styling()
-
-# included_full_details |>
-# select(author,title,year,source,doi) |>
-# kable()
-
-
-```
-
-## Appendix 3
 
 **Table S3:** *Overview of included study units*
 
@@ -148,6 +115,7 @@ included_full_details <- included_full_details |> janitor::clean_names()
 
 library(sf)
 library(gt)
+library(kableExtra)
 
 ### NOTE: TEMPORARY SUGGESTION FOR THE FINAL TABLE - AWAITING HARVEST TREATMENTS
 ### NOTE2: LAST-MINUTE CHANGE TO BE DONE: HEADLINE NOT BOLD IN HTML OUTPUT

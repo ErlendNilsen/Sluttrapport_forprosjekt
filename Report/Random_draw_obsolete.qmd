@@ -1,0 +1,198 @@
+---
+title: "Random draw of the sequence of harvest treatments"
+format: docx
+editor: visual
+date: 2025-02-28
+---
+
+## Appendix 3
+
+```{r Ptarmigan_random_draw}
+#| echo: false
+#| message: false
+#| warning: false
+
+# Random draw with replacement within regions for willow ptarmigan. We use four larger regions
+
+library(tidyverse)
+library(sf)
+
+eu <- readRDS("./data/study_units.RDS") %>%
+      st_drop_geometry(eu)
+
+Units_draws <- eu %>% select(name, species) %>%
+  filter(species == "willow ptarmigan") %>%
+  arrange(., name) %>%
+  mutate(region = c("Troms", "Troms", "Midt", "Midt", "Nord", 
+                    "Nord", "Nord", "Troms",  "Nord", "Nord", 
+                    "Sor", "Midt", "Midt", "Midt", "Midt", 
+                    "Midt", "Midt", "Midt", "Sor", "Troms", 
+                    "Nord", "Nord", "Nord", "Nord", "Troms", 
+                    "Sor", "Midt", "Midt", "Nord", "Nord", 
+                    "Nord", "Nord", "Nord", "Troms", "Troms"))
+
+################################################################################
+################################################################################
+
+Unique_sequences_ptarmigan_midt <- rep(c("0-15-30", 
+                                    "0-30-15", 
+                                    "15-0-30",
+                                    "15-30-0",
+                                    "30-0-15",
+                                    "30-15-0"), 
+                                  each=2)
+  set.seed(246)
+  Midt_draw <- Units_draws %>% filter(region == "Midt") %>% 
+  mutate(treatment = sample(Unique_sequences_ptarmigan_midt, 11, replace = FALSE))
+
+################################################################################
+################################################################################
+
+  Unique_sequences_ptarmigan_nord <- rep(c("0-15-30", 
+                                           "0-30-15", 
+                                           "15-0-30",
+                                           "15-30-0",
+                                           "30-0-15",
+                                           "30-15-0"), 
+                                         each=3)
+  set.seed(246)
+  Nord_draw <- Units_draws %>% filter(region == "Nord") %>% 
+    mutate(treatment = sample(Unique_sequences_ptarmigan_nord, 14, replace = FALSE))
+  
+
+################################################################################
+################################################################################
+  
+  Unique_sequences_ptarmigan_troms <- rep(c("0-15-30", 
+                                           "0-30-15", 
+                                           "15-0-30",
+                                           "15-30-0",
+                                           "30-0-15",
+                                           "30-15-0"), 
+                                         each=2)
+  set.seed(246)
+  Troms_draw <- Units_draws %>% filter(region == "Troms") %>% 
+    mutate(treatment = sample(Unique_sequences_ptarmigan_troms, 7, replace = FALSE))
+  
+
+################################################################################
+################################################################################
+  
+  Unique_sequences_ptarmigan_south <- rep(c("0-15-30", 
+                                            "0-30-15", 
+                                            "15-0-30",
+                                            "15-30-0",
+                                            "30-0-15",
+                                            "30-15-0"), 
+                                          each=1)
+  set.seed(246)
+  South_draw <- Units_draws %>% filter(region == "Sor") %>% 
+    mutate(treatment = sample(Unique_sequences_ptarmigan_south, 3, replace = FALSE))
+  
+################################################################################
+################################################################################
+
+  Units_draws_ptarmigan <- bind_rows(Midt_draw,Troms_draw, Nord_draw, South_draw) %>%
+                           mutate(region = case_match(region,
+                                      "Midt" ~ "Trøndelag", 
+                                      "Nord" ~ "Nordland", 
+                                      "Troms" ~ "Troms", 
+                                      "Sor" ~ "South/other"))
+  
+ 
+
+```
+
+```{r FG_random_draw}
+#| echo: false
+#| message: false
+#| warning: false
+
+# Random draw with replacement within regions - FOREST GROUSE
+
+
+Units_draws_FG <- eu %>% select(name, species) %>%
+  filter(species == "forest grouse") %>%
+  arrange(., name) %>%
+  mutate(region = c("Nord-Midt", "Nord-Midt", "Sor", "Sor", "Sor", "Sor", "Nord-Midt", "Ost", "Ost", "Ost", "Ost", "Ost", "Ost", "Nord-Midt", "Ost", "Ost", "Nord-Midt", "Nord-Midt", "Ost", "Ost", "Nord-Midt", "Nord-Midt", "Nord-Midt", "Ost", "Ost", "Ost", "Sor", "Sor", "Ost", "Ost"))
+
+################################################################################
+################################################################################
+
+Unique_sequences_FG_nord_midt <- rep(c("0-10-20", 
+                                    "0-20-10", 
+                                    "10-0-20",
+                                    "10-20-0",
+                                    "20-0-10",
+                                    "20-10-0"), 
+                                  each=2)
+set.seed(246)
+Nord_Midt_draw_FG <- Units_draws_FG %>% filter(region == "Nord-Midt") %>% 
+  mutate(treatment = sample(Unique_sequences_FG_nord_midt, 9, replace = FALSE))
+
+################################################################################
+################################################################################
+
+Unique_sequences_FG_sor <- rep(c("0-10-20",
+                                    "0-20-10", 
+                                    "10-0-20",
+                                    "10-20-0",
+                                    "20-0-10",
+                                    "20-10-0"), 
+                                  each=1)
+set.seed(246)
+Sor_draw_FG <- Units_draws_FG %>% filter(region == "Sor") %>% 
+  mutate(treatment = sample(Unique_sequences_FG_sor, 6, replace = FALSE))
+
+
+
+################################################################################
+################################################################################
+
+Unique_sequences_FG_ost <- rep(c("0-10-20",
+                                    "0-20-10", 
+                                    "10-0-20",
+                                    "10-20-0",
+                                    "20-0-10",
+                                    "20-10-0"), 
+                                  each=3)
+set.seed(246)
+Ost_draw_FG <- Units_draws_FG %>% filter(region == "Ost") %>% 
+  mutate(treatment = sample(Unique_sequences_FG_ost, 15, replace = FALSE))
+
+
+################################################################################
+################################################################################
+
+Units_draws_FG <- bind_rows(Nord_Midt_draw_FG,Sor_draw_FG, Ost_draw_FG) %>%
+                           mutate(region = case_match(region,
+                                      "Ost" ~ "East", 
+                                      "Sor" ~ "South", 
+                                      "Nord-Midt" ~ "Nordland/Trøndelag")) 
+
+  
+
+```
+
+**Table S3:** *Overview of harvest treatment across the three-year experiment for each included study unit. The sequence of harvest treatment for each unit is made by a random draw, after stratifying by region. The experiment is a full cross-over design, where each unit is subject to all harvest levels but in a different temporal sequence.*
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(kableExtra)
+
+Units_draws_complete <- bind_rows(Units_draws_ptarmigan, Units_draws_FG) %>%
+                        group_by(species, region) %>%
+                        arrange(., name, .by_group = TRUE) %>%
+                        ungroup() %>%
+                        rename("Experimental unit" = name, 
+                               "Species" = species, 
+                               "Sequence of harvest levels" = treatment, 
+                               "Region" = region)
+
+
+kable(Units_draws_complete)
+
+```

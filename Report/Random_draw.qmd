@@ -1,119 +1,140 @@
 ---
-title: "Making the random draw"
+title: "Random draw of the sequence of harvest treatments"
 format: docx
 editor: visual
+date: 2025-03-04
 ---
 
-## Making the draw....
+## Appendix 3
 
-```{r}
-
-## Random draw with replacement across entire sample
-
-library(tidyverse)
-
-Unique_sequences_ptarmigan <- rep(c("0-15-30", 
-                                "0-30-15", 
-                                "15-0-30",
-                                "15-30-0",
-                                "30-0-15",
-                                "30-15-0"), 
-                                each=6)
-
-eu <- readRDS("./data/study_units.RDS")
-
-set.seed(270225)
-Units_draws <- eu %>% select(name, species) %>%
-              filter(species == "willow ptarmigan") %>%
-              mutate(treatment = sample(Unique_sequences_ptarmigan, 35, replace = FALSE))
+```{r random_draw_ptarmigan}
+#| echo: false
+#| message: false
+#| warning: false
 
 
-
-```
-
-```{r}
-
-# Random draw with replacement within regions 
+# Random draw (without replacement) of treatment sequences for 34 willow ptarmigan # units. 
+# One of the areas that were 
 
 library(tidyverse)
+library(sf)
 
-eu <- readRDS("./data/study_units.RDS")
+eu_ptarmigan <- readRDS("./data/study_units.RDS") %>%
+        mutate(center = st_centroid(geometry)) %>%
+        mutate(Center2 = st_coordinates(center)) %>%
+        st_drop_geometry() %>%
+        filter(species =="willow ptarmigan") %>%
+        filter(name !="Rendalen4_E_WP") %>%
+        mutate(lat = Center2[,2]) %>%
+        select(name, species, lat) %>%
+        arrange(., lat) %>%
+        mutate(lat_order = seq(1:34)) %>%
+        mutate(group = cut_interval(lat_order, length=6, labels = seq(1:6))) 
 
-Units_draws <- eu %>% select(name, species) %>%
-  filter(species == "willow ptarmigan") %>%
-  arrange(., name) %>%
-  mutate(region = c("Troms", "Troms", "Midt", "Midt", "Nord", "Nord", "Nord", "Troms", 
-                    "Nord", "Midt", "Sor", "Midt", "Midt", "Midt", "Midt", "Midt", "Midt", "Midt", "Sor", "Troms", "Nord", "Nord", "Nord", "Nord", 
-                    "Troms", "Sor", "Midt", "Midt", 
-                    "Nord", "Nord", "Nord", "Nord", "Nord", 
-                    "Troms", "Troms"))
 
-################################################################################
-################################################################################
+set.seed(2014) 
+sampling_seeds <- sample(1:1000, size=6)
 
-Unique_sequences_ptarmigan_midt <- rep(c("0-15-30", 
+Unique_sequences_ptarmigan <- c("0-15-30", 
                                     "0-30-15", 
                                     "15-0-30",
                                     "15-30-0",
                                     "30-0-15",
-                                    "30-15-0"), 
-                                  each=2)
-  set.seed(246)
-  Midt_draw <- Units_draws %>% filter(region == "Midt") %>% 
-  mutate(treatment = sample(Unique_sequences_ptarmigan_midt, 12, replace = FALSE))
+                                    "30-15-0")
 
-################################################################################
-################################################################################
+random_draws_ptarmigan <- tibble(name = character(), species = character(), lat = numeric(), treatment = character())
 
-  Unique_sequences_ptarmigan_nord <- rep(c("0-15-30", 
-                                           "0-30-15", 
-                                           "15-0-30",
-                                           "15-30-0",
-                                           "30-0-15",
-                                           "30-15-0"), 
-                                         each=3)
-  set.seed(246)
-  Nord_draw <- Units_draws %>% filter(region == "Nord") %>% 
-    mutate(treatment = sample(Unique_sequences_ptarmigan_nord, 13, replace = FALSE))
-  
+group_size = c(6,6,6,6,6,4)
 
-################################################################################
-################################################################################
+for (i in 1:6){
+  set.seed(sampling_seeds[i])
+  temp <- eu_ptarmigan %>% filter(group==i) %>%
+  mutate(treatment = sample(Unique_sequences_ptarmigan, 
+                            size = group_size[i], 
+                            replace = FALSE))
   
-  Unique_sequences_ptarmigan_troms <- rep(c("0-15-30", 
-                                           "0-30-15", 
-                                           "15-0-30",
-                                           "15-30-0",
-                                           "30-0-15",
-                                           "30-15-0"), 
-                                         each=2)
-  set.seed(246)
-  Troms_draw <- Units_draws %>% filter(region == "Troms") %>% 
-    mutate(treatment = sample(Unique_sequences_ptarmigan_troms, 7, replace = FALSE))
-  
-
-################################################################################
-################################################################################
-  
-  Unique_sequences_ptarmigan_south <- rep(c("0-15-30", 
-                                            "0-30-15", 
-                                            "15-0-30",
-                                            "15-30-0",
-                                            "30-0-15",
-                                            "30-15-0"), 
-                                          each=1)
-  set.seed(246)
-  South_draw <- Units_draws %>% filter(region == "Sor") %>% 
-    mutate(treatment = sample(Unique_sequences_ptarmigan_south, 3, replace = FALSE))
-  
-################################################################################
-################################################################################
-
-  Units_draws_complete <- bind_rows(Midt_draw,Troms_draw, Nord_draw, South_draw)  
-  kable(Units_draws_complete)
-  
-  
+  random_draws_ptarmigan <- bind_rows(random_draws_ptarmigan, temp)
+}
 
 
+
+random_draws_ptarmigan <- random_draws_ptarmigan %>% select(-lat_order)
+
+
+###################################################################################
+
+```
+
+```{r random_draw_fg}
+#| echo: false
+#| message: false
+#| warning: false
+
+eu_FG <- readRDS("./data/study_units.RDS") %>%
+        mutate(center = st_centroid(geometry)) %>%
+        mutate(Center2 = st_coordinates(center)) %>%
+        st_drop_geometry() %>%
+        filter(species =="forest grouse") %>%
+        mutate(lat = Center2[,2]) %>%
+        select(name, species, lat) %>%
+        arrange(., lat) %>%
+        mutate(lat_order = seq(1:30)) %>%
+        mutate(group = cut_interval(lat_order, length=6, labels = seq(1:5))) 
+
+
+set.seed(1978) 
+sampling_seeds <- sample(1:1000, size=6)
+
+Unique_sequences_FG <- c("0-10-20", 
+                                    "0-20-10", 
+                                    "10-0-20",
+                                    "10-20-0",
+                                    "20-0-10",
+                                    "20-10-0")
+
+random_draws_FG <- tibble(name = character(), species = character(), lat = numeric(), treatment = character())
+
+group_size = c(6,6,6,6,6)
+
+for (i in 1:5){
+  set.seed(sampling_seeds[i])
+  temp <- eu_FG %>% filter(group==i) %>%
+  mutate(treatment = sample(Unique_sequences_FG, 
+                            size = group_size[i], 
+                            replace = FALSE))
+  
+  random_draws_FG <- bind_rows(random_draws_FG, temp)
+}
+
+
+
+random_draws_FG <- random_draws_FG %>% select(-lat_order)
+
+############################################################################
+
+
+```
+
+**Table S3:** *Overview of harvest treatment across the three-year experiment for each included study unit. The experiment is based on a complete crossover design, where each study unit is subject to a sequence of three different harvest treatments. Because there are three different harvest levels for each species, there is a total of six unique sequences for willow ptarmigan and forest grouse, respectively. Prior to making the random draws, the study units were first are sorted by latitude, and grouped into groups of six units. This was done separately for willow ptarmigan and forest grouse units. Prior to the draws, a set of the six unique sequences were generated, and random draws of treatment sequences were made without replacement within each group. This was done to ensure balance between northern and southern parts of the study area in terms of the relative frequency of treatment sequences.*
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(kableExtra)
+
+Units_draws_complete <- bind_rows(random_draws_ptarmigan, random_draws_FG) %>%
+                        group_by(species, group) %>%
+                        arrange(., lat, .by_group = TRUE) %>%
+                        ungroup() %>%
+                        select(-lat) %>%
+                        rename("Experimental unit" = name, 
+                               "Species" = species, 
+                               "Sequence of harvest levels" = treatment, 
+                               "Group" = group)
+
+
+kable(Units_draws_complete)
 
 ```
