@@ -64,49 +64,47 @@ This systematic map is produced as part of the preparation of a large-scale harv
 
 The [protocol](https://osf.io/ny2jt/) i.e., the workflow of identifying, categorising and synthesising the exisiting literature, was prepared prior to conducting the literature searches. Here, we include the relevant information and report any deviation from the protocol.
 
-## Methods 
+## Methods
 
-### Search for articles 
+### Search for articles
 
-We used a PIO (Population, Intervention, Outcome) question structure to help develop the search strategy.  
+We used a PIO (Population, Intervention, Outcome) question structure to help develop the search strategy.
 
--   Population (P): Bird species within the order Galliformes 
+-   Population (P): Bird species within the order Galliformes
 
--   Intervention (I): Legal (managed) hunting or harvest 
+-   Intervention (I): Legal (managed) hunting or harvest
 
--   Outcome (O): The ecological impacts of managed hunting on population dynamics, demography, genetics or behaviour  
+-   Outcome (O): The ecological impacts of managed hunting on population dynamics, demography, genetics or behaviour 
 
-We searched for academic literature (publications) in two search platforms; Web of Science and lens.org. Specifically, we searched the Web of Science Core Collection (WOS.SCI: 1987 to 2025, WOS.AHCI: 1987 to 2025, WOS.ESCI: 2020 to 2025 and WOS.SSCI: 1987 to 2025) using the NINA library subscription and the following search string: 
+We searched for academic literature (publications) in two search platforms; Web of Science and lens.org. Specifically, we searched the Web of Science Core Collection (WOS.SCI: 1987 to 2025, WOS.AHCI: 1987 to 2025, WOS.ESCI: 2020 to 2025 and WOS.SSCI: 1987 to 2025) using the NINA library subscription and the following search string:
 
-((TS=(galliform\* OR grouse OR ptarmigan OR Phasianidae OR pheasant OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR partridge)) 
+((TS=(galliform\* OR grouse OR ptarmigan OR Phasianidae OR pheasant OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR partridge))
 
-<!-- This comment is a little too late, but this is not an extensive list of all the galliform species that are harvested - notably neither "tetrao" or "lyrurus" are included. It probably wouldn't have a big effect on the results, but it seems a bit strange to not include the names of the species we plan to to do the harvest experiment on -->
+AND (TS=("hunt" OR "harvest")))
 
-AND (TS=("hunt" OR "harvest"))) 
+AND SU=("Ecology" OR "Wildlife" OR "Environment")
 
-AND SU=("Ecology" OR "Wildlife" OR "Environment") 
+For lens.org we used the following search string:
 
-For lens.org we used the following search string: 
+(abstract:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR "partridge") OR title:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR "partridge")) AND abstract:("hunt" OR "harvest") OR title:("hunt" OR "harvest") AND field_of_study:("Ecology" OR "Wildlife" OR "Environment")
 
-(abstract:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR "partridge") OR title:("galliform" OR "grouse" OR "ptarmigan" OR "Phasianidae" OR "pheasant" OR "lagopus lagopus" OR "lagopus muta" OR "wild turkey" OR "bobwhite" OR "partridge")) AND abstract:("hunt" OR "harvest") OR title:("hunt" OR "harvest") AND field_of_study:("Ecology" OR "Wildlife" OR "Environment") 
+Adding "capercaillie", "lyrurus" and "tetrao" did not result in additional eligible papers. In addition, a backward and forward citation chasing (using CitationChaser) was performed based on the three first benchmark papers listed below [@Sandercock2011; @Pedersen2004; @Sedinger2005].
 
-Adding "capercaillie", "lyrurus" and "tetrao" did not result in additional eligible papers. In addition, a backward and forward citation chasing (using CitationChaser) was performed based on the three first benchmark papers listed below [@Sandercock2011; @Pedersen2004; @Sedinger2005].  
+### Benchmark papers
 
-### Benchmark papers 
+The following benchmark papers were used to assess the effectiveness of the search string. We expected to find all these papers in a review of this question. We recorded if each benchmark paper was found in the searches (Wo and lens.org).
 
-The following benchmark papers were used to assess the effectiveness of the search string. We expected to find all these papers in a review of this question. We recorded if each benchmark paper was found in the searches (Wo and lens.org).  
+-   Sandercock, B. K., E. B. Nilsen, H. Brøseth, and H. C. Pedersen. 2011. Is hunting mortality additive or compensatory to natural mortality? Effects of experimental harvest on the survival and cause-specific mortality of willow ptarmigan. Journal of Animal Ecology 80:244-258.
 
--   Sandercock, B. K., E. B. Nilsen, H. Brøseth, and H. C. Pedersen. 2011. Is hunting mortality additive or compensatory to natural mortality? Effects of experimental harvest on the survival and cause-specific mortality of willow ptarmigan. Journal of Animal Ecology 80:244-258. 
+-   Pedersen, H. C., H. Steen, L. Kastdalen, H. Brøseth, R. A. Ims, W. Svendsen, and N. G. Yoccoz. 2004. Weak compensation of harvest despite strong density-dependent growth in willow ptarmigan. Proceedings of the Royal Society of London Series B-Biological Sciences 271:381-385.
 
--   Pedersen, H. C., H. Steen, L. Kastdalen, H. Brøseth, R. A. Ims, W. Svendsen, and N. G. Yoccoz. 2004. Weak compensation of harvest despite strong density-dependent growth in willow ptarmigan. Proceedings of the Royal Society of London Series B-Biological Sciences 271:381-385. 
+-   Sedinger, J.S. & Rotella, J.J. 2005. Effect of harvest on sage-grouse Centrocercus urophasianus populations: what can we learn from the current data? Wildlife Biology, 11, 371–375.
 
--   Sedinger, J.S. & Rotella, J.J. 2005. Effect of harvest on sage-grouse Centrocercus urophasianus populations: what can we learn from the current data? Wildlife Biology, 11, 371–375. 
+-   Pedersen, Å. Ø., E. M. Soininen, S. Unander, M. H. Willebrand, and E. Fuglei. 2014. Experimental harvest reveals the importance of territoriality in limiting the breeding population of Svalbard rock ptarmigan. European Journal of Wildlife Research 60:201-212.
 
--   Pedersen, Å. Ø., E. M. Soininen, S. Unander, M. H. Willebrand, and E. Fuglei. 2014. Experimental harvest reveals the importance of territoriality in limiting the breeding population of Svalbard rock ptarmigan. European Journal of Wildlife Research 60:201-212. 
+-   Brøseth, H., J. Tufto, H. C. Pedersen, H. Steen, and L. Kastdalen. 2005. Dispersal patterns in a harvested willow ptarmigan population. Journal of Applied Ecology 42:453-459.
 
--   Brøseth, H., J. Tufto, H. C. Pedersen, H. Steen, and L. Kastdalen. 2005. Dispersal patterns in a harvested willow ptarmigan population. Journal of Applied Ecology 42:453-459. 
-
--   Brøseth, H., E. B. Nilsen, and H. C. Pedersen. 2012. Temporal quota corrections based on timing of harvest in a small game species. European Journal of Wildlife Research 58:797-802. 
+-   Brøseth, H., E. B. Nilsen, and H. C. Pedersen. 2012. Temporal quota corrections based on timing of harvest in a small game species. European Journal of Wildlife Research 58:797-802.
 
 -   Brøseth, H., and H. C. Pedersen. 2000. Hunting effort and game vulnerability studies on a small scale: a new technique combining radio-telemetry, GPS and GIS. Journal of Applied Ecology 37:182-190. 
 
@@ -116,32 +114,32 @@ The following benchmark papers were used to assess the effectiveness of the sear
 
 In our searches, all benchmark papers were found. @Henden2020 and @small1991 were not indexed in lens.org but were found in Web of Science.
 
-### Article screening  
+### Article screening
 
-We used the online screening tool Rayyan [@ouzzani2016rayyan] for screening the results of the article search. A pre-determined inclusion/exclusion criteria was used when screening eligible studies. Excluded papers will be shown in a flowchart using the ROSES flow chart [@Haddaway2018]. Included studies was de-duplicated based on DOI and title matches using the deduplication tool in Rayyan.  
+We used the online screening tool Rayyan [@ouzzani2016rayyan] for screening the results of the article search. A pre-determined inclusion/exclusion criteria was used when screening eligible studies. Excluded papers will be shown in a flowchart using the ROSES flow chart [@Haddaway2018]. Included studies was de-duplicated based on DOI and title matches using the deduplication tool in Rayyan.
 
-After de-duplication, title and abstract screening was performed using the eligibility criteria. If uncertainty remained, the full text version was visited to confirm/reject. A set of 54 papers was reviewed by three members of the review team to ensure consistency.  
+After de-duplication, title and abstract screening was performed using the eligibility criteria. If uncertainty remained, the full text version was visited to confirm/reject. A set of 54 papers was reviewed by three members of the review team to ensure consistency.
 
-### Eligibility criteria 
+### Eligibility criteria
 
-We reviewed scientific articles from all parts of the world covering all galliform species. Studies of both native and introduced populations were eligible. Studies of all spatial scales and across all relevant ecosystems were considered eligible. Only studies documenting the effects of legal harvest on galliform populations were eligible. Studies of poaching were not eligible. The effects must have been assessed quantitatively for the study to be eligible. Eligible outcomes included effects of harvest on population abundance, density, sex- and age structure, recruitment, survival, behaviour, genetics, physiology and distribution. Studies focusing on heavy metal (e.g. lead) poisoning or content in wild birds from shooting were not eligible. Both observational and experimental study designs were eligible. Mathematical simulation studies were eligible.    
+We reviewed scientific articles from all parts of the world covering all galliform species. Studies of both native and introduced populations were eligible. Studies of all spatial scales and across all relevant ecosystems were considered eligible. Only studies documenting the effects of legal harvest on galliform populations were eligible. Studies of poaching were not eligible. The effects must have been assessed quantitatively for the study to be eligible. Eligible outcomes included effects of harvest on population abundance, density, sex- and age structure, recruitment, survival, behaviour, genetics, physiology and distribution. Studies focusing on heavy metal (e.g. lead) poisoning or content in wild birds from shooting were not eligible. Both observational and experimental study designs were eligible. Mathematical simulation studies were eligible.
 
-### Title and abstract screening stage 
+### Title and abstract screening stage
 
 We used a decision tree to make decisions about inclusion and exclusion at the *Title* and *Abstract* stage. The tree is presented in the protocol and in the *Appendix* of this report. The decision tree helped the reviewers to make decisions about eligibility of each paper in a structured way. Dual screening was carried out on 20% of papers (n = 183). Agreement between reviewers was assessed using the kappa statistic which was over 0.7, which is deemed acceptable.
 
-### Full text eligibility 
+### Full text eligibility
 
-Papers included at the *Title* and *Abstract* stage was taken forward to the full text screening stage. An RIS file of included articles was downloaded from Rayyan and added to a Zotero database. PDF versions of each paper were searched using Zotero’s “Find Available PDF” tool, ResearchGate, Google Scholar and Google. If a PDF was not available online (or was not open to us), the paper was excluded at this stage of the review. Full text papers were excluded if they did not meet the following criteria: 
+Papers included at the *Title* and *Abstract* stage was taken forward to the full text screening stage. An RIS file of included articles was downloaded from Rayyan and added to a Zotero database. PDF versions of each paper were searched using Zotero’s “Find Available PDF” tool, ResearchGate, Google Scholar and Google. If a PDF was not available online (or was not open to us), the paper was excluded at this stage of the review. Full text papers were excluded if they did not meet the following criteria:
 
 -   Written in English, Norwegian, Swedish or Danish
 -   Focused on species from the order Galliformes
 -   Documented the effect of legal or managed hunting on galliformes
 -   Assessed the effect of hunting quantitatively
 
-### Data coding  
+### Data coding
 
-From all papers that met the eligibility criteria, we extracted key variables (a.k.a. “data coding”). In addition to metadata about the publication (publication year, journal name etc.) we extracted from the full-text information about study species, study area location and extent, research approach and experimental design, outcome variables and to which extent the paper reported harvest rates and to which extent the study assessed whether harvest was additive or compensatory. For outcome variables, we used the Essential Biodiversity Variable (EBV) framework [@pereira2013essential; @navarro2017monitoring], and coded both for EBV class (high order classification) and EBV name (lower order classification). A detailed description of data coding is presented in the protocol and in the *Appendix*.    
+From all papers that met the eligibility criteria, we extracted key variables (a.k.a. “data coding”). In addition to metadata about the publication (publication year, journal name etc.) we extracted from the full-text information about study species, study area location and extent, research approach and experimental design, outcome variables and to which extent the paper reported harvest rates and to which extent the study assessed whether harvest was additive or compensatory. For outcome variables, we used the Essential Biodiversity Variable (EBV) framework [@pereira2013essential; @navarro2017monitoring], and coded both for EBV class (high order classification) and EBV name (lower order classification). A detailed description of data coding is presented in the protocol and in the *Appendix*. 
 
 ## Results from the literature review
 
