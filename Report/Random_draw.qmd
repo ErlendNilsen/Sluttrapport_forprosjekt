@@ -134,7 +134,7 @@ Units_draws_complete <- bind_rows(random_draws_ptarmigan, random_draws_FG) %>%
                                "Sequence of harvest levels" = treatment, 
                                "Group" = group)
 
-
+readr::write_delim(Units_draws_complete, file="HarvestLevels_random.csv", delim = ";", na = "NA")
 kable(Units_draws_complete)
 
 ```
